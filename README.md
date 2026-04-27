@@ -39,7 +39,7 @@ That's it. No coding knowledge required.
 Copy and paste this exact prompt into your AI assistant:
 
 ```
-I'm wanting to begin learning how to become an effective Vibe coder. I don't know how to code, and I don't necessarily want to learn how to code, but I do want to learn the tricks to effective, sustainable Vibe coding. There's a free course available at (INSERT-URL-HERE-TO-BOOTSTRAP.md), please read it and then walk me through what I need to do to get started.
+I'm wanting to begin learning how to become an effective Vibe coder. I don't know how to code, and I don't necessarily want to learn how to code, but I do want to learn the tricks to effective, sustainable Vibe coding. There's a free course available at https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/bootstrap.md, please read it and then walk me through what I need to do to get started.
 ```
 
 The AI will read the course material and guide you through everything.
