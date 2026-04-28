@@ -106,7 +106,7 @@ Have the user write a spec for their project's simplest feature. If they don't h
 
 Guide them through all seven parts. Push them to be specific. "It should work" is not acceptance criteria. "When I click X, Y happens within Z seconds" is.
 
-Save the spec to their vault as `project-spec.md` or a feature-specific file.
+Save the spec to their second brain as `project-spec.md` or a feature-specific file.
 
 ---
 
@@ -120,7 +120,7 @@ Here's my spec and what was built. Find the three most likely ways this could fa
 
 This is critical. The user must see that even a "good" spec has gaps.
 
-Save the angry agent's response to their vault: `security/angry-agent-[feature-name].md`
+Save the angry agent's response to their second brain: `security/angry-agent-[feature-name].md`
 
 Over time, they'll see patterns in what they consistently forget. Those patterns are their personal curriculum.
 
@@ -139,7 +139,7 @@ Teach the user: when a spec involves data, always ask "who can see this? who can
 
 ## What They Should Write
 
-**In their vault:** `lessons/spec-writing.md`
+**In their second brain:** `lessons/spec-writing.md`
 
 Prompt: "Explain why a vague spec is dangerous, using a non-coding example (like ordering food, giving directions, or planning an event). Then list the seven parts of a spec in your own words, with one example from your actual project."
 

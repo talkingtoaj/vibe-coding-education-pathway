@@ -33,7 +33,7 @@ That's comprehension debt. The kitchen works, but you don't understand it. When 
 
 ## Defense #1: The Comprehension Log
 
-Have the user create `comprehension-log.md` in their vault. It should track:
+Have the user create `comprehension-log.md` in their second brain. It should track:
 
 | Date | File/Component | What the AI decided | Would I have chosen this? | Do I understand why? |
 |---|---|---|---|---|
@@ -82,7 +82,7 @@ This teaches that there's rarely one "right" way — only tradeoffs. It also for
 
 ## What They Should Write
 
-**In their vault:** `lessons/comprehension-debt.md`
+**In their second brain:** `lessons/comprehension-debt.md`
 
 Prompt: "Explain comprehension debt to a friend using ONLY the kitchen renovation analogy. Then list three specific decisions your AI made in your project that you didn't explicitly choose, and for each one: do you understand why? If not, what do you still need to learn?"
 

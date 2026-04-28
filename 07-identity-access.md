@@ -55,7 +55,7 @@ Example: A language learning platform has "Turkish learners" and "Arabic learner
 
 ## Exercise: Draw the Access Map
 
-Have the user literally draw (on paper, in a drawing app, or even in Obsidian using ASCII art or diagrams) who can access what in their app.
+Have the user literally draw (on paper, in a drawing app, or even in their second brain using ASCII art or diagrams) who can access what in their app.
 
 Example:
 ```
@@ -126,7 +126,7 @@ Save the answers to `security/threat-model.md`.
 
 ## What They Should Write
 
-**In their vault:**
+**In their second brain:**
 - `security/access-model.md` — their drawn access map
 - `security/threat-model.md` — the threat model exercise
 - `lessons/identity-access.md` — summary in their own words, including the prompt injection scenario

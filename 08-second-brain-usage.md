@@ -32,13 +32,13 @@ Imagine you're telling a very long story to a friend. You start with your childh
 
 They didn't forget because they don't care. They forgot because human memory has limits. AI context windows have limits too.
 
-**Your Obsidian vault is the story outline your friend can re-read.**
+**Your second brain is the story outline your friend can re-read.**
 
 ---
 
 ## The Project Brief
 
-The most important file in the user's vault. One page that summarizes the entire project so that ANYONE (including a new AI session) can understand it in 5 minutes.
+The most important file in the user's second brain. One page that summarizes the entire project so that ANYONE (including a new AI session) can understand it in 5 minutes.
 
 What it should contain:
 - Project name and one-sentence purpose
@@ -64,7 +64,7 @@ This is the most important test of the entire stage. Do it together.
 3. Ask the new AI: "Implement this feature based on what you know."
 4. See what happens.
 
-**What you're testing:** Does the project brief contain enough context that a fresh AI can build the right thing? Or does it go wrong because critical context was in the previous conversation, not in the vault?
+**What you're testing:** Does the project brief contain enough context that a fresh AI can build the right thing? Or does it go wrong because critical context was in the previous conversation, not in the second brain?
 
 If it goes wrong, the brief needs improving. Fix it. Re-test. Repeat until it works.
 
@@ -76,7 +76,7 @@ This simulates what happens every few weeks when the original context window fil
 
 Once per month, ask the user to do this audit (you can help):
 
-1. Review every file in the vault
+1. Review every file in the second brain
 2. Ask: "What's missing?"
    - Decisions that aren't documented
    - Security assumptions that are unstated
@@ -84,26 +84,26 @@ Once per month, ask the user to do this audit (you can help):
    - Comprehension debt that hasn't been logged
 3. Fix the gaps
 
-This prevents the vault from becoming a graveyard of outdated notes.
+This prevents the second brain from becoming a graveyard of outdated notes.
 
 ---
 
 ## Linking and Organization
 
-Teach the user Obsidian basics:
+Teach the user their second brain tool's basics:
 - `[[wiki-links]]` — connect related notes
 - `#tags` — mark security notes, decisions, lessons
 - Folders — organize by topic, not by date
 
-The goal: anyone (including future them, or a new AI) can navigate the vault and find what they need.
+The goal: anyone (including future them, or a new AI) can navigate the second brain and find what they need.
 
 ---
 
 ## What They Should Write
 
-**In their vault:**
+**In their second brain:**
 - `project-brief.md` — the one-page summary (mandatory)
-- `lessons/second-brain.md` — summary of why context windows matter and how the vault helps
+- `lessons/second-brain.md` — summary of why context windows matter and how the second brain helps
 
 ---
 

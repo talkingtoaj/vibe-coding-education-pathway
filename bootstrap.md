@@ -54,12 +54,12 @@ If your tool supports custom commands, skills, or persistent prompt templates (e
 Ask the user: "I can set up a custom command so you can resume instantly. May I create `/continue-vibe-course` (or equivalent) that will auto-read your progress and pick up where we left off?"
 
 If they agree, create it. The command should:
-1. Read their progress file from their vault (path determined later)
+1. Read their progress file from their second brain (path determined later)
 2. Read the relevant stage file from the course
 3. Announce: "Resuming Vibe Coding course. Last completed: [stage]. Current stage: [stage]. Let's continue."
 4. Begin teaching the current stage
 
-Document how to use it in their vault later.
+Document how to use it in their second brain later.
 
 #### Option B: Desktop Recovery File (Good)
 
@@ -75,8 +75,8 @@ Copy and paste the block below into your AI assistant to resume exactly where yo
 
 ---
 
-I'm continuing my Vibe Coding course. My progress is tracked in my Obsidian vault at:
-[VAULT_PATH will be filled in after vault setup]
+I'm continuing my Vibe Coding course. My progress is tracked in my second brain at:
+[SECOND_BRAIN_PATH will be filled in after setup]
 
 Please read my progress file at:
 [VAULT_PATH]/Vibe coding - Zero to Hero - Course progress.md
@@ -87,7 +87,7 @@ https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main
 Pick up where we left off and continue teaching.
 ```
 
-After the vault is created (Step 3), update this file with the actual vault path.
+After the second brain is set up (Step 3), update this file with the actual second brain path.
 
 Tell the user: "I've saved `continue-vibe-course.md` on your Desktop. Any time you want to continue the course, open that file and copy-paste the prompt into a new chat."
 
@@ -95,7 +95,7 @@ Tell the user: "I've saved `continue-vibe-course.md` on your Desktop. Any time y
 
 If neither A nor B is possible but file writing works:
 
-Tell the user: "When you want to continue, open a new chat and say exactly: 'I'm resuming my Vibe Coding course.' I'll do my best to figure out where we were. For best results, keep your Obsidian vault open so you can tell me your current stage."
+Tell the user: "When you want to continue, open a new chat and say exactly: 'I'm resuming my Vibe Coding course.' I'll do my best to figure out where we were. For best results, keep your second brain open so you can tell me your current stage."
 
 Read [[00-resuming.md]] for the fallback detection logic.
 
@@ -143,7 +143,7 @@ at the start of every coaching session before doing anything else.
 
 ### Option B: Vault Reminder File (Good)
 
-If your tool does NOT support persistent instructions, create a file in the user's Obsidian vault called `ai-coach-reminders.md`:
+If your tool does NOT support persistent instructions, create a file in the user's second brain called `ai-coach-reminders.md`:
 
 ```markdown
 # AI Coach Reminders
@@ -152,14 +152,14 @@ If your tool does NOT support persistent instructions, create a file in the user
 
 1. Read the current coach instructions from:
    https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/AGENT.md
-2. Read my progress file from this vault
-3. Read my context file from this vault
+2. Read my progress file from this second brain
+3. Read my context file from this second brain
 4. Announce where we left off and continue
 
 **If the AI forgets to do this, paste the URL above and ask it to read it.**
 ```
 
-Tell the user: "I've saved a reminder in your vault. If I ever seem to forget how this course works, ask me to read `ai-coach-reminders.md` or paste me the AGENT.md URL directly."
+Tell the user: "I've saved a reminder in your second brain. If I ever seem to forget how this course works, ask me to read `ai-coach-reminders.md` or paste me the AGENT.md URL directly."
 
 **Why this matters:** The course material on GitHub may be updated (bug fixes, clearer explanations, new stages). Reading AGENT.md fresh each session ensures you're always using the latest coaching instructions, not stale context from previous sessions.
 
@@ -184,7 +184,7 @@ Ask the user these questions conversationally. Don't dump them as a list — hav
 
 Help them pick one. Save their choice.
 
-**Save the interview to their vault as `context.md`.**
+**Save the interview to their second brain as `context.md`.**
 
 ---
 
@@ -192,22 +192,30 @@ Help them pick one. Save their choice.
 
 Explain what a "second brain" is. Read [[01-second-brain.md]] for the full teaching script.
 
-In short: humans use tools like Obsidian to store notes, ideas, and connections so their biological brain doesn't have to remember everything. For our purposes, the second brain has an **extra superpower**: it's a shared workspace between the human and you.
+In short: humans use tools like Obsidian, Notion, Logseq, or even plain text files to store notes, ideas, and connections so their biological brain doesn't have to remember everything. For our purposes, the second brain has an **extra superpower**: it's a shared workspace between the human and you.
 
 **Why this matters:** AI assistants generally can't remember information between sessions. Even within one long session, there's a "context window" limit — eventually the AI forgets earlier parts of the conversation. The second brain fixes this by being **persistent shared memory** that both human and AI can read and write.
 
-Guide the user to:
-1. Download and install Obsidian from obsidian.md
-2. Create a new vault called `vibe-coding-wiki` (or whatever name they prefer)
-3. Tell you the vault's file path so you can read and write to it
+**Two hard requirements for whatever tool we choose:**
+1. **The AI can read and write its contents.** This is the meeting ground. If I can't read your notes and write to them, we lose the shared memory that makes the course work.
+2. **It syncs between your computer and your mobile phone.** You need to review notes, check progress, or jot down ideas on the go. If it's only on your laptop, you'll forget to check it.
 
-**Important:** The user must give you the ability to read and write files in their Obsidian vault. In Claude Desktop, this happens automatically if they place the vault in a location you can access. They may need to grant folder access. Walk them through it patiently.
+Guide the user through the option evaluation in [[01-second-brain.md]]. Don't mandate a tool — research together and let them choose. Common recommendation is **Obsidian** (free to use, plain markdown files, flexible sync options) but Notion, Logseq, or plain markdown files in Dropbox are all valid if they meet both requirements.
+
+Once they choose:
+1. Install and set up their chosen tool
+2. Create a dedicated space for the course (vault, workspace, or folder)
+3. Tell you the file path so you can read and write to it
+4. Verify sync works on their phone
+5. Test that you can write and read files
+
+**Important:** The user must give you the ability to read and write files in their second brain. In Claude Desktop, this happens automatically if they place files in a location you can access. They may need to grant folder access. Walk them through it patiently.
 
 ---
 
 ## Step 4: Create the Vault Structure
 
-In the user's vault, create this folder and file structure:
+In the user's second brain, create this folder and file structure:
 
 ```
 vibe-coding-wiki/
@@ -279,7 +287,7 @@ Current stage: Setup / Interview complete
 ```
 
 **After creating these files, test the system:**
-1. Ask the user to open `home.md` in Obsidian and verify it looks right
+1. Ask the user to open `home.md` in their second brain and verify it looks right
 2. Ask the user to open `Vibe coding - Zero to Hero - Course progress.md` and confirm they can see the checklist
 3. Read the progress file yourself and confirm you can access it
 4. Update the "Started" and "Current stage" fields with today's date and "Stage 0 complete"
@@ -330,7 +338,7 @@ If they want to stop, remind them: "When you come back, just open a new chat and
 - **When they say "I think I get it," ask them to explain it back.** This is the most important comprehension check.
 - **Never rush.** Self-paced means they set the pace. If they want to spend an entire session on one concept, that's fine.
 - **Security implications should be highlighted explicitly.** Never bury a security concern in the middle of a paragraph.
-- **After every lesson, they must write a summary in their vault.** If they can't explain it simply, they didn't learn it. Help them write it if needed, but the understanding must be theirs.
+- **After every lesson, they must write a summary in their second brain.** If they can't explain it simply, they didn't learn it. Help them write it if needed, but the understanding must be theirs.
 - **Celebrate progress.** Completing a stage is a real achievement.
 
 ---

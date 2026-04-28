@@ -118,7 +118,7 @@ For every piece of data their app stores, ask: "If someone unauthorized accessed
 
 ## What They Should Write
 
-**In their vault:** `decisions/why-we-use-[storage-type].md`
+**In their second brain:** `decisions/why-we-use-[storage-type].md`
 
 Prompt: "Which storage does my project currently use? Why did we choose it? Under what conditions would we need to change? What data do we store, and what would happen if someone unauthorized accessed it?"
 

@@ -103,7 +103,7 @@ After research, the user should write a decision note: `decisions/why-we-chose-[
 Prompt for the user:
 > "Which hosting platform did you pick and why? What type of app are you building, and why does this platform fit? What's the free tier limit you need to watch out for?"
 
-**Record the decision in their vault.** This becomes part of their project context. When the AI suggests tech stacks later, it should respect this choice.
+**Record the decision in their second brain.** This becomes part of their project context. When the AI suggests tech stacks later, it should respect this choice.
 
 ---
 
@@ -120,4 +120,4 @@ Prompt for the user:
 
 Ideally: **after Stage 1 (Git) and before Stage 2 (Spec Writing).** The user should understand their deployment target before they write their first spec, because the spec's "Context and Limitations" section should include hosting constraints.
 
-If the user is eager: can be done even earlier, right after vault setup, as a "Step 3.5" in the bootstrap.
+If the user is eager: can be done even earlier, right after second brain setup, as a "Step 3.5" in the bootstrap.

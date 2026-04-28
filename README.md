@@ -52,7 +52,7 @@ The AI will guide you through this sequence:
 
 3. **Interview** — The AI asks about your background, goals, and available time, then helps you pick a real project to build.
 
-4. **Second brain setup** — You install Obsidian (free), create a vault, and the AI populates it with your course progress tracker, project notes, and lesson summaries.
+4. **Second brain setup** — You pick a note-taking app (we'll explore options together), set it up as a shared workspace between you and the AI, and the AI populates it with your course progress tracker, project notes, and lesson summaries.
 
 5. **Begin learning** — You start with Git (your "save game" system) and progress through each stage at your own pace.
 

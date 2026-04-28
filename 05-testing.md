@@ -95,7 +95,7 @@ This teaches that tests are only as good as the mistakes you think to test for. 
 
 ## What They Should Write
 
-**In their vault:** `lessons/testing.md`
+**In their second brain:** `lessons/testing.md`
 
 Prompt: "Explain the difference between a vague test and a cheat-proof test, using a real example from your project. Then write three cheat-proof acceptance criteria for your next feature."
 

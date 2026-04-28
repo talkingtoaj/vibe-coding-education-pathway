@@ -12,9 +12,9 @@ When a user says something like:
 - "Continue from last time"
 - Or anything indicating they've started before
 
-**Always check for an existing vault first.** Ask: "Do you already have an Obsidian vault for this course? If so, what's the folder path?"
+**Always check for an existing second brain first.** Ask: "Do you already have a second brain set up for this course? If so, what's the folder or workspace path?"
 
-If they provide a path, attempt to read `Vibe coding - Zero to Hero - Course progress.md` from that vault.
+If they provide a path, attempt to read `Vibe coding - Zero to Hero - Course progress.md` from that location.
 
 ---
 
@@ -42,7 +42,7 @@ If they provide a path, attempt to read `Vibe coding - Zero to Hero - Course pro
 ## If the Progress File Is Missing or Corrupted
 
 1. **Don't panic.** Ask the user what they remember completing.
-2. **Look for other evidence** in their vault:
+2. **Look for other evidence** in their second brain:
    - `context.md` — their interview answers
    - `project-spec.md` — their project description
    - `lessons/` folder — what summaries they've written

@@ -51,7 +51,7 @@ Don't overwhelm the user. Present 2-3 options, ranked by simplicity.
 
 ### If You Did Hosting Research Earlier
 
-You already have a platform chosen! Refer back to `decisions/why-we-chose-[platform].md` in your vault. Skip to deployment steps for your chosen platform.
+You already have a platform chosen! Refer back to `decisions/why-we-chose-[platform].md` in your second brain. Skip to deployment steps for your chosen platform.
 
 ### If You Skipped Hosting Research
 
@@ -72,7 +72,7 @@ No problem — here are common options. For full details, read [[hosting-options
 
 1. Ask the AI: "What's the simplest free way to deploy my app so my friends can use it?"
 2. Have the AI explain the steps. The user should ask "why this step?" at least three times.
-3. Do the deployment together. Save the process to `deployment.md` in the vault.
+3. Do the deployment together. Save the process to `deployment.md` in the second brain.
 4. Verify: can they access the app via a public URL?
 5. Verify updates: make a small change, redeploy, confirm the change appears live.
 
@@ -108,7 +108,7 @@ Fix everything found before deploying.
 
 ## What They Should Write
 
-**In their vault:**
+**In their second brain:**
 - `deployment.md` — the steps they took, what broke, how they fixed it
 - `lessons/deployment.md` — summary of what deployment means, why environment variables matter, and what platform they chose
 

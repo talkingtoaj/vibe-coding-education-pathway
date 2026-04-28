@@ -114,7 +114,7 @@ Every month, review together:
 
 ## What They Should Write
 
-**In their vault:**
+**In their second brain:**
 - `onboarding.md` — the handover document
 - `graveyard.md` — rejected features and why
 - `lessons/maintenance.md` — summary of ongoing practices

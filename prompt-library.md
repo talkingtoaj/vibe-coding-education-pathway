@@ -61,7 +61,7 @@ If I deleted [component/file], what would break and how badly? Be specific about
 ## The Amnesia Test
 
 ```
-I want to test whether my project brief is sufficient for a fresh AI session. Please read ONLY my project-brief.md and my current spec, then explain what you understand my project to be and what the next feature should do. Don't look at any other files in my vault.
+I want to test whether my project brief is sufficient for a fresh AI session. Please read ONLY my project-brief.md and my current spec, then explain what you understand my project to be and what the next feature should do. Don't look at any other files in my second brain.
 ```
 
 ---
@@ -85,7 +85,7 @@ I'm resuming my Vibe Coding course. Please read my progress file at Vibe coding 
 ## Monthly Wiki Audit
 
 ```
-Review my entire Obsidian vault and tell me what's missing. What decisions aren't documented? What security assumptions are unstated? What specs are outdated? What comprehension debt hasn't been logged?
+Review my entire second brain and tell me what's missing. What decisions aren't documented? What security assumptions are unstated? What specs are outdated? What comprehension debt hasn't been logged?
 ```
 
 ---

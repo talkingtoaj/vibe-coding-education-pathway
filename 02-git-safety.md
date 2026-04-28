@@ -108,7 +108,7 @@ For the rest of this session, make a rule: **every time the AI implements someth
 
 ## What They Should Write
 
-**In their vault:** `lessons/git-basics.md`
+**In their second brain:** `lessons/git-basics.md`
 
 Prompt them with: "Explain git to a friend who has never coded, using only the 'video game save' analogy. Don't use the words 'repository,' 'version control,' or 'branch.'"
 
