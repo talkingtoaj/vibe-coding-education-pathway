@@ -120,7 +120,52 @@ Say: "Install one of these, then come back and paste the starting prompt again. 
 
 ---
 
-## Step 1: The Interview
+## Step 1: Persistent Coaching Instructions
+
+> **This ensures you (the AI coach) read the latest instructions at the start of every future session.**
+
+The user will return to this course across many chat sessions. You will forget everything between sessions. To ensure consistent, high-quality coaching, you need a persistent reminder to read the course's AI coach instructions at the start of every session.
+
+### Option A: Add to Your Persistent Instructions (Best)
+
+If your tool supports persistent system instructions, rules, or configuration files (e.g., `CLAUDE.md`, `.cursorrules`, project settings, custom agent prompts):
+
+Ask the user: "I can add a persistent instruction to my configuration so I always read the latest coaching guidelines before every session. May I do that?"
+
+If they agree, add this instruction:
+
+```
+When this user is working through the Vibe Coding Education Pathway (Zero to Product), 
+read the current AI coach instructions from:
+https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/AGENT.md
+at the start of every coaching session before doing anything else.
+```
+
+### Option B: Vault Reminder File (Good)
+
+If your tool does NOT support persistent instructions, create a file in the user's Obsidian vault called `ai-coach-reminders.md`:
+
+```markdown
+# AI Coach Reminders
+
+**At the start of every Vibe Coding session, the AI should:**
+
+1. Read the current coach instructions from:
+   https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/AGENT.md
+2. Read my progress file from this vault
+3. Read my context file from this vault
+4. Announce where we left off and continue
+
+**If the AI forgets to do this, paste the URL above and ask it to read it.**
+```
+
+Tell the user: "I've saved a reminder in your vault. If I ever seem to forget how this course works, ask me to read `ai-coach-reminders.md` or paste me the AGENT.md URL directly."
+
+**Why this matters:** The course material on GitHub may be updated (bug fixes, clearer explanations, new stages). Reading AGENT.md fresh each session ensures you're always using the latest coaching instructions, not stale context from previous sessions.
+
+---
+
+## Step 2: The Interview
 
 Ask the user these questions conversationally. Don't dump them as a list — have a real back-and-forth.
 
@@ -143,7 +188,7 @@ Help them pick one. Save their choice.
 
 ---
 
-## Step 2: The Second Brain
+## Step 3: The Second Brain
 
 Explain what a "second brain" is. Read [[01-second-brain.md]] for the full teaching script.
 
@@ -160,7 +205,7 @@ Guide the user to:
 
 ---
 
-## Step 3: Create the Vault Structure
+## Step 4: Create the Vault Structure
 
 In the user's vault, create this folder and file structure:
 
@@ -245,7 +290,7 @@ Current stage: Setup / Interview complete
 
 ---
 
-## Step 4 (Optional but Recommended): Research Hosting Options
+## Step 5 (Optional but Recommended): Research Hosting Options
 
 Before the user starts building, it's valuable to know where their app will eventually live. This informs tech stack choices and prevents painful migrations later.
 
@@ -255,14 +300,14 @@ Read [[hosting-options.md]] and guide the user through:
 3. Picking a platform and recording the decision in `decisions/why-we-chose-[platform].md`
 
 **When to do this:**
-- If the user is eager and wants to plan ahead: do it now, as Step 4.
+- If the user is eager and wants to plan ahead: do it now, as Step 5.
 - If the user wants to start building immediately: skip it, but return to it after Stage 1 (Git & Safety) and before Stage 2 (Spec Writing). Update the progress file to note this deferred decision.
 
 **Why before Spec Writing:** The "Context and Limitations" section of every spec should include hosting constraints. Knowing the platform early means the AI doesn't suggest solutions that won't deploy there.
 
 ---
 
-## Step 5: Mark Setup Complete
+## Step 6: Mark Setup Complete
 
 Once the test succeeds (and optionally the hosting decision is made):
 1. Mark "Stage 0: Setup & Interview" as completed in the progress file
