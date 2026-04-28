@@ -215,6 +215,7 @@ Current stage: Setup / Interview complete
 
 ## Completed Stages
 - [ ] Stage 0: Setup & Interview
+- [ ] Stage 0.5: Hosting Research (optional)
 - [ ] Stage 1: Git & Safety
 - [ ] Stage 2: Spec Writing
 - [ ] Stage 3: Comprehension Debt
@@ -244,14 +245,32 @@ Current stage: Setup / Interview complete
 
 ---
 
-## Step 4: Mark Setup Complete
+## Step 4 (Optional but Recommended): Research Hosting Options
 
-Once the test succeeds:
+Before the user starts building, it's valuable to know where their app will eventually live. This informs tech stack choices and prevents painful migrations later.
+
+Read [[hosting-options.md]] and guide the user through:
+1. Pasting the research prompt to you (or you running the research directly)
+2. Discussing the options that fit their project type and constraints
+3. Picking a platform and recording the decision in `decisions/why-we-chose-[platform].md`
+
+**When to do this:**
+- If the user is eager and wants to plan ahead: do it now, as Step 4.
+- If the user wants to start building immediately: skip it, but return to it after Stage 1 (Git & Safety) and before Stage 2 (Spec Writing). Update the progress file to note this deferred decision.
+
+**Why before Spec Writing:** The "Context and Limitations" section of every spec should include hosting constraints. Knowing the platform early means the AI doesn't suggest solutions that won't deploy there.
+
+---
+
+## Step 5: Mark Setup Complete
+
+Once the test succeeds (and optionally the hosting decision is made):
 1. Mark "Stage 0: Setup & Interview" as completed in the progress file
-2. Update "Current stage" to "Stage 1: Git & Safety"
-3. Congratulate the user — they've just set up the infrastructure that will carry them through the entire course
-4. Tell them what's coming next: Git, their "save game" system
-5. Ask if they're ready to start Stage 1 now, or if they want to take a break
+2. If hosting research was done, mark it as a completed sub-step
+3. Update "Current stage" to "Stage 1: Git & Safety"
+4. Congratulate the user — they've just set up the infrastructure that will carry them through the entire course
+5. Tell them what's coming next: Git, their "save game" system
+6. Ask if they're ready to start Stage 1 now, or if they want to take a break
 
 If they want to continue, read [[02-git-safety.md]] and begin teaching.
 
@@ -286,4 +305,5 @@ If they want to stop, remind them: "When you come back, just open a new chat and
 | Stage 7: Using the second brain | [[08-second-brain-usage.md]] |
 | Stage 8: Deployment | [[09-deployment.md]] |
 | Stage 9: Maintenance | [[10-maintenance.md]] |
+| Hosting options research | [[hosting-options.md]] |
 | Reusable prompts | [[prompt-library.md]] |

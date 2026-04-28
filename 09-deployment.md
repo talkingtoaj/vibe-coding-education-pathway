@@ -49,28 +49,22 @@ This is the most important security concept in deployment.
 
 Don't overwhelm the user. Present 2-3 options, ranked by simplicity.
 
-### Option 1: Render (or Railway, or Fly.io)
+### If You Did Hosting Research Earlier
 
-- Free tier available
-- Connects to GitHub — push code, it deploys automatically
-- Handles the server infrastructure for you
-- Good for: beginners, prototypes, small apps
+You already have a platform chosen! Refer back to `decisions/why-we-chose-[platform].md` in your vault. Skip to deployment steps for your chosen platform.
 
-### Option 2: Cloud Provider (Google Cloud Run, AWS, Azure)
+### If You Skipped Hosting Research
 
-- More powerful, more flexible
-- Steeper learning curve
-- Free tiers available but complex to set up
-- Good for: when you're ready to grow beyond simple platforms
+No problem — here are common options. For full details, read [[hosting-options.md]].
 
-### Option 3: Static Hosting (Netlify, Vercel, GitHub Pages)
+**Quick picks:**
+- **Render** — Python/Node.js + PostgreSQL, free tier, sleeps after inactivity
+- **Vercel** — Frontend/Javascript apps, extremely simple, generous free tier
+- **Netlify** — Static sites and JAMstack, drag-and-drop deploy
+- **GitHub Pages** — Static sites only, completely free, already integrated with git
+- **PythonAnywhere** — Python only, always-on free tier, good for simple Python apps
 
-- Only for apps that don't need a backend
-- Extremely simple
-- Free
-- Good for: landing pages, static sites, frontend-only apps
-
-**Recommendation:** Start with Render or similar. When the app outgrows it, migrate.
+**Recommendation:** Start with the platform that fits your project type and budget. When the app outgrows it, migrate.
 
 ---
 
