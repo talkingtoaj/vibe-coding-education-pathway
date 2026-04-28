@@ -49,7 +49,15 @@ If the user is on Claude Desktop or Claude Code:
 
 If using Cursor:
 
-1. **`AGENTS.md` file** in project root — defines behavior for the AI in that project (Cursor calls this `.cursorrules`, Claude Code uses `CLAUDE.md`, but `AGENTS.md` is the generic convention)
+1. **`AGENTS.md` file** in project root — the cross-tool standard for AI instructions. Cursor reads `.cursorrules`, Claude Code reads `CLAUDE.md`, but `AGENTS.md` is the emerging generic convention.
+
+   **For Claude Code users:** Claude Code only auto-reads `CLAUDE.md`, not `AGENTS.md`. The fix is a symlink:
+   ```bash
+   ln -s AGENTS.md CLAUDE.md
+   ```
+   (On Windows: `mklink CLAUDE.md AGENTS.md` in Command Prompt, or use PowerShell. Or just keep `CLAUDE.md` as a one-liner: `@import AGENTS.md` if your tool supports it.)
+
+   This way your primary instructions live in `AGENTS.md` (visible to all tools), and Claude Code follows the symlink to the same content.
 2. **Custom instructions** in Cursor settings — global behavior rules
 3. Guide the user to create an `AGENTS.md` file that includes skill-like behavior
 
@@ -169,7 +177,7 @@ A skill is useless if the AI forgets it exists. Teach the user how to ensure the
 
 ### Option A: Tool-Native Persistence
 
-If their AI tool supports persistent instructions (Claude Projects, Cursor `.cursorrules` / `AGENTS.md`, custom agent configs):
+If their AI tool supports persistent instructions (Claude Projects with `CLAUDE.md` symlinked to `AGENTS.md`, Cursor `.cursorrules` / `AGENTS.md`, custom agent configs):
 
 Have them add to their persistent instructions:
 ```
@@ -181,6 +189,12 @@ Known skills:
 - brainstorm: triggered by "brainstorm" or ideation requests
 - reflect-and-learn: triggered by "reflect and learn" or after difficult sessions
 ```
+
+**For Claude Code users with skills in a folder:** Claude Code may look for skills in `.claude/skills/`. If your skills live in `skills/` (generic location), create a symlink:
+```bash
+ln -s skills .claude/skills
+```
+(Or maintain skills in `.claude/skills/` and symlink the other direction — whichever fits your setup.)
 
 ### Option B: Session Startup Ritual
 
