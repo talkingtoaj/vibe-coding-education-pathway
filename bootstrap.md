@@ -276,8 +276,9 @@ Current stage: Setup / Interview complete
 - [ ] Stage 5: Persistent Storage
 - [ ] Stage 6: Identity & Access
 - [ ] Stage 7: Second Brain (ongoing)
-- [ ] Stage 8: Deployment
-- [ ] Stage 9: Maintenance & Growth
+- [ ] Stage 8: AI Skills
+- [ ] Stage 9: Deployment
+- [ ] Stage 10: Maintenance & Growth
 
 ## Current Project Status
 - Project name: [FILL IN]
@@ -356,7 +357,8 @@ If they want to stop, remind them: "When you come back, just open a new chat and
 | Stage 5: Storage | [[06-persistent-storage.md]] |
 | Stage 6: Security & Access | [[07-identity-access.md]] |
 | Stage 7: Using the second brain | [[08-second-brain-usage.md]] |
-| Stage 8: Deployment | [[09-deployment.md]] |
-| Stage 9: Maintenance | [[10-maintenance.md]] |
+| Stage 8: AI Skills | [[09-skills.md]] |
+| Stage 9: Deployment | [[10-deployment.md]] |
+| Stage 10: Maintenance | [[11-maintenance.md]] |
 | Hosting options research | [[hosting-options.md]] |
 | Reusable prompts | [[prompt-library.md]] |

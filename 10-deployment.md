@@ -1,4 +1,4 @@
-# Stage 8: Deployment
+# Stage 9: Deployment
 
 > **Audience: AI coach.** Getting the app from the user's laptop to the world. Focus on concepts, not CLI commands.
 
@@ -122,4 +122,4 @@ Can the user:
 3. Access their live app via a public URL?
 4. Update their deployed app and see the change live?
 
-If yes, mark Stage 8 complete and move to Stage 9.
+If yes, mark Stage 9 complete and move to Stage 10.

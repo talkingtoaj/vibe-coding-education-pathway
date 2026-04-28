@@ -21,6 +21,7 @@ Think of it like directing a film. You don't operate the camera — but you abso
 - **Persistent memory** — where data lives and why it matters
 - **Identity & access** — who can see what, and why that matters for security
 - **Your second brain** — a shared memory system between you and your AI
+- **AI Skills** — teach your AI reusable superpowers: brainstorming, reflection, and chaining skills together
 - **Deployment** — getting your app from your laptop to the world
 - **Sustainable maintenance** — keeping your project healthy over time
 

@@ -101,8 +101,9 @@ Never proceed past these without explicit user acknowledgment:
 | Stage 5: Storage | `06-persistent-storage.md` |
 | Stage 6: Security & Access | `07-identity-access.md` |
 | Stage 7: Using the second brain | `08-second-brain-usage.md` |
-| Stage 8: Deployment | `09-deployment.md` |
-| Stage 9: Maintenance | `10-maintenance.md` |
+| Stage 8: AI Skills | `09-skills.md` |
+| Stage 9: Deployment | `10-deployment.md` |
+| Stage 10: Maintenance | `11-maintenance.md` |
 | Reusable prompts | `prompt-library.md` |
 
 **Repo URL:** `https://github.com/talkingtoaj/vibe-coding-education-pathway`

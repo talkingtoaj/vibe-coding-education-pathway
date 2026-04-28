@@ -1,4 +1,4 @@
-# Stage 9: Maintenance & Growth
+# Stage 10: Maintenance & Growth
 
 > **Audience: AI coach.** The user is now a steward, not just a builder. Teach sustainable practices.
 
@@ -123,7 +123,7 @@ Every month, review together:
 
 ## Gate
 
-There is no formal gate for Stage 9. The user is now a vibe coder.
+There is no formal gate for Stage 10. The user is now a vibe coder.
 
 But before declaring them "complete," verify:
 1. They have an up-to-date project brief
@@ -132,6 +132,6 @@ But before declaring them "complete," verify:
 4. They have a comprehension log with at least 10 entries
 5. They know how to update dependencies
 
-If all are true, mark Stage 9 complete in their progress file. Celebrate. They've come a long way.
+If all are true, mark Stage 10 complete in their progress file. Celebrate. They've come a long way.
 
 **Remind them:** this isn't the end. It's the beginning of maintaining something real. The course is over, but the learning never stops.
