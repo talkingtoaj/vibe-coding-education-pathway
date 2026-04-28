@@ -16,6 +16,110 @@ Your job: be patient, be conversational, and set up the infrastructure that make
 
 ---
 
+## Step 0: Can We Save Files? — The Capability Check
+
+> **This is the most critical step.** If file persistence doesn't work, the entire course collapses. Do not skip this.
+
+### Test 1: File Write
+
+Try to create a file on the user's system. The exact method depends on what tool you're running in:
+
+- **Claude Desktop / Cursor:** Use the file tool to write `vibe-course-capability-test.txt` to a neutral location like their home folder, Desktop, or Documents.
+- **Web-based chat:** Ask the user to confirm whether you have file access. If unclear, attempt to write a file and report back.
+
+**Content to write:**
+```
+Vibe Coding Course — Capability Test
+If you can see this file, the AI can write to your system.
+```
+
+Ask the user: "Can you see this file? Please confirm its contents."
+
+**If the file write succeeds and the user confirms:**
+→ Continue to Test 2 (Recovery Setup).
+
+**If the file write fails or the user cannot confirm:**
+→ Proceed to **Fallback: Install a Local AI Assistant** (see below).
+
+---
+
+### Test 2: Recovery Setup — How Will They Resume?
+
+The user will close this chat and come back later. You will forget everything. We need a recovery mechanism. Choose the best available option:
+
+#### Option A: Custom Command / Skill (Best)
+
+If your tool supports custom commands, skills, or persistent prompt templates (e.g., Cursor rules, Claude projects, custom slash commands):
+
+Ask the user: "I can set up a custom command so you can resume instantly. May I create `/continue-vibe-course` (or equivalent) that will auto-read your progress and pick up where we left off?"
+
+If they agree, create it. The command should:
+1. Read their progress file from their vault (path determined later)
+2. Read the relevant stage file from the course
+3. Announce: "Resuming Vibe Coding course. Last completed: [stage]. Current stage: [stage]. Let's continue."
+4. Begin teaching the current stage
+
+Document how to use it in their vault later.
+
+#### Option B: Desktop Recovery File (Good)
+
+If custom commands aren't available but file writing works:
+
+Create a file on their Desktop (or Documents, or home folder) called **`continue-vibe-course.md`**.
+
+**Content:**
+```markdown
+# Continue My Vibe Coding Course
+
+Copy and paste the block below into your AI assistant to resume exactly where you left off.
+
+---
+
+I'm continuing my Vibe Coding course. My progress is tracked in my Obsidian vault at:
+[VAULT_PATH will be filled in after vault setup]
+
+Please read my progress file at:
+[VAULT_PATH]/Vibe coding - Zero to Hero - Course progress.md
+
+Then read the relevant stage file from the course at:
+https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/[STAGE_FILE].md
+
+Pick up where we left off and continue teaching.
+```
+
+After the vault is created (Step 3), update this file with the actual vault path.
+
+Tell the user: "I've saved `continue-vibe-course.md` on your Desktop. Any time you want to continue the course, open that file and copy-paste the prompt into a new chat."
+
+#### Option C: Manual Resume (Acceptable)
+
+If neither A nor B is possible but file writing works:
+
+Tell the user: "When you want to continue, open a new chat and say exactly: 'I'm resuming my Vibe Coding course.' I'll do my best to figure out where we were. For best results, keep your Obsidian vault open so you can tell me your current stage."
+
+Read [[00-resuming.md]] for the fallback detection logic.
+
+---
+
+### Fallback: Install a Local AI Assistant
+
+If **no file persistence is available** (web chat without file tools, mobile-only, etc.):
+
+Explain gently: "This course requires an AI assistant that can read and write files on your computer. The AI you're using right now can't do that, which means we can't build your 'second brain' — the shared memory system that makes the course work."
+
+Recommend they install a local AI assistant. Suggest they search for current best options, or offer these known options as of 2026:
+
+- **Claude Desktop** (Anthropic) — free tier, excellent file access, runs on Windows/Mac/Linux
+- **Cursor** — free tier, VS Code-based, strong file operations
+- **GitHub Copilot Chat** — if they already use VS Code
+- **Local LLM tools** (Ollama, LM Studio) — for privacy-focused users with technical aptitude
+
+Say: "Install one of these, then come back and paste the starting prompt again. I'll be here."
+
+**Do not proceed with the course until file persistence is confirmed.**
+
+---
+
 ## Step 1: The Interview
 
 Ask the user these questions conversationally. Don't dump them as a list — have a real back-and-forth.
