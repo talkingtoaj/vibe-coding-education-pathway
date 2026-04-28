@@ -49,9 +49,9 @@ If the user is on Claude Desktop or Claude Code:
 
 If using Cursor:
 
-1. **`.cursorrules` file** in project root — defines behavior for the AI in that project
+1. **`AGENTS.md` file** in project root — defines behavior for the AI in that project (Cursor calls this `.cursorrules`, Claude Code uses `CLAUDE.md`, but `AGENTS.md` is the generic convention)
 2. **Custom instructions** in Cursor settings — global behavior rules
-3. Guide the user to create a `.cursorrules` file that includes skill-like behavior
+3. Guide the user to create an `AGENTS.md` file that includes skill-like behavior
 
 ### Option C: Plain Text Skills (Universal Fallback)
 
@@ -169,7 +169,7 @@ A skill is useless if the AI forgets it exists. Teach the user how to ensure the
 
 ### Option A: Tool-Native Persistence
 
-If their AI tool supports persistent instructions (Claude Projects, Cursor `.cursorrules`, custom agent configs):
+If their AI tool supports persistent instructions (Claude Projects, Cursor `.cursorrules` / `AGENTS.md`, custom agent configs):
 
 Have them add to their persistent instructions:
 ```

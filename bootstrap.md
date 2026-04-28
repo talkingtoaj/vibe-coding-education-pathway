@@ -128,7 +128,7 @@ The user will return to this course across many chat sessions. You will forget e
 
 ### Option A: Add to Your Persistent Instructions (Best)
 
-If your tool supports persistent system instructions, rules, or configuration files (e.g., `CLAUDE.md`, `.cursorrules`, project settings, custom agent prompts):
+If your tool supports persistent system instructions, rules, or configuration files (e.g., `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, project settings, custom agent prompts):
 
 Ask the user: "I can add a persistent instruction to my configuration so I always read the latest coaching guidelines before every session. May I do that?"
 
