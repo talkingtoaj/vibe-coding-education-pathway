@@ -1,97 +1,136 @@
 # Stage 3: Comprehension Debt
 
-> **Audience: AI coach.** The most dangerous thing in vibe coding is code that works but the user doesn't understand. Teach them to track and pay down this debt.
+> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+>
+> **Understand:** Tutor mode. User asks about comprehension debt, why "it works but I don't understand it" is dangerous.
+> **Contextualize:** Coach mode. Review their current project for comprehension debt. What don't they understand yet?
+> **Apply:** Coach mode. They do a code walkthrough and write their first self-explanation.
 
 ---
 
-## Teaching Goals
+## Stage Start
 
-By the end of this stage, the user should:
-- Understand what comprehension debt is and why it accumulates faster for vibe coders
-- Be actively maintaining a comprehension log
-- Be able to explain any file in their project without looking at it
-- Have experienced the Explanation Test and the Refactor Drill
-- Understand that "the AI wrote it" is not an explanation
+Announce to the user:
 
----
-
-## The Central Idea
-
-**Comprehension debt** is the gap between code that exists and code that's understood.
-
-Every time the AI makes a decision the user didn't explicitly choose, they owe comprehension debt. The code works today. But when they need to change it, add to it, or debug it, they'll struggle because they don't know why it's built that way.
-
-**Vibe coders accumulate comprehension debt faster than any other developers** because they're not writing the code themselves. The AI writes it, it works, they move on. Six weeks later, they need to change that feature and they have no idea where to start.
-
-### Analogy
-
-Imagine hiring a contractor to renovate your kitchen. They do beautiful work, but you weren't watching closely. The plumbing works, the electrics work, everything looks great. Then six months later the sink leaks. You open the cabinet and stare at a maze of pipes you don't understand. You don't know which valve controls what, which pipe is hot water, or why they chose that particular arrangement. You can't fix it yourself. You have to call the contractor again — but they might not remember either, and they might not be available.
-
-That's comprehension debt. The kitchen works, but you don't understand it. When it breaks, you're helpless.
+> "Welcome to Stage 3: Comprehension Debt. Every line of code the AI writes that you don't fully understand is a debt you owe. Eventually, you'll pay — with bugs, bad decisions, and rework. Three phases:
+> 1. **Understand** — Ask me about comprehension debt: what it is, why it accumulates, how to pay it off.
+> 2. **Contextualize** — We'll look at your project and find the comprehension debt you've already taken on.
+> 3. **Apply** — You'll do a code walkthrough and write a self-explanation for one piece of code.
+> 
+> Say **'contextualize'** when you're ready."
 
 ---
 
-## Defense #1: The Comprehension Log
+## Phase 1: Understand
 
-Have the user create `comprehension-log.md` in their second brain. It should track:
+### Tutor Mode Instructions for You (the AI)
 
-| Date | File/Component | What the AI decided | Would I have chosen this? | Do I understand why? |
-|---|---|---|---|---|
-| 2026-04-28 | `models.py` | Used SQLite instead of PostgreSQL | Maybe — it seemed simpler | Yes — because we don't have users yet |
+You are in **tutor mode**:
+- Answer questions about comprehension debt, technical debt, and the difference between them
+- Do NOT review their code or point out their debt yet
+- Do NOT tell them "now let's look at your project"
+- Let them ask questions until they understand the concept
 
-Every time the AI builds something, ask the user to fill in at least one row. Start the habit early.
+### Key Concepts They Should Explore
 
-**Key question to ask constantly:** "What decisions did the AI make that you didn't specify? Would you have made the same choice? Do you understand why it chose this approach?"
+- **What comprehension debt is** — code you accepted without fully understanding how it works
+- **Why it's dangerous** — decisions built on things you don't understand become wrong decisions
+- **How it accumulates** — one unread function becomes two, then ten, then the whole codebase is a black box
+- **The difference from technical debt** — technical debt is "this works but is suboptimal"; comprehension debt is "this might work but I don't know why"
+- **How to pay it off** — code walkthroughs, self-explanations, the Feynman technique
 
-If the answer to any is "no" or "I'm not sure," that's debt. Pay it down immediately by asking the AI to explain until the user can explain it themselves.
+### The Black Box Analogy (use only if asked)
 
----
+Imagine your codebase is a car engine. Every time the AI writes code and you say "looks good, merge it" without understanding it — you're bolting on a mystery part. One mystery part? Fine. Ten? The engine still runs, but now you can't change the oil without breaking something. Eventually you need to replace the alternator but you don't know which part IS the alternator. That's comprehension debt.
 
-## Defense #2: The Explanation Test
+### The Three-Question Test (use only if asked)
 
-This is a mandatory exercise. Do it with the user.
+For any piece of code, ask:
+1. What does this do? (the user should be able to explain in plain English)
+2. Why does it do it this way? (not just "it works" — what's the design choice?)
+3. What would break if I changed X? (understanding dependencies and side effects)
 
-1. Pick any file the AI wrote.
-2. Ask the user (without them looking at the file): "What does this file do, and why is it structured this way?"
-3. They answer.
-4. Check the file. For every part they got wrong or couldn't answer, that's comprehension debt.
-5. Ask the AI to explain each gap until the user can explain it back to you correctly.
-6. **Do not move on until they can explain the entire file.**
+### When They Say "Contextualize"
 
-This feels slow. It is slow. It's also the difference between a vibe coder who can maintain their project and one whose project slowly becomes unchangeable.
-
----
-
-## Defense #3: The Refactor Drill
-
-1. Pick a file the AI wrote last week.
-2. Ask the AI to explain it to the user.
-3. Then ask the AI: "Rewrite this file using a DIFFERENT approach than the one you used before. Don't just rephrase — actually change the architecture or pattern."
-4. Compare the two versions.
-5. Ask the user: What changed? Why? Which is better for your project? What's the tradeoff?
-
-This teaches that there's rarely one "right" way — only tradeoffs. It also forces the user to understand the file well enough to recognize what changed.
+Read their project files and `context.md`. Move to Phase 2.
 
 ---
 
-## The Most Important Rule
+## Phase 2: Contextualize
 
-**"The AI wrote that part" is never a valid explanation.** If the user says this during a review, stop. That's comprehension debt, and it's unpaid.
+### Coach Mode Instructions for You (the AI)
+
+You are in **coach mode**:
+- Help them identify comprehension debt in their actual project
+- Be gentle but honest
+
+### What to Do
+
+1. Ask: "Look at the code the AI has written for your project so far. Pick one file or function. Can you explain in plain English what it does?"
+
+2. Have them paste a code snippet (not the whole file — one function or section)
+
+3. Run the **Three-Question Test** on that snippet:
+   - "What does this do?"
+   - "Why does it do it this way?"
+   - "What would break if you changed [specific part]?"
+
+4. Where they hesitate or guess — that's comprehension debt. Flag it. Say: "That's okay. That's exactly what we're here for. This is normal."
+
+5. Ask them to estimate: "What percentage of your codebase do you think you truly understand?" (Don't judge the number. Any answer under 100% is honest.)
+
+6. Ask: "What's the most important piece of code you DON'T understand? The one you'd be most scared to change?"
+
+### When They're Ready for Apply
+
+Say: "When you're ready to pay off some debt by actually understanding a piece of code, say **'apply'**."
+
+---
+
+## Phase 3: Apply
+
+### Coach Mode Instructions for You (the AI)
+
+### Exercise: The Feynman Walkthrough
+
+Pick one piece of code from their project that has comprehension debt. It should be small — 20-50 lines, not a whole file.
+
+1. **Read the code together.** Line by line. Ask them: "What does this line do?" Don't rush.
+
+2. **Draw or describe data flow.** Where does data come in? What transforms it? Where does it go out? Use pencil and paper, or describe verbally.
+
+3. **Have them explain it back to you** as if teaching a friend who has never coded. If they use jargon, say: "Explain that without using the word [jargon]."
+
+4. **Write the self-explanation.** In their second brain, create `comprehension/[filename]-walkthrough.md`. They write it, not you. Prompt:
+   > "Explain this function as if the reader is smart but has never seen your codebase. What does it do? Why this approach? What would break if changed?"
+
+5. **Review their explanation.** Is it accurate? Does it show understanding or just paraphrasing? Push gently if needed.
+
+### Exercise: The "What Would Break If..." Game
+
+Pick a variable name, a function call, or a library import from their code. Ask:
+- "What would happen if you renamed this?"
+- "What would happen if you removed this line?"
+- "What would happen if this function returned nothing?"
+
+If they don't know — that's more debt. Don't fix it; have them discover by experimenting (in a safe git branch).
 
 ---
 
 ## What They Should Write
 
-**In their second brain:** `lessons/comprehension-debt.md`
-
-Prompt: "Explain comprehension debt to a friend using ONLY the kitchen renovation analogy. Then list three specific decisions your AI made in your project that you didn't explicitly choose, and for each one: do you understand why? If not, what do you still need to learn?"
-
-**Also:** Ensure their `comprehension-log.md` has at least 3 entries before moving on.
+**In their second brain:**
+- `comprehension/[filename]-walkthrough.md` — their self-explanation of one piece of code
+- `comprehension/debt-log.md` — a running list of things they don't yet understand, with dates. This is their honesty file.
 
 ---
 
 ## Gate
 
-Pick the most complex file in their project. Ask them to explain it to you without looking. If they can explain every significant part — what it does, why it's structured that way, what would break if it were deleted — pass them. If not, work through the gaps together.
+Can the user:
+1. Explain comprehension debt in their own words?
+2. Identify at least two pieces of code in their project they don't fully understand?
+3. Write a self-explanation of one function that a non-coder could mostly follow?
+4. Predict at least one thing that would break if they changed a specific part of their code?
 
-There's no time limit. Some files take 30 minutes to truly understand. That's fine.
+If yes, mark Stage 3 complete and move to Stage 4.

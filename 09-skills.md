@@ -1,255 +1,187 @@
 # Stage 8: AI Skills
 
-> **Audience: AI coach.** Teach the user to extend their AI's capabilities with reusable skills. This is where the vibe coder becomes a vibe coder-architect.
+> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+>
+> **Understand:** Tutor mode. User asks about AI skills: what they are, why reusable beats copy-paste, how skills compose.
+> **Contextualize:** Coach mode. What skills would help THEIR workflow? Brainstorm two practical skills for their project.
+> **Apply:** Coach mode. They create their first two skills: brainstorm and reflect-and-learn.
 
 ---
 
-## Teaching Goals
+## Stage Start
 
-By the end of this stage, the user should:
-- Understand what an AI skill is and why it's more powerful than a single prompt
-- Have installed or configured a skill framework (e.g., Anthropic's skill-creator)
-- Have created a `brainstorm` skill that triggers on keyword and produces structured ideation
-- Have created a `reflect-and-learn` skill that captures problem-solving wisdom for future sessions
-- Understand how skills can be chained together for complex automations
-- Know how to make the AI aware of their skills in every session
+Announce to the user:
 
----
-
-## What is an AI Skill?
-
-A skill is a **reusable instruction package** that the AI loads automatically when triggered. Instead of typing a long, detailed prompt every time you want the same behavior, you define it once as a skill. From then on, a keyword, phrase, or command activates it.
-
-### Analogy
-
-Think of a skill like a **kitchen appliance.** You don't re-invent the blender every time you want a smoothie. You bought it once, it lives in your kitchen, and when you say "blend," it does the thing. A skill is the same: you define the behavior once, and then a trigger word calls it up instantly.
-
-### Why Skills Beat Copy-Paste Prompts
-
-- **Consistency:** The AI behaves the same way every time, not depending on how well you remember the prompt
-- **Composability:** Skills can call other skills. "Brainstorm" → "Reflect and learn" on the best idea → "Write a spec" for the chosen one
-- **Iterative improvement:** When you notice the skill producing weak output, you edit the skill definition once. Every future use improves.
-- **Session survival:** Skills persist across chat sessions. Your carefully crafted prompt doesn't get lost when the tab closes.
+> "Welcome to Stage 8: AI Skills. You've been vibe coding. Now you're going to vibe architect — teach your AI reusable superpowers. Three phases:
+> 1. **Understand** — Ask me about skills: what makes them different from prompts, how they chain together, why consistency matters.
+> 2. **Contextualize** — We'll figure out what skills would actually help YOUR workflow.
+> 3. **Apply** — You'll create two real skills: one for brainstorming ideas, one for reflecting on what you learned.
+> 
+> Say **'contextualize'** when you're ready."
 
 ---
 
-## Skill Framework Setup
+## Phase 1: Understand
 
-Different AI tools implement skills differently. Guide the user based on what they're using.
+### Tutor Mode Instructions for You (the AI)
 
-### Option A: Anthropic Skill Creator (Recommended for Claude)
+You are in **tutor mode**:
+- Answer questions about AI skills, reusable prompts, skill composition
+- Do NOT tell them what skills to create
+- Do NOT connect to their project yet
+- Let them understand what a skill IS and why it's powerful
 
-If the user is on Claude Desktop or Claude Code:
+### Key Concepts They Should Explore
 
-1. **Check if skill support exists.** Ask the user to look in their tool's settings for "Skills," "Custom Instructions," "Projects," or "Agent Rules."
-2. **If available:** Guide them to create their first skill using the tool's native skill creator.
-3. **If not available or unclear:** Have them create a `skills/` folder in their second brain and store skill definitions as markdown files. They'll paste the skill content at the start of relevant sessions.
+- **What an AI skill is** — a reusable instruction package that triggers automatically
+- **Why skills beat copy-paste prompts** — consistency, composability, iterative improvement
+- **How skills compose** — "brainstorm" → "reflect and learn" → "write a spec"
+- **Skill persistence** — a skill survives between sessions; a one-off prompt doesn't
+- **The skill lifecycle** — define → test → refine → use → improve
+- **Trigger words** — keywords that activate a skill (e.g., "brainstorm", "reflect")
 
-### Option B: Cursor Rules / Custom Instructions
+### The Kitchen Appliance Analogy (use only if asked)
 
-If using Cursor:
+A skill is like a kitchen appliance. You don't re-invent the blender every time you want a smoothie. You bought it once, it lives in your kitchen, and when you say "blend," it does the thing. A skill is the same: you define the behavior once, and then a trigger word calls it up instantly. And just like appliances, you can chain them: blender → ice maker → glass → serve.
 
-1. **`AGENTS.md` file** in project root — the cross-tool standard for AI instructions. Cursor reads `.cursorrules`, Claude Code reads `CLAUDE.md`, but `AGENTS.md` is the emerging generic convention.
+### When They Say "Contextualize"
 
-   **For Claude Code users:** Claude Code only auto-reads `CLAUDE.md`, not `AGENTS.md`. The fix is a symlink:
-   ```bash
-   ln -s AGENTS.md CLAUDE.md
-   ```
-   (On Windows: `mklink CLAUDE.md AGENTS.md` in Command Prompt, or use PowerShell. Or just keep `CLAUDE.md` as a one-liner: `@import AGENTS.md` if your tool supports it.)
-
-   This way your primary instructions live in `AGENTS.md` (visible to all tools), and Claude Code follows the symlink to the same content.
-2. **Custom instructions** in Cursor settings — global behavior rules
-3. Guide the user to create an `AGENTS.md` file that includes skill-like behavior
-
-### Option C: Plain Text Skills (Universal Fallback)
-
-If the AI tool has no native skill system:
-
-1. Create a `skills/` folder in the second brain
-2. Each skill is a markdown file with a clear name: `skills/brainstorm.md`, `skills/reflect-and-learn.md`
-3. At the start of a session where they want the skill, they (or the AI) reads the skill file and loads its instructions into context
-4. This is less automatic but still powerful and works with any tool
-
-**Key principle:** The mechanism matters less than the concept. A skill is a defined, reusable behavior. How it's loaded depends on the tool.
+Read their `context.md` and project status. Move to Phase 2.
 
 ---
 
-## Exercise 1: The Brainstorm Skill
+## Phase 2: Contextualize
 
-### What It Does
+### Coach Mode Instructions for You (the AI)
 
-When the user says "brainstorm" (or types `/brainstorm`, or uses whatever trigger their tool supports), the AI:
-1. Generates **5 novel ideas** related to the topic the user just mentioned
-2. For each idea, lists **2 pros and 2 cons**
-3. Ranks them by **feasibility** for the user's specific context (reads `context.md` to know their constraints)
-4. **Recommends one** with clear reasoning
-5. Offers to **draft a spec** for the recommended idea
+You are in **coach mode**:
+- Help them identify what skills would actually save them time
+- Focus on their real workflow, not theoretical possibilities
 
-### Why This Matters
+### What to Do
 
-Brainstorming is central to vibe coding: picking features, solving problems, choosing tech, naming things. A good brainstorm skill ensures the AI doesn't just generate random ideas — it generates *relevant, evaluated* ideas tailored to the user's situation.
+1. Ask: "Think about the last few sessions you've had with an AI. What did you ask for repeatedly? What patterns keep coming up?"
 
-### Setup Steps
+2. Ask: "When you get stuck, what's your process? Do you brainstorm? Do you research? Do you ask for explanations? Which of these could be a reusable skill?"
 
-Have the user create their brainstorm skill. The exact method depends on their tool:
+3. Ask: "What decisions do you make often that you'd like structured help with?" (Feature prioritization, architecture choices, security review)
 
-**For Anthropic/Claude skill system:**
-```
-Name: brainstorm
-Trigger: user says "brainstorm" or the topic suggests ideation
-Behavior:
-1. Read the user's context.md to understand their background, project, and constraints
-2. Generate 5 distinct ideas related to the current topic
-3. For each idea: 2 pros, 2 cons
-4. Rank by feasibility given the user's constraints (time, budget, tech stack, experience)
-5. Recommend the top choice with a 2-sentence justification
-6. Ask: "Would you like me to draft a spec for this idea?"
-```
+4. Help them pick TWO skills to start with. Common starting points:
+   - **Brainstorm** — "I need ideas for X, ranked by feasibility"
+   - **Reflect and Learn** — "What just happened and how do I not forget it?"
+   - **Spec Writer** — "Turn my vague idea into a proper spec"
+   - **Code Review** — "Check this code for comprehension debt and security issues"
+   - **Security Scan** — "What could go wrong with this approach?"
 
-**For plain text fallback:** Create `skills/brainstorm.md` in their second brain with the above content.
+5. For each chosen skill, ask: "What trigger word feels natural to you? What would you actually say to activate this?"
 
-### Test It
+### When They're Ready for Apply
 
-Have the user say: "I need a new feature for my recipe app. Brainstorm."
-
-Verify:
-- Did it generate 5 ideas?
-- Did each have pros and cons?
-- Did the ranking consider their actual constraints?
-- Did it recommend one with reasoning?
-
-**If it failed any check, refine the skill definition together.** This is iterative — the first draft is never perfect.
+Say: "When you're ready to build your first two skills, say **'apply'**."
 
 ---
 
-## Exercise 2: The Reflect-and-Learn Skill
+## Phase 3: Apply
 
-### What It Does
+### Coach Mode Instructions for You (the AI)
 
-When the user says "reflect and learn" after a difficult session, the AI:
-1. **Reviews the session** (or asks the user to summarize what happened if it can't see history)
-2. Identifies **what went wrong** — the specific friction points, misunderstandings, or repeated attempts
-3. Identifies **how it was resolved** — the insight, workaround, or change that finally worked
-4. **Suggests a skill update or new skill** to prevent the same friction in future sessions
-5. Writes a concise summary to the user's second brain: `reflections/YYYY-MM-DD-topic.md`
+### Exercise 1: Brainstorm Skill
 
-### Why This Matters
+Guide them to create a skill that:
+- Triggers on "brainstorm" or "ideas for"
+- Produces 5 novel ideas related to their input
+- Ranks them by feasibility against their `context.md` constraints
+- Recommends one with reasoning
+- Offers to draft a spec for the chosen idea
 
-Every vibe coder hits walls. The difference between a struggling beginner and a productive practitioner isn't avoiding walls — it's **capturing the ladder.** When you spend 20 minutes figuring out why the deployment failed, that wisdom should be preserved. Otherwise, you'll hit the same wall next month and waste 20 minutes again.
-
-**Analogy:** A ship's log. Every voyage notes the rocks, the currents, the storms. Future captains read the log and avoid the rocks. Your reflect-and-learn skill is your ship's log.
-
-### Setup Steps
-
-**For Anthropic/Claude skill system:**
+The skill file should live in their second brain:
 ```
-Name: reflect-and-learn
-Trigger: user says "reflect and learn" or "what did we learn?" or similar
-Behavior:
-1. Ask the user (or review session history): "What was the main problem or friction we just faced?"
-2. Ask: "How was it eventually resolved?"
-3. Ask: "What would have prevented this friction entirely?"
-4. Propose: "Should we update an existing skill to include this wisdom, or create a new skill?"
-5. Write a reflection note to reflections/YYYY-MM-DD-[topic].md in the user's second brain with:
-   - Problem summary
-   - Resolution
-   - Prevention suggestion
-   - Proposed skill change
+skills/brainstorm.md
 ```
 
-**For plain text fallback:** Create `skills/reflect-and-learn.md` in their second brain.
-
-### Test It
-
-After the user completes any difficult task (a tricky deployment, a confusing bug, a long spec negotiation), have them trigger the skill.
-
-Verify:
-- Did it capture the problem clearly?
-- Did it capture the resolution?
-- Did it suggest a prevention strategy?
-- Did it write the reflection to the second brain?
-
----
-
-## Making Skills Available in Every Session
-
-A skill is useless if the AI forgets it exists. Teach the user how to ensure their skills load automatically.
-
-### Option A: Tool-Native Persistence
-
-If their AI tool supports persistent instructions (Claude Projects with `CLAUDE.md` symlinked to `AGENTS.md`, Cursor `.cursorrules` / `AGENTS.md`, custom agent configs):
-
-Have them add to their persistent instructions:
+Example content (they adapt to their style):
 ```
-When coaching this user through the Vibe Coding Education Pathway, 
-always check for skills in their second brain at [SECOND_BRAIN_PATH]/skills/
-and load any relevant skill definitions at the start of the session.
+# Brainstorm Skill
 
-Known skills:
-- brainstorm: triggered by "brainstorm" or ideation requests
-- reflect-and-learn: triggered by "reflect and learn" or after difficult sessions
+## Trigger
+User says "brainstorm" or "ideas for" or similar.
+
+## Behavior
+1. Generate 5 novel ideas related to the user's request
+2. For each idea, note: feasibility, effort, and alignment with project constraints
+3. Rank by: (1) solves a real problem user has, (2) fits within current constraints, (3) effort required
+4. Recommend the top choice with reasoning
+5. Offer to draft a spec for it
+
+## Constraints
+- Read project context from second brain before generating
+- Avoid ideas that violate known constraints (budget, tech stack, timeline)
+- Be honest about effort — don't suggest "easy" when it's not
 ```
 
-**For Claude Code users with skills in a folder:** Claude Code may look for skills in `.claude/skills/`. If your skills live in `skills/` (generic location), create a symlink:
-```bash
-ln -s skills .claude/skills
+### Exercise 2: Reflect-and-Learn Skill
+
+Guide them to create a skill that:
+- Triggers on "reflect and learn" or after a difficult session
+- Reviews what went wrong, how it was resolved
+- Asks what would have prevented it
+- Suggests a skill update or new skill
+- Writes the reflection to `reflections/YYYY-MM-DD-topic.md`
+
+Example content:
 ```
-(Or maintain skills in `.claude/skills/` and symlink the other direction — whichever fits your setup.)
+# Reflect and Learn Skill
 
-### Option B: Session Startup Ritual
+## Trigger
+User says "reflect and learn" or indicates a difficult/stuck session.
 
-If no native persistence, create a `session-startup.md` in their second brain:
+## Behavior
+1. Ask: What was the problem or confusion?
+2. Ask: How was it resolved (or how did we work around it)?
+3. Ask: What would have prevented this entirely?
+4. Suggest: Should we create or update a skill based on this?
+5. Write a reflection note to the second brain
 
-```markdown
-# Session Startup Checklist
-
-AI: please do the following at the start of every session:
-1. Read my context.md
-2. Read my progress file
-3. Check [SECOND_BRAIN_PATH]/skills/ for any skill definitions
-4. Load relevant skills based on what we're about to do
-5. Announce which skills are active
+## Output Format
+reflections/YYYY-MM-DD-[topic].md with:
+- Problem
+- Resolution
+- Prevention strategy
+- Suggested skill update
 ```
 
-The user copies this into the chat at the start of each session. It's a ritual — 10 seconds that saves hours.
+### Exercise 3: Make Skills Available
 
----
+Help them configure their AI tool to load these skills:
+- **If Claude Code / Cursor:** Symlink or `@import` into `CLAUDE.md` / `AGENTS.md`
+- **If plain text fallback:** They (or the AI) reads the skill file at session start
+- **If native skill system:** Configure triggers and loading
 
-## Chaining Skills: The Power Move
+### Exercise 4: Test the Skills
 
-Once the user has 2+ skills, show them composition:
-
-**Example chain:**
-1. User: "I need a new feature. Brainstorm."
-2. Brainstorm skill runs → produces 5 ideas + recommendation
-3. User: "Let's do idea #3. Reflect and learn on the spec approach."
-4. Reflect-and-learn skill runs → checks if similar specs have failed before, suggests patterns to avoid
-5. User: "Write the spec."
-6. AI writes the spec informed by both skills' context
-
-**Analogy:** A restaurant kitchen. The prep cook (brainstorm) generates ingredients. The sous chef (reflect-and-learn) checks past mistakes. The head chef (the AI's base capability) cooks the dish. Each role is a skill. Together they produce better food than any single chef working alone.
+Have them actually USE each skill:
+1. Say the trigger word for brainstorm — did it work as expected?
+2. Simulate a "reflect and learn" moment — did it capture the lesson?
+3. Iterate: what didn't work? Refine the skill.
 
 ---
 
 ## What They Should Write
 
 **In their second brain:**
-- `lessons/ai-skills.md` — what skills are, why they beat copy-paste prompts, what skills they created
-- `skills/brainstorm.md` — the skill definition (if using plain text fallback)
-- `skills/reflect-and-learn.md` — the skill definition (if using plain text fallback)
-- `reflections/` folder — first reflection entry, even if brief
-
-**Prompt for lesson summary:**
-> "Explain what an AI skill is, using only the 'kitchen appliance' analogy. Then list the two skills you created, what each does, and one time you expect to use each one."
+- `skills/brainstorm.md` — their brainstorm skill definition
+- `skills/reflect-and-learn.md` — their reflection skill definition
+- `reflections/YYYY-MM-DD-[topic].md` — at least one reflection from testing
 
 ---
 
 ## Gate
 
 Can the user:
-1. Explain what a skill is and why it's better than a long prompt?
-2. Trigger their brainstorm skill and get 5 evaluated ideas?
-3. Trigger their reflect-and-learn skill after a session and get a written reflection?
-4. Explain how they ensure skills are available in future sessions?
+1. Explain the difference between a skill and a one-off prompt?
+2. Create two skill definitions with clear triggers and behaviors?
+3. Make those skills available in their AI tool?
+4. Test both skills and iterate based on results?
+5. Explain how skills could chain together for a complex workflow?
 
 If yes, mark Stage 8 complete and move to Stage 9.

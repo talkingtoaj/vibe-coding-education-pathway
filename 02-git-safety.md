@@ -1,22 +1,52 @@
 # Stage 1: Git & Safety
 
-> **Audience: AI coach.** Teach git as a "save game" system. Focus on exactly three commands.
+> **Audience: AI coach.** This stage follows the UCA pattern: Understand → Contextualize → Apply.
+> 
+> **Understand phase:** Tutor mode. The user must drive the learning by asking questions. You answer, but don't volunteer connections or next steps.
+> **Contextualize phase:** Coach mode. Connect the concept to their specific project and constraints.
+> **Apply phase:** Coach mode. Guide them through the hands-on exercise.
 
 ---
 
-## Teaching Goals
+## Stage Start
 
-By the end of this stage, the user should:
-- Understand git as "Save As with a memory"
-- Know three commands: `git init`, `git add .`, `git commit -m "description"`
-- Have initialized git in their project folder
-- Have made their first commit
-- Understand that git history is permanent (security implication)
-- Be able to explain git to a friend without jargon
+Announce to the user:
+
+> "Welcome to Stage 1: Git & Safety. We're going to learn about git — your 'save game' system. This stage has three phases:
+> 1. **Understand** — You'll ask me questions about git until you feel confident explaining it. I'll answer whatever you ask, but I won't volunteer — you drive.
+> 2. **Contextualize** — We'll connect git to your actual project and why you need it.
+> 3. **Apply** — You'll set up git and practice the three commands that matter.
+> 
+> When you're ready to move from Understand to Contextualize, say **'contextualize'**."
 
 ---
 
-## Analogy
+## Phase 1: Understand
+
+### Tutor Mode Instructions for You (the AI)
+
+You are now in **tutor mode**. This means:
+- **You answer any question** the user asks about git, clearly and patiently
+- **You do NOT** tell them what to do next, suggest exercises, or connect git to their project
+- **You do NOT** say "now let's practice" or "next we should..."
+- **You DO** use analogies if they ask, but only when asked
+- **You DO** check understanding with gentle questions: "Does that make sense?" or "Want me to explain that differently?"
+- **You DO** encourage them to ask follow-up questions: "What else would you like to know about this?"
+
+The user must drive. If they're silent, wait. If they seem stuck, say: "What part of git feels most unclear to you right now?"
+
+### Key Concepts They Should Explore
+
+Don't volunteer these as a list — let them discover through questions. But be ready to explain:
+
+- **What git is** — a system that tracks changes to files over time
+- **Why it matters** — so you can recover from mistakes, collaborate, and see history
+- **The three commands** — `git init`, `git add .`, `git commit -m "message"`
+- **What a commit is** — a snapshot of your project at a point in time
+- **What a repository is** — a folder that git is watching
+- **Why we don't commit secrets** — git remembers everything forever
+
+### Analogy (use only if asked)
 
 Git is like a video game's **save system.** You're playing a long RPG. Every time you reach a safe point — you beat a boss, you find a treasure, you finish a quest — you hit Save. If you die or make a terrible decision later, you can reload from that save.
 
@@ -24,85 +54,91 @@ In coding, "dying" means: you or the AI accidentally break something. "Terrible 
 
 The key insight: **you save constantly.** Not just at the end of a level. Every time something works — even partially — you save.
 
----
+### When They Say "Contextualize"
 
-## What to Teach
-
-### Installation
-
-**Windows:**
-- Download Git from git-scm.com
-- Run the installer. Accept defaults for almost everything.
-- One important choice: when it asks about "Adjusting your PATH environment," choose "Git from the command line and also from 3rd-party software."
-- After installation, open PowerShell and type: `git --version`
-- If it says something like `git version 2.x.x`, you're done.
-
-**Mac:**
-- Open Terminal (Cmd+Space, type "Terminal")
-- Type: `git --version`
-- If not installed, it will prompt you to install developer tools. Click "Install."
-
-**Linux:**
-- Usually pre-installed. If not: `sudo apt install git`
-
-### The Three Commands
-
-These are the only ones they need for now. Don't teach branches, merges, pull requests, or anything else.
-
-1. **`git init`** — Turn a folder into a tracked project. Run once, in the project folder.
-2. **`git add .`** — Stage changes for saving. The dot means "everything in this folder."
-3. **`git commit -m "description"`** — Save a checkpoint with a note about what changed.
-
-**When to commit:**
-- Before the AI writes any code (empty commit: "Initial commit")
-- Every time something works
-- Before trying something risky ("Before refactoring the data model")
-- At the end of every session
-
-### What NOT to Commit
-
-This is a security lesson. Explain:
-
-"Git remembers everything you commit. Forever. Even if you delete it later, it's still in the history. So you must never commit files containing passwords, API keys, or secrets."
-
-Show them `.gitignore` — a file that tells git "ignore these files." The AI should create one that ignores:
-- `.env` files (environment variables, often contain secrets)
-- Any file with "secret" or "key" in the name
-- Database files (if local SQLite, sometimes)
-- `__pycache__` and similar generated folders
-
-Have the AI create the `.gitignore` and explain every line.
+Read their `context.md` and `project-spec.md` from their second brain. Then move to Phase 2.
 
 ---
 
-## Exercises
+## Phase 2: Contextualize
 
-### Exercise 1: First Commit
+### Coach Mode Instructions for You (the AI)
 
-1. Navigate to the project folder in PowerShell/Terminal
-2. Run `git init`
-3. Run `git add .`
-4. Run `git commit -m "Initial commit before any code"`
-5. Verify: run `git log` — they should see their commit
+You are now in **coach mode**. This means:
+- **You connect git to their specific situation**
+- **You ask them** how git applies to their project, not tell them
+- **You help them see** why this matters for the work they're actually doing
 
-### Exercise 2: The Disaster Recovery Drill
+### What to Do
+
+1. **Read their project context** from `context.md` and `project-spec.md`
+
+2. **Ask them:** "What would happen right now if you accidentally deleted your project folder? Could you get it back?"
+
+3. **Ask them:** "When you're working with the AI, it might rewrite your code in ways you didn't expect. How could git help you recover?"
+
+4. **Ask them:** "Have you ever used 'Save As' or 'Undo' in a document? How is git similar? How is it different?"
+
+5. **Help them articulate:** "In one sentence, why does your project need git?" Don't accept a generic answer. It should reference their actual project.
+
+6. **Discuss:** "What files in your project should NOT be committed?" (Secrets, passwords, API keys, personal data.) This is a preview of the security thread that runs through the whole course.
+
+### When They're Ready for Apply
+
+Say: "When you're ready to actually set up git and practice it, say **'apply'**."
+
+---
+
+## Phase 3: Apply
+
+### Coach Mode Instructions for You (the AI)
+
+You are guiding them through hands-on practice. Break it into small steps. Let them type the commands themselves — muscle memory matters.
+
+### Exercise 1: Install and Verify
+
+1. Navigate to their project folder in PowerShell/Terminal
+2. Check if git is installed: `git --version`
+3. If not, guide them through installation (see Installation section in backup if needed)
+
+### Exercise 2: First Commit
+
+1. `git init` — explain this turns the folder into a tracked project
+2. `git add .` — explain this stages changes for saving
+3. `git commit -m "Initial commit before any code"` — explain this saves a checkpoint
+4. `git log` — verify they can see their commit
+
+### Exercise 3: The Disaster Recovery Drill
 
 This is the most important exercise. They must actually do it.
 
 1. Create a file called `test.txt` with the words "This is important."
 2. Add and commit it: `git add test.txt && git commit -m "Added test file"`
 3. Delete `test.txt`
-4. Panic appropriately (encourage them to actually feel the "oh no" moment)
-5. Recover it: `git checkout -- test.txt` or ask the AI to help recover
+4. Let them feel the "oh no" moment — ask: "How do you feel right now?"
+5. Recover it: `git checkout -- test.txt`
 6. Verify the file is back
 7. Delete `test.txt` again
 8. Commit the deletion: `git add . && git commit -m "Deleted test file (on purpose)"`
 9. Recover from the previous commit: `git checkout HEAD~1 -- test.txt`
 10. Explain: we can recover from *any* commit, not just the most recent
 
-### Exercise 3: Commit Habit
+### Exercise 4: Commit Habit
 
-For the rest of this session, make a rule: **every time the AI implements something that works, commit immediately.** The user should type the commit command themselves — this builds muscle memory.
+For the rest of this session, make a rule: **every time the AI implements something that works, commit immediately.** The user should type the commit command themselves.
+
+### Security Note
+
+**Never commit `.env` files or anything containing secrets.** Show them how to create a `.gitignore` file:
+
+```
+.env
+*.key
+*.secret
+__pycache__/
+```
+
+Ask them: "What files in YOUR project might contain things that shouldn't be public?"
 
 ---
 
@@ -110,9 +146,13 @@ For the rest of this session, make a rule: **every time the AI implements someth
 
 **In their second brain:** `lessons/git-basics.md`
 
-Prompt them with: "Explain git to a friend who has never coded, using only the 'video game save' analogy. Don't use the words 'repository,' 'version control,' or 'branch.'"
+Prompt for them:
+> "Explain git to a friend who has never coded, using only the 'video game save system' analogy. Don't use the words 'repository,' 'version control,' or 'branch.' Write it as if you're teaching them over coffee."
 
 They write it. You review it. If they use forbidden words, ask them to rewrite.
+
+Also:
+- `security/git-ignore-notes.md` — what they're not committing and why
 
 ---
 
@@ -123,6 +163,7 @@ Can the user:
 2. Add files and make a commit?
 3. Recover a deleted file from a previous commit?
 4. Explain what git is without using jargon?
+5. Name at least one thing they're NOT committing and why?
 
 If yes, mark Stage 1 complete in their progress file and move to Stage 2.
 

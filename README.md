@@ -4,6 +4,13 @@
 > 
 > A free, self-paced course for non-coders who want to ship software by directing AI.
 
+Every stage follows the **UCA pattern**: **Understand** → **Contextualize** → **Apply**.
+- **Understand:** You ask questions until the concept is clear (tutor mode)
+- **Contextualize:** We connect it to your actual project (coach mode)
+- **Apply:** You implement it hands-on (coach mode)
+
+This isn't watching tutorials. It's learning by doing, with your real project as the curriculum.
+
 ---
 
 ## What is Vibe Coding?

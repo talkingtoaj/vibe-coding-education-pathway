@@ -1,106 +1,165 @@
 # Stage 4: Testing
 
-> **Audience: AI coach.** Vibe coders don't write tests — they write descriptions of "done" that the AI turns into tests. Teach this distinction.
+> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+>
+> **Understand:** Tutor mode. User asks about testing: why manual testing fails, what automated tests are, the different kinds.
+> **Contextualize:** Coach mode. What parts of THEIR project are most likely to break? What's the scariest change?
+> **Apply:** Coach mode. They write their first automated test for a real function in their project.
 
 ---
 
-## Teaching Goals
+## Stage Start
 
-By the end of this stage, the user should:
-- Understand that tests are proof something works, not just hope
-- Know how to write acceptance criteria the AI can turn into automated tests
-- Have experienced the "cheating agent" problem
-- Be able to distinguish vague tests from cheat-proof tests
-- Understand that tests also guard security boundaries
+Announce to the user:
 
----
-
-## The Central Idea
-
-Test-Driven Development (TDD) traditionally means: write a failing test, then write code to make it pass.
-
-For vibe coders: **describe what "done" looks like in plain English, have the AI write the test, then build the feature.**
-
-You don't need to read the test code (though you should try). You need to be able to say: "Here's what should happen. Verify that it does."
-
-### Analogy
-
-Imagine you're a film director. You tell the cinematographer: "I want a shot where the character walks through a doorway and the lighting changes from warm to cold." The cinematographer sets it up, films it, shows you the playback. You watch and say: "Yes, that's it" or "No, the transition is too abrupt."
-
-The playback is the test. You didn't operate the camera, but you verified the result matches your intent.
-
-In vibe coding, the AI is both cinematographer and projectionist. It films the shot AND runs the playback to prove it worked. But YOU must define what "worked" means.
+> "Welcome to Stage 4: Testing. The most common mistake in vibe coding is 'it looks right, so it must be right.' It's not. Three phases:
+> 1. **Understand** — Ask me about testing: why we need it, what kinds exist, why 'it works on my machine' is a trap.
+> 2. **Contextualize** — We'll figure out what parts of YOUR project are most likely to break.
+> 3. **Apply** — You'll write your first test for a real function in your project.
+> 
+> Say **'contextualize'** when you're ready."
 
 ---
 
-## Good vs Bad Acceptance Criteria
+## Phase 1: Understand
 
-Teach the user to write criteria so specific that a misbehaving AI can't technically pass them while still doing the wrong thing.
+### Tutor Mode Instructions for You (the AI)
 
-**Bad (vague — the AI can "cheat"):**
-- "The form should work"
-- "Users can log in"
-- "Data is saved"
+You are in **tutor mode**:
+- Answer questions about testing, types of tests, test automation
+- Do NOT review their project for testable functions yet
+- Do NOT say "now let's write a test"
+- Let them discover why manual testing is insufficient
 
-**Good (specific — hard to cheat):**
-- "When I submit the form with email 'test@example.com' and password 'Valid123!', the database must contain a record with exactly that email address, and a success message must appear within 2 seconds"
-- "When I enter an incorrect password three times, the account must be locked for 15 minutes and an email must be sent to the registered address"
-- "When I delete a recipe, it must no longer appear in the recipe list AND it must return a 404 error if someone tries to access its direct URL"
+### Key Concepts They Should Explore
 
-The pattern: **specific inputs, specific outputs, specific timing or state changes.**
+- **Why manual testing fails** — humans forget edge cases, skip steps, get bored
+- **What an automated test is** — code that runs other code and checks the result
+- **Unit test** — tests one small piece in isolation
+- **Integration test** — tests pieces working together
+- **End-to-end test** — tests the whole flow as a user would experience it
+- **The "it works on my machine" trap** — code works for you today on your laptop with your data
+- **Regression** — something that used to work stops working after a change
 
----
+### The Car Analogy (use only if asked)
 
-## Exercise: Write Cheat-Proof Criteria
+You buy a car. The dealer says, "I started it once, it worked, it's fine." You wouldn't accept that. You'd want to know: does it start in cold weather? Does the brake work at high speed? Does the radio turn off when you lock the doors?
 
-For their current feature, have the user write 3-5 acceptance criteria. Then:
+Every "it works" is only one test. Automated testing is hiring a robot to run thousands of tests every time you change something, so you don't accidentally break the brakes while fixing the radio.
 
-1. Ask the AI to build the feature based on those criteria
-2. Ask the AI to build the tests based on those criteria
-3. Run the tests
-4. Ask the AI: "Can you modify the implementation in a way that breaks the actual user experience but keeps these tests passing?"
+### When They Say "Contextualize"
 
-If the AI finds a way, the criteria aren't specific enough. Work with the user to make them more precise.
-
-**Example of how the AI might cheat:**
-- Criteria: "The form saves data"
-- Cheating implementation: Saves data to a file that nobody can read, instead of the database
-- Fix: "The form saves data to the database table 'recipes' and the saved data appears in the recipe list immediately"
+Read their project files. Move to Phase 2.
 
 ---
 
-## Security Testing
+## Phase 2: Contextualize
 
-Every spec that involves data should include a security criterion:
+### Coach Mode Instructions for You (the AI)
 
-- "An unauthenticated user cannot access any recipe they didn't create"
-- "Submitting a recipe name longer than 100 characters returns an error, not a server crash"
-- "Uploading a file with a fake image extension but executable content is rejected"
+You are in **coach mode**:
+- Help them identify what parts of their project most need testing
+- Connect to their actual work
 
-Teach the user: **security bugs are just bugs that happen to hurt people.** The same testing discipline catches them.
+### What to Do
+
+1. Ask: "What part of your project, if it broke, would hurt the most? Not 'look bad' — actually cause problems?"
+
+2. Ask: "What's the simplest function in your project that does something important? Something where you could say 'if I give it X, it should always give me Y'?"
+
+3. Ask: "Have you ever made a change to your project, thought it was fine, and then later discovered something else broke?"
+
+4. Help them identify their **first test candidate** — ideally a function that:
+   - Has clear inputs and outputs
+   - Is important if wrong
+   - Is small enough to understand
+
+5. Discuss: "What's an edge case for this function?" (Empty input, very large input, wrong type of input, special characters, etc.)
+
+### When They're Ready for Apply
+
+Say: "When you're ready to write your first real test, say **'apply'**."
 
 ---
 
-## Exercise: The Deliberate Bug
+## Phase 3: Apply
 
-1. Have the AI implement a feature with tests
-2. Ask the user to think of a subtle bug (e.g., "what if the date is in the future?")
-3. Ask the AI to introduce that bug deliberately
-4. Run the tests
-5. Do they catch it? If not, the tests need strengthening
+### Coach Mode Instructions for You (the AI)
 
-This teaches that tests are only as good as the mistakes you think to test for. The user must learn to think like someone trying to break their app.
+### Exercise 1: The Manual Test (to feel the pain)
+
+Before writing an automated test, have them manually test their chosen function:
+
+1. Call it with expected input. Verify output.
+2. Call it with edge case input. Verify output.
+3. Change one line of the function. Re-test manually.
+
+Ask: "How did that feel? How many functions do you have? Would you do this every time?"
+
+### Exercise 2: First Automated Test
+
+Guide them through writing their first test. Keep it simple.
+
+Python example framework:
+```python
+# test_calculator.py
+import unittest
+from calculator import add
+
+class TestCalculator(unittest.TestCase):
+    def test_add_two_numbers(self):
+        result = add(2, 3)
+        self.assertEqual(result, 5)
+    
+    def test_add_zero(self):
+        result = add(5, 0)
+        self.assertEqual(result, 5)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+For JavaScript:
+```javascript
+// test-calculator.js
+const { add } = require('./calculator');
+
+console.assert(add(2, 3) === 5, "2+3 should be 5");
+console.assert(add(5, 0) === 5, "5+0 should be 5");
+console.log("All tests passed!");
+```
+
+If they're using a framework (React, Django, etc.), use that framework's test tools.
+
+### Exercise 3: The Regression Test
+
+Have them write a test for a bug they already fixed (or a scenario they know should work). This test ensures the bug never comes back.
+
+### Security Note
+
+Ask: "Should your tests include cases for bad input? What happens if someone passes the wrong thing?" This is the seed of security testing.
 
 ---
 
 ## What They Should Write
 
-**In their second brain:** `lessons/testing.md`
+**In their second brain:** `lessons/testing-basics.md`
 
-Prompt: "Explain the difference between a vague test and a cheat-proof test, using a real example from your project. Then write three cheat-proof acceptance criteria for your next feature."
+Prompt for them:
+> "Explain why 'I tested it manually and it worked' is not enough, using a real example from your project or life. Then describe the difference between a unit test and an end-to-end test in plain English."
+
+Also:
+- `tests/` folder in their project (if it doesn't exist)
+- Their actual test files
 
 ---
 
 ## Gate
 
-Present the user with a deliberately vague acceptance criterion and ask them to rewrite it as cheat-proof. Then ask them to explain how the AI could "cheat" the vague version. If they can do both, mark Stage 4 complete.
+Can the user:
+1. Explain why manual testing is insufficient for a growing project?
+2. Identify the most important function in their project to test?
+3. Write at least two test cases (one happy path, one edge case) for that function?
+4. Run their tests and see them pass?
+
+If yes, mark Stage 4 complete and move to Stage 5.

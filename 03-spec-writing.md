@@ -1,118 +1,101 @@
 # Stage 2: Spec Writing
 
-> **Audience: AI coach.** This is the core skill of the entire course. Everything else builds on this.
+> **Audience: AI coach.** The core skill of the entire course. UCA pattern: Understand → Contextualize → Apply.
+>
+> **Understand:** Tutor mode. User asks about specs, clarity, why vague descriptions fail.
+> **Contextualize:** Coach mode. User writes a spec for their actual project's first feature.
+> **Apply:** Coach mode. The Angry Agent exercise on that spec.
 
 ---
 
-## Teaching Goals
+## Stage Start
 
-By the end of this stage, the user should:
-- Understand that vague descriptions create vague (and often wrong) results
-- Know the six parts of a good spec
-- Have written a spec for their project's first feature
-- Have experienced the "angry agent" review
-- Understand that specs have security implications
-- Be able to write a spec an AI cannot misinterpret
+Announce to the user:
+
+> "Welcome to Stage 2: Spec Writing. This is the most important skill in the entire course. Everything else builds on it. Three phases:
+> 1. **Understand** — Ask me about specs: why they matter, what makes a good one, what happens when they're bad. You drive.
+> 2. **Contextualize** — We'll write a spec for YOUR project's first real feature.
+> 3. **Apply** — You'll experience the 'angry agent' — finding the gaps in your own spec.
+> 
+> Say **'contextualize'** when you're ready to move on."
 
 ---
 
-## The Central Idea
+## Phase 1: Understand
 
-Traditional coding: you write instructions the computer follows.
-Vibe coding: you describe *what you want*, the AI figures out *how to build it*.
+### Tutor Mode Instructions for You (the AI)
 
-**The problem:** The AI cannot read your mind. If your description is vague, it guesses. Its guesses are often wrong — sometimes subtly wrong (the button is on the left instead of the right), sometimes disastrously wrong (it exposes private data to everyone).
+You are in **tutor mode**:
+- Answer questions about specs, specification-driven development, clarity vs. ambiguity
+- Do NOT tell them "now write a spec" or "here's the format"
+- Do NOT connect to their project yet
+- Let them discover the pain of vague descriptions through their own questions
 
-**A spec is a clear, complete description of what you want BEFORE any code is written.**
+### Key Concepts They Should Explore
+
+Be ready to explain:
+
+- **Why vague descriptions create wrong results** — the AI guesses; guesses are often wrong
+- **What a spec is** — a clear, complete description of what you want BEFORE code exists
+- **The seven parts of a good spec** (but only if they ask about structure):
+  1. User story
+  2. Context and limitations
+  3. What data goes in
+  4. What data comes out
+  5. Acceptance criteria (happy + unhappy paths)
+  6. What could go wrong
+- **Why context matters** — "I need a form" vs. "I need a form for my family of 4, offline-capable, no payment"
+- **Why unhappy paths matter** — this is where security often lives
+
+### The Restaurant Analogy (use only if asked)
 
 Think of it like ordering at a restaurant. "I'd like a sandwich" gets you something. "I'd like a toasted sourdough sandwich with roasted chicken, lettuce, tomato, and mustard, no mayo, cut diagonally" gets you exactly what you want. The chef (AI) still does the cooking — but they don't have to guess.
 
----
+### When They Say "Contextualize"
 
-## The Seven Parts of a Good Spec
-
-Teach these as a checklist. Every spec should have all seven.
-
-### 1. The User Story
-Format: "As a [type of user], I want to [action] so that [benefit]"
-
-Example: "As a recipe app user, I want to save a new recipe so that I can find it later."
-
-This forces clarity about WHO wants this and WHY.
-
-### 2. What It Does
-3-5 sentences in plain English. No technical terms.
-
-Example: "When I click the 'Add Recipe' button, a form appears where I can type the recipe name, ingredients, and instructions. When I click 'Save,' the recipe is stored and I see a confirmation message."
-
-### 3. Context and Limitations
-What's the bigger picture? What constraints or realities should the AI know about before it picks an approach?
-
-This section is incredibly helpful because the AI often has to choose between multiple valid technical approaches. Without context, it guesses — and its guess may not fit your reality.
-
-Example:
-- "This app is for my family of four. It will never have more than 10 users."
-- "I need this to work offline because my internet is unreliable."
-- "I'm on Windows and want to stay on Windows — no Linux solutions."
-- "I don't want to pay for any services right now. Free tiers only."
-- "This feature is just a prototype — it can be ugly, but it must work by Friday."
-
-Teach the user: when the AI picks an approach that feels wrong, the missing piece was probably here.
-
-### 4. What Data Goes In
-Forms, files, user input — be specific about fields and types.
-
-Example:
-- Recipe name (text, required, max 100 characters)
-- Ingredients (text, required)
-- Instructions (text, required)
-- Photo (image file, optional, max 5MB)
-
-### 5. What Data Comes Out
-Pages, emails, saved records, displayed information.
-
-Example: "The saved recipe appears in my recipe list. The list shows the recipe name and a thumbnail photo. Clicking the recipe name opens the full recipe."
-
-### 6. Acceptance Criteria
-Specific, testable checks that describe "done." Include at least one **happy path** (everything goes right) and at least one **unhappy path** (something goes wrong and the app handles it gracefully).
-
-The happy path confirms the feature works. The unhappy path confirms it fails safely.
-
-**Happy path example:**
-- "When I submit the form with all required fields filled, I see 'Recipe saved!' within 2 seconds"
-
-**Unhappy path examples:**
-- "When I submit the form without a recipe name, I see an error message 'Recipe name is required' and the recipe is NOT saved"
-- "When I submit a photo larger than 5MB, I see an error message 'Photo must be smaller than 5MB'"
-
-Teach the user: unhappy paths are where security often lives. The AI is less likely to build protection for scenarios you didn't explicitly describe.
-
-### 7. What Could Go Wrong?
-Brainstorm at least 2 ways this feature could break, be misused, or behave unexpectedly. This is where security often lives, and it's a great place to involve the AI.
-
-**If you're not sure, ask the AI:** "What are the most likely ways this feature could go wrong or be misused?" Then pick the ones that matter for your situation and add them here.
-
-Example:
-- "What if two people submit recipes at the exact same time?"
-- "What if someone tries to submit a recipe with a name that's 10,000 characters long?"
-- "What if someone uploads a file that's not a photo at all, but disguised as one?"
-- "What if someone tries to save a recipe while their internet is down?"
+Read their `project-spec.md` and `context.md`. Move to Phase 2.
 
 ---
 
-## Exercise: Write Their First Spec
+## Phase 2: Contextualize
 
-Have the user write a spec for their project's simplest feature. If they don't have a feature yet, use: "Display a welcome message on the home page."
+### Coach Mode Instructions for You (the AI)
 
-Guide them through all seven parts. Push them to be specific. "It should work" is not acceptance criteria. "When I click X, Y happens within Z seconds" is.
+You are in **coach mode**:
+- Help them write a spec for their project's simplest real feature
+- Don't write it for them — ask guiding questions
+- Push them to be specific
 
-Save the spec to their second brain as `project-spec.md` or a feature-specific file.
+### What to Do
+
+1. Ask: "What's the simplest feature of your project that you want to build first?"
+2. If they don't have one yet, suggest: "Display a welcome message on the home page" or similar
+3. Walk them through the seven parts, ONE AT A TIME, asking them to fill in each:
+   - "Who wants this feature and why?" (user story)
+   - "What should I know about your situation before I suggest how to build this?" (context/limitations)
+   - "What information goes into this feature?" (data in)
+   - "What comes out? What does the user see or get?" (data out)
+   - "If everything goes right, what exactly happens?" (happy path acceptance criteria)
+   - "What should happen if something goes wrong?" (unhappy path)
+   - "What could break or be misused?" (what could go wrong)
+
+4. For each part, push them: "It should work" is not acceptance criteria. "When I click X, Y happens within Z seconds" is.
+
+5. Save the spec to their second brain as `project-spec.md` or a feature-specific file.
+
+### When They're Ready for Apply
+
+Say: "When you're ready to test whether your spec is truly unbreakable, say **'apply'**."
 
 ---
 
-## The Angry Agent Exercise
+## Phase 3: Apply
 
-After the AI implements the spec, run this counter-prompt with the user:
+### Coach Mode Instructions for You (the AI)
+
+### The Angry Agent Exercise
+
+After the AI implements the spec (either you implement it in the session, or they do it with the AI between sessions), run this counter-prompt together:
 
 ```
 Here's my spec and what was built. Find the three most likely ways this could fail or confuse a user. For each one, explain what I should have specified to prevent it. Be ruthless — imagine you're a user who wants to break this.
@@ -124,16 +107,17 @@ Save the angry agent's response to their second brain: `security/angry-agent-[fe
 
 Over time, they'll see patterns in what they consistently forget. Those patterns are their personal curriculum.
 
----
+### The Vague Spec Test
 
-## Security Note: Specs Are Security Boundaries
+Give the user a deliberately vague spec and ask them to improve it:
 
-Every spec that involves data must specify WHO can see it. If the user doesn't specify access control, the AI might build something with no protection.
+> "The app should let users save notes."
 
-**Bad spec:** "Users can view recipes."
-**Good spec:** "Any visitor can view public recipes. Only the recipe owner can edit or delete their own recipes. Admin users can view all recipes including private ones."
+They should rewrite it with all seven parts, including at least one security-relevant "what could go wrong?"
 
-Teach the user: when a spec involves data, always ask "who can see this? who can change this?"
+### Security Note
+
+Ask them: "Every spec that involves data must answer: who can see this? who can change this? Did your spec answer that?"
 
 ---
 
@@ -141,16 +125,17 @@ Teach the user: when a spec involves data, always ask "who can see this? who can
 
 **In their second brain:** `lessons/spec-writing.md`
 
-Prompt: "Explain why a vague spec is dangerous, using a non-coding example (like ordering food, giving directions, or planning an event). Then list the seven parts of a spec in your own words, with one example from your actual project."
+Prompt for them:
+> "Explain why a vague spec is dangerous, using a non-coding example (like ordering food, giving directions, or planning an event). Then list the seven parts of a spec in your own words, with one example from your actual project."
 
 ---
 
 ## Gate
 
-Give the user a deliberately vague spec and ask them to improve it. Example:
+Can the user:
+1. Explain why specs matter without using the word "requirements"?
+2. Write a seven-part spec for a simple feature?
+3. Identify at least three ways their spec could fail after the angry agent review?
+4. Name at least one security question their spec should answer?
 
-> "The app should let users save notes."
-
-They should rewrite it with all seven parts, including at least one security-relevant "what could go wrong?"
-
-If they can do this, mark Stage 2 complete and move to Stage 3.
+If yes, mark Stage 2 complete in their progress file and move to Stage 3.

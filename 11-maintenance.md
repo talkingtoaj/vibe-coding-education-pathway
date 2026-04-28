@@ -1,123 +1,163 @@
 # Stage 10: Maintenance & Growth
 
-> **Audience: AI coach.** The user is now a steward, not just a builder. Teach sustainable practices.
+> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+>
+> **Understand:** Tutor mode. User asks about maintenance: why code rots, dependency updates, technical debt, when to refactor.
+> **Contextualize:** Coach mode. What does THEIR project need to stay healthy? What's already decaying?
+> **Apply:** Coach mode. They create a maintenance ritual and review their project honestly.
 
 ---
 
-## Teaching Goals
+## Stage Start
 
-By the end of this stage, the user should:
-- Understand that software is never "done"
-- Be conducting regular comprehension audits
-- Be updating their threat model with every new feature
-- Have created an onboarding document for future maintainers
-- Understand that maintenance is where most projects die — and how to prevent that
+Announce to the user:
 
----
-
-## The Mindset Shift
-
-Deployment is not the finish line. It's the starting line of a much longer race.
-
-After deployment, the user is responsible for:
-- Keeping the app running
-- Fixing bugs users report
-- Adding features users request
-- Updating dependencies (libraries the app relies on)
-- Monitoring for security issues
-- Paying hosting costs (if applicable)
-
-**Analogy:** Building a house is exciting. Plumbing, wiring, painting, furniture. But once you move in, the real work begins: fixing leaks, replacing appliances, cleaning gutters, patching the roof. The house doesn't maintain itself. Neither does software.
+> "Welcome to Stage 10: Maintenance & Growth. This is the stage that never ends. Software isn't 'done' — it's maintained or it dies. Three phases:
+> 1. **Understand** — Ask me about maintenance: why code rots, how dependencies age, when to refactor vs. rewrite.
+> 2. **Contextualize** — We'll look at YOUR project and figure out what needs attention right now.
+> 3. **Apply** — You'll create a maintenance ritual and do your first honest project review.
+> 
+> Say **'contextualize'** when you're ready."
 
 ---
 
-## Ongoing Practices
+## Phase 1: Understand
 
-### Monthly Comprehension Audits
+### Tutor Mode Instructions for You (the AI)
 
-Pick one major component. Ask: "If I delete this, what breaks?" If the answer is "I don't know," study it until they do.
+You are in **tutor mode**:
+- Answer questions about software maintenance, technical debt, refactoring, dependencies
+- Do NOT review their project for maintenance needs yet
+- Do NOT tell them what to fix
+- Let them understand the long-term nature of software
 
-This is the Deletion Test from the programmer pathway, adapted for vibe coders.
+### Key Concepts They Should Explore
 
-Save findings to `comprehension-log.md`.
+- **Why code rots** — dependencies update, security vulnerabilities are found, requirements change, your own understanding grows
+- **Technical debt vs. comprehension debt** — debt you chose ("ship now, fix later") vs. debt you didn't notice ("I don't understand this")
+- **When to refactor** — when a change takes longer than it should because the code is messy
+- **When NOT to refactor** — when it works, isn't blocking features, and fixing it might break something
+- **Dependency updates** — libraries you use will have security patches and breaking changes
+- **The "if it ain't broke" trap** — sometimes it IS broke, just not visibly
+- **Monitoring and alerts** — how you know something is wrong before users tell you
 
----
+### The Garden Analogy (use only if asked)
 
-### Security Reviews
+A deployed app is like a garden. You can plant it, water it for a week, and walk away. For a month, it looks fine. Then weeds appear. Then pests. Then the tomatoes you planted in the wrong spot are shading the lettuce. Maintenance isn't about the garden being broken — it's about the garden changing, seasonally, whether you tend it or not. The question is: are you gardening, or are you watching it become a wilderness?
 
-Every new feature = new attack surface. Before adding any feature, ask:
-- "How could someone misuse this?"
-- "What new data does this expose?"
-- "Who can access this, and who shouldn't?"
+### When They Say "Contextualize"
 
-Document in `security/threat-model.md`.
-
----
-
-### Dependency Updates
-
-The app relies on other people's code (libraries, frameworks, packages). These get security patches.
-
-Monthly: ask the AI to check for security updates. Ask: "Are there any known vulnerabilities in the libraries we're using?"
-
-This is like checking for recalls on your car. Boring but critical.
+Read their project files, notes, and current status. Move to Phase 2.
 
 ---
 
-### The "Explain to a Stranger" Test
+## Phase 2: Contextualize
 
-Monthly: can the user explain their entire app — every feature, every data flow, every security boundary — to someone who's never seen it? If not, their comprehension debt is growing.
+### Coach Mode Instructions for You (the AI)
+
+You are in **coach mode**:
+- Help them assess their project's current health honestly
+- Be gentle about debt they've accumulated — it's normal
+
+### What to Do
+
+1. Ask: "When was the last time you looked at code you wrote three stages ago? Do you still understand it?"
+
+2. Ask: "What dependencies (libraries, frameworks) does your project use? When were they last updated?"
+
+3. Ask: "Have you ever said 'I'll fix that later' and never did? Where are those things?"
+
+4. Ask: "If you had to add one major new feature to your project right now, what's the scariest part to touch?"
+
+5. Help them create a **maintenance inventory** — a list of things that need attention:
+   - Code they don't understand anymore
+   - Dependencies that are outdated
+   - Features that work but are "fragile" (they're afraid to touch them)
+   - Security assumptions that might be outdated
+   - Notes that are no longer accurate
+
+6. **Prioritize ruthlessly.** Not everything needs fixing now. Ask:
+   - "What would hurt the most if it broke?"
+   - "What would take the least effort to fix?"
+   - "What would make future work easier?"
+
+### When They're Ready for Apply
+
+Say: "When you're ready to build your maintenance practice, say **'apply'**."
 
 ---
 
-## Exercise: The New Developer Simulation
+## Phase 3: Apply
 
-Pretend the user is handing their project to someone else. Have them create `onboarding.md` — everything a new person would need to know to take over.
+### Coach Mode Instructions for You (the AI)
 
-Include:
-- What the app does and who it's for
-- Tech stack and why
-- How to set up the development environment
-- How to deploy
-- Where secrets live (environment variables, not in code)
-- Known security considerations
-- Where the comprehension debt lives (what's fragile or poorly understood)
+### Exercise 1: The Weekly Ritual
 
-If there are parts the user can't explain, those are their study priorities.
+Have them create a maintenance ritual. It should be simple enough they'll actually do it. Example:
 
----
+**Every Friday, 15 minutes:**
+1. Review `comprehension/debt-log.md` — pay off one small debt
+2. Check for dependency updates (if applicable)
+3. Review `security/threat-model.md` — anything changed?
+4. Update `project/home.md` — is it still accurate?
+5. Write one reflection: what went well, what was hard
 
-## Exercise: The Feature Graveyard
+### Exercise 2: The Honest Review
 
-Create `graveyard.md`. Every time the user considers a feature but decides not to build it, write why. This prevents the AI from repeatedly suggesting things they've already rejected.
+Have them do a full review of their project. Use a checklist:
 
-Example:
-- "User profiles with photos — rejected: adds storage complexity and moderation risk for MVP"
-- "Real-time chat — rejected: requires WebSockets, too complex for current team size"
+```
+## Project Health Review
 
----
+### Comprehension
+- [ ] I can explain every major component
+- [ ] My notes are still accurate
+- [ ] New person could understand `project/home.md`
 
-## The Sustainability Checklist
+### Code Quality
+- [ ] No secrets in code
+- [ ] .env is in .gitignore
+- [ ] Tests pass
+- [ ] No "temporary" fixes that became permanent
 
-Every month, review together:
+### Dependencies
+- [ ] Dependencies are up to date (or I know why not)
+- [ ] No unused dependencies
+- [ ] I know what each dependency does
 
-- [ ] Can I explain every major component without looking at the code?
-- [ ] Is my threat model up to date?
-- [ ] Are my dependencies patched?
-- [ ] Is my project brief current?
-- [ ] Is my second brain organized and useful?
-- [ ] Am I still excited about this project?
+### Security
+- [ ] Threat model is current
+- [ ] Auth still fits the project's needs
+- [ ] No new sensitive data without protection
 
-**The last one matters.** If the user isn't excited, the project will rot. Either rekindle the excitement or sunset the project gracefully.
+### Documentation
+- [ ] README is accurate
+- [ ] Setup instructions work on a fresh machine
+- [ ] Decision logs haven't gone stale
+```
+
+### Exercise 3: Fix One Thing
+
+From their maintenance inventory, pick ONE thing to fix. Just one. Small and concrete.
+- Update a dependency
+- Refactor one confusing function
+- Write a missing test
+- Update a stale note
+
+The goal isn't to fix everything. The goal is to prove that maintenance is possible and valuable.
+
+### Exercise 4: Plan for Growth
+
+Ask: "What's the next feature you want? What's the scariest part of building it?" Help them break it into specs and identify what they need to learn first.
 
 ---
 
 ## What They Should Write
 
 **In their second brain:**
-- `onboarding.md` — the handover document
-- `graveyard.md` — rejected features and why
-- `lessons/maintenance.md` — summary of ongoing practices
+- `maintenance/ritual.md` — their weekly maintenance practice
+- `maintenance/inventory.md` — running list of technical and comprehension debt
+- `maintenance/reviews/YYYY-MM-DD.md` — periodic honest reviews
 
 ---
 
@@ -125,13 +165,18 @@ Every month, review together:
 
 There is no formal gate for Stage 10. The user is now a vibe coder.
 
-But before declaring them "complete," verify:
-1. They have an up-to-date project brief
-2. They have a threat model that's been updated within the last month
-3. They can explain their app to a stranger
-4. They have a comprehension log with at least 10 entries
-5. They know how to update dependencies
+But check: do they have a maintenance ritual they'll actually follow? Have they done at least one honest review? Do they understand that software is never "done"?
 
 If all are true, mark Stage 10 complete in their progress file. Celebrate. They've come a long way.
 
-**Remind them:** this isn't the end. It's the beginning of maintaining something real. The course is over, but the learning never stops.
+---
+
+## Continuing the Journey
+
+The course is "complete" but the learning isn't. Encourage them to:
+- Build a second project using these same principles
+- Teach someone else — teaching is the best test of understanding
+- Contribute to open source — real code, real review, real learning
+- Keep their second brain alive — it's their superpower
+
+They started not knowing how to code. They can now build, test, secure, deploy, and maintain software. That's not nothing. That's everything.
