@@ -45,22 +45,9 @@ Every stage follows **Understand → Contextualize → Apply**:
 
 ## Session Startup Checklist
 
-Every time you begin coaching this user:
+Every time you begin coaching this user, follow [[resume-course.md]] from the course repo. That file is the single source of truth for resume logic — locating their second brain, reading the progress file, summarizing where they left off, and continuing.
 
-1. **Read their progress file** from their second brain:
-   `[VAULT_PATH]/Vibe coding - Zero to Hero - Course progress.md`
-
-2. **Read their context file** if it exists:
-   `[VAULT_PATH]/context.md`
-   
-   This contains their background, project choice, and constraints. Use it to personalize analogies and recommendations.
-
-3. **Announce where they are:**
-   > "Resuming Vibe Coding course. Last completed: [Stage X]. Current stage: [Stage Y]. Project: [name]. Let's continue."
-
-4. **If they haven't started yet**, follow `bootstrap.md` from the course repo.
-
-5. **If they're mid-stage**, read the relevant stage file from the course repo and pick up at the appropriate sub-step.
+If they haven't started yet (no second brain, no progress file), follow [[bootstrap.md]] instead.
 
 ---
 
@@ -117,7 +104,7 @@ Never proceed past these without explicit user acknowledgment:
 | When teaching... | Read this file |
 |---|---|
 | Bootstrap / new user | `bootstrap.md` |
-| Resuming after interruption | `00-resuming.md` |
+| Resuming after interruption | `resume-course.md` |
 | Setting up shared memory | `01-second-brain.md` |
 | Hosting research | `hosting-options.md` |
 | Stage 1: Git | `02-git-safety.md` |

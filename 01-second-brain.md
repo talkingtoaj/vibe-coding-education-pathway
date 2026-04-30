@@ -1,10 +1,17 @@
 # Teaching: The Second Brain
 
-> **Audience: AI coach.** How to explain the second brain concept, evaluate options with the user, and set up their chosen tool as shared persistent memory between human and AI.
+> **Purpose:** How to explain the second brain concept, evaluate options with the user, and set up their chosen tool as shared persistent memory between human and AI.
 
 ---
-
+TASKS:
+1. Cover key information from the 'what to explain' section
+2. Get them to choose a Second Brain option and help them install it
 ## What to Explain
+You are to explain the following, but to do it in parts by asking questions.
+- Are you familiar with the concept of a Second Brain?
+- Do you know how each time an LLM runs, it begins with no memory, and therefore we need techniques to provide continuity of conversations over time?
+
+Through these questions and their answers, we want to communicate the key points from the following notes:
 
 ### For Humans (The Familiar Part)
 
@@ -31,11 +38,11 @@ This means you get **continuity.** A course that spans weeks or months, across d
 
 ## The Two Requirements
 
-Whatever tool we choose, it must satisfy both of these:
+Whatever tool we choose, it should satisfy both of these:
 
 1. **The AI can access and modify its contents.** This is the meeting ground. If I can't read your notes and write to them, we lose the shared memory that makes the course work.
 
-2. **It syncs between your computer and your mobile phone.** You need to review notes, check your progress, or jot down ideas on the go. If it's only on your laptop, you'll forget to check it.
+2. **It syncs between your computer and your mobile phone.** While not essential, it is far more useful it you can review notes, previous conversations,  or jot down ideas on the go. If it's only on your laptop, you'll miss out on many opportunities to benefit from your AI assistant.
 
 ---
 
@@ -45,110 +52,8 @@ Don't mandate a tool. Research with the user and let them choose.
 
 ### The Research Prompt
 
-Give the user this prompt to run (or run it for them if you can search):
+Do research on the web for the most popular options by checking online reviews from the past 6 months. Consider ease of use and pricing. Give the user options and links to review.
 
-```
-I need a "second brain" note-taking app for a long-term learning project. Requirements:
-1. My AI assistant must be able to read and write files in it (it needs filesystem access or an API)
-2. It must sync between my computer and my mobile phone
-
-Please research current options and for each one report:
-- Name and website
-- Computer platforms supported (Windows/Mac/Linux/Web)
-- Mobile platforms supported (iOS/Android)
-- Sync method and any associated cost
-- Whether files are accessible to external tools (AI assistants, scripts, backup tools)
-- Free tier limitations and paid tier cost
-- One major pro and one major con
-- Best for: what type of user or use case
-
-Focus on options that are actively maintained and have good free tiers.
-```
-
-### Common Options (as of 2026 — verify current details)
-
-**Obsidian (obsidian.md)**
-- Platforms: Windows, Mac, Linux, iOS, Android
-- Sync: Obsidian Sync ($8/month) OR free alternatives (iCloud, Dropbox, Git, Syncthing)
-- File access: Plain markdown files on disk — any AI tool with file access can read/write
-- Free tier: Fully free. Only sync costs money if you use Obsidian's official sync.
-- Pro: Files are yours forever, work offline, extremely flexible
-- Con: Sync requires setup (not built-in for free). Mobile editing is good but not as polished as dedicated mobile apps.
-- Best for: Users who want full ownership of their data and don't mind a little setup
-
-**Notion (notion.so)**
-- Platforms: Web, Windows, Mac, iOS, Android
-- Sync: Built-in, free
-- File access: API available, but AI assistants typically can't read/write Notion pages directly via filesystem
-- Free tier: Generous for personal use
-- Pro: Beautiful, collaborative, great mobile experience
-- Con: AI access is harder — requires Notion API integration, not simple file reading. Data is on Notion's servers.
-- Best for: Users who want polish and collaboration, and whose AI can work with APIs
-
-**Apple Notes**
-- Platforms: Mac, iOS, Web (via iCloud.com)
-- Sync: iCloud, free
-- File access: Very difficult for external tools. Files are in a proprietary database.
-- Free tier: Free with Apple ID
-- Pro: Native, fast, great mobile experience
-- Con: AI assistants essentially can't access these files. Breaks requirement #1.
-- Best for: Apple-only users NOT doing this course (doesn't meet our AI access requirement)
-
-**Google Keep**
-- Platforms: Web, Android, iOS
-- Sync: Built-in, free
-- File access: API exists but AI assistants can't read/write directly via filesystem
-- Free tier: Free
-- Pro: Simple, fast, great for quick notes
-- Con: Not designed for structured knowledge management. Limited formatting. AI access is API-only.
-- Best for: Quick capture, not for a structured course
-
-**Standard Notes (standardnotes.com)**
-- Platforms: Windows, Mac, Linux, iOS, Android, Web
-- Sync: Built-in sync is paid ($4/month). Can self-host for free.
-- File access: Files are accessible if you self-host or use local storage
-- Free tier: Can use without sync (local only)
-- Pro: Privacy-focused, encrypted, open source
-- Con: Sync costs money unless you self-host (technical). Less flexible than Obsidian.
-- Best for: Privacy-focused users comfortable with technical setup
-
-**Logseq (logseq.com)**
-- Platforms: Windows, Mac, Linux, iOS, Android
-- Sync: iCloud, Git, or third-party sync (no built-in paid sync)
-- File access: Plain markdown files on disk — AI accessible
-- Free tier: Completely free and open source
-- Pro: Outliner-style, great for thinking, free forever
-- Con: Different paradigm (outliner vs traditional notes). Mobile app is newer.
-- Best for: Users who think in outlines, want free forever, don't need polished mobile
-
-**Joplin (joplinapp.org)**
-- Platforms: Windows, Mac, Linux, iOS, Android
-- Sync: Dropbox, OneDrive, Nextcloud, Joplin Cloud (paid), etc.
-- File access: Can export to markdown, but native format is proprietary
-- Free tier: App is free. Sync may cost depending on method.
-- Pro: Open source, good web clipper, multiple sync options
-- Con: AI file access is less direct than Obsidian/Logseq. Native format isn't plain markdown.
-- Best for: Users who want open source with built-in web clipping
-
-**Microsoft OneNote**
-- Platforms: Windows, Mac, Web, iOS, Android
-- Sync: OneDrive, free
-- File access: Very difficult for external AI tools. Proprietary format.
-- Free tier: Free
-- Pro: Familiar, great handwriting support
-- Con: AI assistants can't read/write the files. Breaks requirement #1.
-- Best for: Users not doing this course (doesn't meet our AI access requirement)
-
-**Plain Text / Markdown Files in Dropbox/iCloud/Google Drive**
-- Platforms: Any
-- Sync: Via the cloud service
-- File access: AI can read/write if synced to local disk
-- Free tier: Depends on cloud service
-- Pro: Maximum flexibility, works with any tool
-- Con: No built-in note-taking features (search, linking, organization). Just folders and files.
-- Best for: Minimalist users who want maximum interoperability
-
----
 
 ## The Decision Process
 
@@ -159,14 +64,6 @@ After research, ask the user:
 3. "Is plain text file ownership important to you, or are you comfortable with your notes living in a company's cloud?"
 4. "Do you want something polished and beautiful, or functional and flexible?"
 
-**Common recommendation path:**
-- **Obsidian** is the default recommendation because: free to use, plain markdown files (AI can read/write directly), extremely flexible, active community. The only cost is sync if they want official Obsidian Sync — but free alternatives (iCloud on Apple, Dropbox, Git, Syncthing) work fine.
-- **Notion** if they want polish and collaboration and their AI setup can handle APIs.
-- **Logseq** if they want free forever and think in outlines.
-
-**If the user already uses a tool that doesn't meet both requirements** (e.g., Apple Notes, OneNote): gently explain why it won't work for this course and help them pick a second tool just for the course. They can keep using Apple Notes for everything else.
-
----
 
 ## Setup: The Key Steps
 
@@ -180,30 +77,130 @@ Regardless of which tool they choose:
 
 ---
 
-## Troubleshooting
 
-**"The AI can't read my note files."**
-- Is the vault/folder in a location the AI tool has permission to access? (Claude Desktop: check Settings → Developer → Allowed directories)
-- Are the files plain text/markdown, or a proprietary format?
-- Try a simpler location: Desktop, Documents, or home folder.
+## Create the Vault Structure
 
-**"I don't know how to sync to my phone."**
-- Obsidian: Install mobile app → enable sync method (iCloud, Dropbox, etc.) → open the same vault
-- Notion: Install app → log in → everything syncs automatically
-- Logseq: Install mobile app → enable iCloud/Git sync
+In the user's second brain, create this folder and file structure:
 
-**"This feels like a lot of setup before we even start."**
-- Acknowledge it. "It is. But this 15 minutes of setup saves hours of repetition later. Every time we meet, I'll know exactly where we are because we wrote it down together. And you can review your notes on the bus."
+```
+vibe-coding-wiki/
+├── home.md                              # Central index — links to everything
+├── progress.md  # Tracks what's done
+├── project-spec.md                      # What they're building and why
+├── context.md                           # Their interview answers + background (filled in later)
+├── lessons/
+│   └── (empty for now — they'll fill this as they learn)
+├── security/
+│   └── (empty for now)
+└── decisions/
+    └── (empty for now)
+```
+
+Create `home.md` with this content:
+
+```markdown
+# My Vibe Coding Home
+
+This is the central index for everything I'm building and learning.
+
+## My Project
+- [[project-spec]] — what I'm building and why
+
+## Course Progress
+- [[progress]] — where I am in the course
+
+## What I've Learned
+- [[lessons/]] — summaries of each lesson
+
+## Security Notes
+- [[security/]] — things to watch out for
+
+## Decisions
+- [[decisions/]] — why I chose X over Y
+
+## About Me
+- [[context]] — my background, goals, and constraints
+```
+
+Create `Vibe coding - Zero to Hero - Course progress.md` with this content:
+
+```markdown
+# Vibe Coding — Zero to Product: Course Progress
+
+Started: [DATE]
+Last session: [DATE]
+Current stage: Setup / Interview complete
+
+## Completed Stages
+- [ ] Stage 0: Setup & Interview
+- [ ] Stage 0.5: Hosting Research (optional)
+- [ ] Stage 1: Git & Safety
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 2: Spec Writing
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 3: Comprehension Debt
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 4: Testing
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 5: Persistent Storage
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 6: Identity & Access
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 7: Second Brain (ongoing)
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 8: AI Skills
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 9: Deployment
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Stage 10: Maintenance & Growth
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+
+## Current Project Status
+- Project name: [FILL IN]
+- Current feature: [FILL IN]
+- Known comprehension debt: [FILL IN AS DISCOVERED]
+- Last git commit: [FILL IN]
+```
 
 ---
 
-## After Setup: Test It
+## Test the System
 
-1. Create `home.md` (see [[bootstrap.md]] for template)
-2. Create `Vibe coding - Zero to Hero - Course progress.md` (see [[bootstrap.md]] for template)
-3. Write something to the progress file
-4. Read it back
-5. Ask the user to open it on their phone and confirm they see the same thing
-6. Ask the user to make a small edit on their phone and confirm it appears on the computer
+1. Ask the user to open `home.md` in their second brain and verify it looks right
+2. Ask the user to open `Vibe coding - Zero to Hero - Course progress.md` and confirm they can see the checklist
+3. Read the progress file yourself and confirm you can access it
+4. Update the "Started" and "Current stage" fields with today's date
+5. Write the updated progress file back
+6. Read it again to confirm the update worked
+7. Ask the user to open the file on their phone and confirm they see the same content
+8. Ask the user to make a small edit on their phone and confirm it appears on the computer
 
 If all of this works, the second brain is operational. Celebrate this — it's a genuine milestone.
+
+**If any of these steps fail, stop and fix the access issue before proceeding.** The entire course depends on this working.
+
+---
+
+## Onboarding: Next Step
+
+Once you have completed this stage, save progress, and next follow instructions from  [[setup-recovery.md]].

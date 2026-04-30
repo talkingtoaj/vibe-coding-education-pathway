@@ -1,15 +1,14 @@
-# Vibe Coding — Zero to Product
+# Vibe Coding — Zero to Hero
 
-> You don't write code. You write intentions, verify results, and manage comprehension.
-> 
 > A free, self-paced course for non-coders who want to ship software by directing AI.
+
+This isn't watching tutorials. It's learning by doing, with your real project as the curriculum.
 
 Every stage follows the **UCA pattern**: **Understand** → **Contextualize** → **Apply**.
 - **Understand:** You ask questions until the concept is clear (tutor mode)
 - **Contextualize:** We connect it to your actual project (coach mode)
 - **Apply:** You implement it hands-on (coach mode)
 
-This isn't watching tutorials. It's learning by doing, with your real project as the curriculum.
 
 ---
 
@@ -21,22 +20,22 @@ Think of it like directing a film. You don't operate the camera — but you abso
 
 ## What You'll Learn
 
+- **AI Skills** — teach your AI reusable superpowers: brainstorming, reflection, and chaining skills together
+- **Deployment** — getting your app in front of the world
+- **Sustainable maintenance** — keeping your project healthy over time
+- **Identity & access** — who can see what, and why that matters for security
 - **Git & safety** — never lose work, always be able to undo
 - **Specification-driven development** — write clear descriptions before any code exists
 - **Comprehension debt** — know what you don't know, so it doesn't bite you later
 - **Testing** — prove things work, even when you didn't write the code
 - **Persistent memory** — where data lives and why it matters
-- **Identity & access** — who can see what, and why that matters for security
 - **Your second brain** — a shared memory system between you and your AI
-- **AI Skills** — teach your AI reusable superpowers: brainstorming, reflection, and chaining skills together
-- **Deployment** — getting your app from your laptop to the world
-- **Sustainable maintenance** — keeping your project healthy over time
 
 ## What You Need
 
 1. **An AI coding assistant** — we recommend [Claude Desktop](https://claude.ai/download) (free tier). It runs on your own computer, works offline, and handles long conversations well. Cursor, GitHub Copilot, or similar tools are fine too.
 
-2. **A computer** — Windows, Mac, or Linux. Windows users: stay on Windows/PowerShell. Don't let anyone shame you into learning Linux. The goal is shipping, not being a sysadmin.
+2. **A computer** — Windows, Mac, or Linux. 
 
 3. **Curiosity** — and a real problem or project you want to solve.
 
@@ -44,7 +43,7 @@ That's it. No coding knowledge required.
 
 ## How to Start
 
-Copy and paste this exact prompt into your AI assistant:
+Copy and paste this exact prompt into an AI assistant of your choosing:
 
 ```
 I'm wanting to begin learning how to become an effective Vibe coder. I don't know how to code, and I don't necessarily want to learn how to code, but I do want to learn the tricks to effective, sustainable Vibe coding. There's a free course available at https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/bootstrap.md, please read it and then walk me through what I need to do to get started.
@@ -56,11 +55,11 @@ The AI will guide you through this sequence:
 
 1. **Can we save files?** — The AI tests whether it can write files on your system. If not, it'll guide you to install a local AI assistant (like Claude Desktop) that can. This is essential — the entire course depends on a shared memory system.
 
-2. **Recovery setup** — The AI sets up a way for you to resume instantly after any interruption: either a custom command, a file on your Desktop you can copy-paste, or clear manual instructions.
+2. **Second brain setup** — You pick a note-taking app (we'll explore options together), set it up as a shared workspace between you and the AI, and the AI populates it with your course progress tracker, project notes, and lesson summaries.
 
-3. **Interview** — The AI asks about your background, goals, and available time, then helps you pick a real project to build.
+3. **Recovery setup** — Now that your second brain exists, the AI sets up a way for you to resume instantly after any interruption: a persistent system instruction, a custom command, or a Desktop paste-file — all pointing to a single resume script.
 
-4. **Second brain setup** — You pick a note-taking app (we'll explore options together), set it up as a shared workspace between you and the AI, and the AI populates it with your course progress tracker, project notes, and lesson summaries.
+4. **Interview** — The AI asks about your background, goals, and available time, then helps you pick a real project to build. Your answers are saved directly to your second brain.
 
 5. **Begin learning** — You start with Git (your "save game" system) and progress through each stage at your own pace.
 
