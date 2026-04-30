@@ -29,13 +29,8 @@ Announce to the user:
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
 - Answer questions about data ownership, multi-tenancy, server-side vs. client-side access control
 - Do NOT review their project yet
 - Let them discover the gap between "login works" and "data is protected"
@@ -79,13 +74,8 @@ When the learner confirms they are ready to move on (and can explain the core co
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Help them identify every piece of user-specific data in their project
 - Build a data ownership map together
 
@@ -114,11 +104,7 @@ Say: "When you're ready to enforce ownership in your project, tell me you're rea
 
 ---
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+## Phase 3: Apply — [[UCA-teaching.md]]
 
 ### The Directive
 

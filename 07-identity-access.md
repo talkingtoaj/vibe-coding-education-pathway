@@ -21,13 +21,8 @@ Announce to the user:
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
 - Answer questions about authentication, authorization, identity, access control
 - Do NOT tell them their project needs (or doesn't need) auth yet
 - Do NOT review their project
@@ -72,13 +67,8 @@ When the learner confirms they are ready to move on (and can explain the core co
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Help them honestly assess their project's security needs
 - Don't let them skip security because it's hard
 
@@ -107,11 +97,7 @@ Say: "When you're ready to implement or document your access boundary, tell me y
 
 ---
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+## Phase 3: Apply — [[UCA-teaching.md]]
 
 ### Path A: No Auth Needed (Document the Boundary)
 

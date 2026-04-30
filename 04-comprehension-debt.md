@@ -1,10 +1,10 @@
 # Comprehension Debt
 
-> **Purpose:** Help the user see comprehension debt in AI-generated code, spot it in their own project, and pay it down with a code walkthrough and self-explanation.
+> **Purpose:** Help the learner notice when they have accepted AI-built work without understanding it well enough to steer it or catch mistakes — and pay that “debt” down using **simple, plain-language tools** (pictures, stories, checklists), not by pretending to be a programmer reading every line.
 >
-> **Understand:** Tutor mode. User asks about comprehension debt, why "it works but I don't understand it" is dangerous.
-> **Contextualize:** Coach mode. Review their current project for comprehension debt. What don't they understand yet?
-> **Apply:** Coach mode. They do a code walkthrough and write their first self-explanation.
+> **Understand:** Tutor mode. They ask what comprehension debt is, why it matters for a vibe coder, and how to shrink it.
+> **Contextualize:** Coach mode. Find one place in *their* project where they feel fuzzy or nervous.
+> **Apply:** Coach mode. They engage with the implementation agent to chase the gaps in their understandings of how it fits together. They repeat back to the implementation agent what they think they understand is going on and why it has to be that way until both user and AI agree. 
 
 ---
 
@@ -12,157 +12,143 @@
 
 Announce to the user:
 
-> "Welcome to Comprehension Debt. Every line of code the AI writes that you don't fully understand is a debt you owe. Eventually, you'll pay — with bugs, bad decisions, and rework. Three phases:
-> 1. **Understand** — Ask me about comprehension debt: what it is, why it accumulates, how to pay it off.
-> 2. **Contextualize** — We'll look at your project and find the comprehension debt you've already taken on.
-> 3. **Apply** — You'll do a code walkthrough and write a self-explanation for one piece of code.
+> "Welcome to Comprehension Debt. When the AI builds things for you, it is easy to nod along while the details stay fuzzy. That fuzzy patch is **debt**: you owe yourself a clearer picture before you make the next big decision. You do **not** need to read code like a developer. You need enough clarity to **direct**, **question**, and **notice** when something is off.
 >
-> We'll move to each next phase when you confirm you're ready."
+> Three phases:
+> 1. **Understand** — Ask me what this debt is, why it matters, and how vibe coders pay it down in simple ways.
+> 2. **Contextualize** — We pick one part of *your* app where you feel least sure.
+> 3. **Apply** — You will ask your implementation agent for **simple diagrams or a plain-language walkthrough** (often by asking your **implementation agent** to draw or explain it), you chase the gaps in your understandings and echo back to the agent what you understand is going on until you and the agent's descriptions match.
+>
+> We move on when you say you are ready for the next phase."
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
-- Answer questions about comprehension debt, technical debt, and the difference between them
-- Do NOT review their code or point out their debt yet
-- Do NOT tell them "now let's look at your project"
-- Let them ask questions until they understand the concept
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
+- Use **everyday words**; if you must use a technical term, define it in one short sentence.
+- Do **not** open their project files or point at their code yet.
+- Do **not** say "now let us look at your project."
+- Let them ask questions until the idea feels clear enough to explain back without jargon.
 
 ### Key Concepts They Should Explore
 
-- **What comprehension debt is** — code you accepted without fully understanding how it works
-- **Why it's dangerous** — decisions built on things you don't understand become wrong decisions
-- **How it accumulates** — one unread function becomes two, then ten, then the whole codebase is a black box
-- **The difference from technical debt** — technical debt is "this works but is suboptimal"; comprehension debt is "this might work but I don't know why"
-- **How to pay it off** — code walkthroughs, self-explanations, the Feynman technique
+- **What comprehension debt is** — accepting work (from the AI) without a clear mental picture of **what happens**, **in what order**, and **what could go wrong**.
+- **Why it is risky** — the app can look fine while you cannot tell if a change is safe, if a bug is likely, or if a “small ask” to the AI might break something important.
+- **How it piles up** — one fuzzy corner becomes many; soon you only trust vibes, not understanding.
+- **How it differs from “technical debt”** (optional, plain words): “technical debt” often means *the build is messy but we know it*. Comprehension debt means *I am not sure what the build actually does*.
+- **How vibe coders pay it down** — short sessions with **pictures**, **stories**, and **“what if” questions**, saved in the second brain — not marathon code reading.
 
 ### Guided Start (to prevent learner stall)
 
 At the start of Understand, give a short orientation:
 
-> "By the end of this phase, you should be able to explain:
+> "By the end of this phase, you should be able to explain in your own words:
 > 1. What comprehension debt is
-> 2. Why it is dangerous even when code appears to work
-> 3. How comprehension debt differs from technical debt
-> 4. Practical ways to pay comprehension debt down
-> 5. How to test your own understanding of a code snippet"
+> 2. Why it still matters when the app seems to work
+> 3. Two or three **simple** ways to shrink that debt (examples: ask for a diagram, ask for a step-by-step story, write a plain checklist)
+> 4. How you would tell if you *still* do not understand something well enough"
 
-If they are unsure what to ask, offer question starters:
+If they are unsure what to ask, offer starters:
+
 - "What is comprehension debt in plain language?"
-- "How is comprehension debt different from technical debt?"
-- "What are early warning signs I'm taking on too much comprehension debt?"
-- "What is one practical way to pay down debt this week?"
-- "How do I check whether I truly understand a function?"
+- "Why should I care if I do not read every line the AI wrote?"
+- "What is an easy way to understand my app without becoming a programmer?"
+- "What are signs I have taken on too much debt?"
+- "How is this different from normal ‘messy project’ stuff?"
 
 ### The Black Box Analogy (use only if asked)
 
-Imagine your codebase is a car engine. Every time the AI writes code and you say "looks good, merge it" without understanding it — you're bolting on a mystery part. One mystery part? Fine. Ten? The engine still runs, but now you can't change the oil without breaking something. Eventually you need to replace the alternator but you don't know which part IS the alternator. That's comprehension debt.
+The AI keeps bolting on parts. If you never learn what each part does, the machine still runs — until you need to fix something, change something, or explain something to a user. Then the black box bites you.
 
-### The Three-Question Test (use only if asked)
+### The Three Plain Questions (use only if asked)
 
-For any piece of code, ask:
-1. What does this do? (the user should be able to explain in plain English)
-2. Why does it do it this way? (not just "it works" — what's the design choice?)
-3. What would break if I changed X? (understanding dependencies and side effects)
+For **one small part** of how the app behaves (a screen, a flow, a “when the user clicks…”):
+
+1. **What happens?** — in normal words, start to finish.
+2. **Why is it set up that way?** — not “because the AI said so,” but what job it is doing for the user.
+3. **What would get weird if we changed one thing?** — even a rough guess counts; “I don’t know” is useful honesty.
 
 ### Readiness to Move to Contextualize
 
-When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project files and `context.md`, then move to Phase 2.
+When they can explain the core idea in their own words, read their `context.md` and any notes they already have, then move to Phase 2.
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
-- Help them identify comprehension debt in their actual project
-- Be gentle but honest
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
+- Find **one** place they feel least confident — a flow, a feature, or “the thing I would be scared to change.”
+- Stay kind; fuzzy patches are normal.
 
 ### What to Do
 
-1. Ask: "Look at the code the AI has written for your project so far. Pick one file or function. Can you explain in plain English what it does?"
+1. Ask: "When someone uses your app, what is **one path** you are least sure about — what happens step by step?"
 
-2. Have them paste a code snippet (not the whole file — one function or section)
+2. Ask them to describe that path in their own words, even if incomplete. Where they trail off or guess — name that gently as debt: "That gap is exactly what we are allowed to fix."
 
-3. Run the **Three-Question Test** on that snippet:
-   - "What does this do?"
-   - "Why does it do it this way?"
-   - "What would break if you changed [specific part]?"
 
-4. Where they hesitate or guess — that's comprehension debt. Flag it. Say: "That's okay. That's exactly what we're here for. This is normal."
 
-5. Ask them to estimate: "What percentage of your codebase do you think you truly understand?" (Don't judge the number. Any answer under 100% is honest.)
+5. Ask: "How might you ask for a **picture** or **story** that would make this path click for you?" (You will use that in Apply.)
 
-6. Ask: "What's the most important piece of code you DON'T understand? The one you'd be most scared to change?"
+### When They Are Ready for Apply
 
-### When They're Ready for Apply
-
-Say: "When you're ready to pay off some debt by actually understanding a piece of code, tell me you're ready for the Apply phase."
+Say: "When you are ready to shrink that fuzzy patch — with a diagram or a plain walkthrough — tell me you are ready for Apply."
 
 ---
 
-## Phase 3: Apply
+## Phase 3: Apply — [[UCA-teaching.md]]
+**Topic:** Diagrams/exports via implementation agent; coach checks alignment with learner; gate.
 
-### Coach Mode Instructions for You (the AI)
+### Exercise 1: Picture or Story (main path)
 
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+Have them pick **one** fuzzy path (from Phase 2 if they came up with one).
 
-### Exercise: The Feynman Walkthrough
+They ask their **implementation agent** something like (they adapt the words):
 
-> **Framing:** You are not learning to write this code. You are learning to read it well enough to spot when the AI has done the wrong thing, and to ask better questions next time.
+> "Draw me a **simple diagram** of what happens on this path: from when the user [does X] until they see [Y]. Use boxes and arrows. No code unless I ask. If you are not sure, say what you are guessing."
 
-Pick one piece of code from their project that has comprehension debt. It should be small — 20-50 lines, not a whole file.
+Accept a **simple chart** (boxes and arrows), a **numbered list** of steps, or a short **script** ("first this, then that") — whatever they can read. If it is too dense, have them ask again: "Make this understandable to someone who does not code."
 
-1. **Read the code together.** Line by line. Ask them: "What does this line do?" Don't rush.
+Then:
 
-2. **Draw or describe data flow.** Where does data come in? What transforms it? Where does it go out? Use pencil and paper, or describe verbally.
+1. **Walk it aloud together** — "Start here… then what?" until it matches how they think the app should behave.
+2. **One red flag check** — "Where could a user or a stranger break this flow, even by accident?" (No need for security lecture; one honest line is enough.)
+3. **Save it** — in their second brain, create `comprehension/[short-name]-flow.md` with the diagram or story **in their own words**, plus one line: "What I still do not know is: …"
 
-3. **Have them explain it back to you** as if teaching a friend who has never coded. If they use jargon, say: "Explain that without using the word [jargon]."
+They write the note; you help them tighten wording only if they want.
 
-4. **Write the self-explanation.** In their second brain, create `comprehension/[filename]-walkthrough.md`. They write it, not you. Prompt:
-   > "Explain this function as if the reader is smart but has never seen your codebase. What does it do? Why this approach? What would break if changed?"
+### Exercise 2: Plain “What If” (short)
 
-5. **Review their explanation.** Is it accurate? Does it show understanding or just paraphrasing? Push gently if needed.
+Still on the same path, ask two plain questions, for example:
 
-### Exercise: The "What Would Break If..." Game
+- "What should happen if the user does the right thing but the network is slow?"
+- "What should happen if they click twice by accident?"
 
-Pick a variable name, a function call, or a library import from their code. Ask:
-- "What would happen if you renamed this?"
-- "What would happen if you removed this line?"
-- "What would happen if this function returned nothing?"
+If they do not know — that goes in the debt log (below). No shame.
 
-If they don't know — that's more debt. Don't fix it; have them discover by experimenting (in a safe git branch).
+### Exercise 3: One Claim Check (optional, still simple)
 
-### Exercise: The AI Hallucination Drill
+Pick **one concrete claim** from the diagram or story (for example: "data is saved here," "only the owner can see this"). Have their **implementation agent** answer: "Show me where in the project that claim is backed up" — **or** have the learner check one visible behavior in the running app. If the claim does not hold, the debt log gets a new line: what was wrong and what they will ask the AI to fix next.
 
-Pick one AI-generated import or function call. Look it up in the actual library's documentation (or run the code and check the output). Verify: does this function exist with the signature the AI used?
-
-This builds a muscle the course returns to repeatedly: *the AI is confident but not always correct.* References, function names, and library versions are frequent points of error. A vibe coder's job includes verifying that what the AI claims to use actually exists.
+Keep this exercise **small**. The habit matters more than perfection.
 
 ---
 
 ## What They Should Write
 
 **In their second brain:**
-- `comprehension/[filename]-walkthrough.md` — their self-explanation of one piece of code
-- `comprehension/debt-log.md` — a running list of things they don't yet understand, with dates. This is their honesty file.
+
+- `comprehension/[short-name]-flow.md` — diagram or step-by-step story in plain language, plus "what I still do not know."
+- `comprehension/debt-log.md` — a short, dated list of fuzzy spots. Plain bullets. This is their honesty file, not a shame file.
 
 ---
 
 ## Gate
 
 Can the user:
-1. Explain comprehension debt in their own words?
-2. Identify at least two pieces of code in their project they don't fully understand?
-3. Write a self-explanation of one function that a non-coder could mostly follow?
-4. Predict at least one thing that would break if they changed a specific part of their code?
+
+1. Explain comprehension debt in their own words, **without** needing to sound technical?
+2. Name **at least one** places in their project where they felt fuzzy?
+3. Show **one** saved flow note (diagram or story) that a non-coder could mostly follow?
+4. Say **at least one** "what if" they now understand better, or add one honest "I still do not know" to the debt log?
 
 If yes, mark Comprehension Debt complete in `progress.md` and move to [[05-testing]].

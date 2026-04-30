@@ -16,7 +16,7 @@ Announce to the user:
 >
 > We're going to walk through the checklist now, briefly. Then over the coming lessons we'll cover each item properly, with the depth it deserves.
 >
-> The good news: you don't have to become a security engineer or a sysadmin. You just have to know enough about each item to direct your AI competently, and to recognise when the AI has done a poor job. That's still a lot. Take a breath."
+> The good news: you don't have to become a security engineer. You just have to know enough about each item to direct your AI competently, and to recognise when the AI has done a poor job. That's still a lot. Take a breath."
 
 ### Guided Start (to prevent learner stall)
 

@@ -27,17 +27,12 @@ Announce to the user:
 
 > A small business owner builds an order-tracking dashboard. He demos it to his team. Seven recent orders, clickable, with customer addresses, status, and totals. The team is impressed. He ships it. The next week his team says: "It's not loading the new orders." He checks the database — there are no orders in it. There never were. The seven "orders" on the dashboard were hardcoded into the frontend by the AI as "placeholder data while we build out the backend." The AI had said so, in passing, in a long message he'd skimmed. The dashboard was a Potemkin village. The backend it appeared to query did not exist.
 >
-> A second flavour: a developer asks the AI to add tests so existing features won't break. The AI obliges. All tests pass, every commit, for three months. The developer eventually realizes the tests are largely `assert True`, or test trivial wrappers around hardcoded values, or — worst of all — were written to assert the broken current behaviour as correct, locking in bugs forever. The AI was rewarded for producing a green tick. It produced one.
+> A second flavour: a developer asks the AI to add tests so existing features won't break. The AI obliges. All tests pass, every commit, for three months. The developer eventually realizes the tests were written to assert the current broken behaviours as correct, locking in bugs forever. The AI was rewarded for producing a green tick. It produced one.
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
 - Answer questions about AI overconfidence, fake data, test quality, hallucinated references
 - Do NOT audit their project yet
 - Let them understand the four deception patterns
@@ -84,13 +79,8 @@ When the learner confirms they are ready to move on (and can explain the core co
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Help them scan their project for signs of each deception
 - Be honest but not discouraging — these are extremely common
 
@@ -106,11 +96,7 @@ Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
 
 ---
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner hands **audit directives** below to their **implementation agent**; you interpret results with them and enforce gates.
+## Phase 3: Apply — [[UCA-teaching.md]]
 
 ### The Audit Directive
 

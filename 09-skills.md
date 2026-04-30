@@ -21,13 +21,8 @@ Announce to the user:
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
 - Answer questions about AI skills, reusable prompts, skill composition
 - Do NOT tell them what skills to create
 - Do NOT connect to their project yet
@@ -70,13 +65,8 @@ When the learner confirms they are ready to move on (and can explain the core co
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Help them identify what skills would actually save them time
 - Focus on their real workflow, not theoretical possibilities
 
@@ -103,11 +93,7 @@ Say: "When you're ready to build your first two skills, tell me you're ready for
 
 ---
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+## Phase 3: Apply — [[UCA-teaching.md]]
 
 ### Exercise 1: Brainstorm Skill
 

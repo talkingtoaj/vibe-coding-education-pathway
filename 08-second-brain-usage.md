@@ -21,13 +21,8 @@ Announce to the user:
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
 - Answer questions about knowledge management, note-taking systems, external memory
 - Do NOT review their current notes or suggest reorganization yet
 - Do NOT tell them to create specific folders
@@ -41,7 +36,7 @@ Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
 - **The PARA method** (or similar): Projects, Areas, Resources, Archives
 - **The difference between a reference note and a thinking note** — reference stores facts; thinking stores reasoning and decisions
 - **Linking notes** — connections between ideas are more valuable than the ideas themselves
-- **Weekly review** — knowledge decays if you don't revisit it
+- **Weekly review** — knowledge decays if you don't revisit it; consider using a flashcard app like CrowdCards (https://crowdcards.app/), which lets you practice recall of key concepts.
 
 ### Guided Start (to prevent learner stall)
 
@@ -71,13 +66,8 @@ When the learner confirms they are ready to move on (and can explain the core co
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Help them design a knowledge system that fits their project and their working style
 - Don't impose a rigid system — help them discover what they need
 
@@ -87,26 +77,13 @@ Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
 
 2. Ask: "When you've tried to find something you wrote down before, what was hardest to find?" (This reveals their actual pain, not theoretical pain)
 
-3. Read what already exists in their second brain from the bootstrap stage (`home.md`, `progress.md`, `project-spec.md`, `context.md`, `lessons/`, `security/`, `decisions/`). This lesson *extends* that structure — it does NOT replace it.
+3. Read what already exists in their second brain. This lesson *extends* that structure — it does NOT replace it.
 
-   Suggest adding the missing folders, but let them adapt:
-   ```
-   (already exists from setup)
-   ├── home.md
-   ├── progress.md
-   ├── project-spec.md
-   ├── context.md
-   ├── lessons/
-   ├── security/
-   └── decisions/
-
-   (add now)
-   ├── specs/           # Feature specs from Spec Writing stage
-   ├── comprehension/   # Code walkthroughs from Comprehension Debt stage
-   ├── ideas/           # Future features, experiments
-   └── archive/         # Old specs, completed phases
-   ```
-
+   Suggestions for useful files:
+  - ideas.md               # a place to quickly jot down ideas as they come to you, leaving the task of filing them till later, or for your AI to do for you.
+  - project-next-steps.md  # a record of what you want to focus on getting done next
+  - lessons/               # a place to save lesson notes
+  - decisions/             # a place to record decisions on your project, and the reasons why they were made
 4. Help them establish conventions:
    - **Date every decision note** — context changes; "why we chose SQLite" from March might not apply in June
    - **Link related notes** — `[[decisions/database-choice]]` connects to `[[lessons/sqlite-performance]]`
@@ -121,11 +98,7 @@ Say: "When you're ready to build your second brain, tell me you're ready for the
 
 ---
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+## Phase 3: Apply — [[UCA-teaching.md]]
 
 ### Exercise 1: Create the Structure
 

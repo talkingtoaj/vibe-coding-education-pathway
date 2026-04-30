@@ -33,13 +33,8 @@ Announce to the user:
 
 ---
 
-## Phase 1: Understand
-
-### Tutor Mode Instructions for You (the AI)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
-
-**Topic guardrails for this stage:**
+## Phase 1: Understand — [[UCA-teaching.md]]
+**Topic:**
 - Answer questions about injection, XSS, file upload vulnerabilities, IDOR, input validation
 - Do NOT review their project yet
 - Let them understand why every input is suspect
@@ -86,13 +81,8 @@ When the learner confirms they are ready to move on (and can explain the core co
 
 ---
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Help them list every place data enters their app
 - Connect each input to the three jobs it needs to pass
 
@@ -118,11 +108,7 @@ Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
 
 ---
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner hands **audit directives** below to their **implementation agent**; you interpret results with them and enforce gates.
+## Phase 3: Apply — [[UCA-teaching.md]]
 
 ### The Audit Directive
 

@@ -6,6 +6,7 @@
 TASKS:
 1. Cover key information from the 'what to explain' section
 2. Get them to choose a Second Brain option and help them install it
+
 ## What to Explain
 You are to explain the following, but to do it in parts by asking questions.
 - Are you familiar with the concept of a Second Brain?

@@ -17,11 +17,7 @@ Announce to the user:
 
 ---
 
-## Phase 1: Understand
-
-### Tutor mode (for the course coach)
-
-Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+## Phase 1: Understand — [[UCA-teaching.md]]
 
 ### Key Concepts They Should Explore
 
@@ -60,13 +56,8 @@ In coding, "dying" means: you or the AI accidentally break something. "Terrible 
 
 The key insight: **you save constantly.** Not just at the end of a level. Every time something works — even partially — you save.
 
-## Phase 2: Contextualize
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
-
-**Stage focus:**
+## Phase 2: Contextualize — [[UCA-teaching.md]]
+**Topic:**
 - Connect git to their specific situation
 - Ask how git applies to their project; avoid lecturing when a question suffices
 - Help them see why this matters for the work they're actually doing
@@ -85,11 +76,8 @@ Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
 
 6. **Discuss:** "What files in your project should NOT be committed?" (Secrets, passwords, API keys, personal data.) This is a preview of the security thread that runs through the whole course.
 
-## Phase 3: Apply
-
-### Coach Mode Instructions for You (the AI)
-
-Follow **Phase 3: Apply** in [[UCA-teaching.md]]: git setup and commits are normally executed by the learner’s **implementation agent** under their prompts; you verify understanding, `.gitignore` choices, and that nothing sensitive is committed.
+## Phase 3: Apply — [[UCA-teaching.md]]
+**Topic:** Git via implementation agent; coach verifies understanding, `.gitignore`, no secrets committed.
 
 Have them direct their **implementation agent** to set up git on their project (or walk through the commands together if they have not split coach and builder yet — see [[UCA-teaching.md]]). Then suggest connecting it to a service like GitHub for remote backup, though it isn't essential.
 

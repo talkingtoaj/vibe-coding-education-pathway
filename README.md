@@ -23,7 +23,7 @@ Think of it like directing a film. You don't operate the camera — but you abso
 **Foundations:**
 - **Git & safety** — never lose work, always be able to undo
 - **Specification-driven development** — write clear descriptions before any code exists
-- **Comprehension debt** — know what you don't know, so it doesn't bite you later
+- **Comprehension debt** — notice fuzzy spots in how your app behaves; shrink them with plain stories and simple diagrams, not by reading every line of code
 - **Testing** — prove things work, even when you didn't write the code
 - **Persistent storage** — where data lives and why it matters
 - **Identity & access** — authentication, authorization, and why they're different
