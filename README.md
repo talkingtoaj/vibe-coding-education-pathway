@@ -59,7 +59,21 @@ That's it. No coding knowledge required.
 Copy and paste this exact prompt into an AI assistant of your choosing:
 
 ```
-I'm wanting to begin learning how to become an effective Vibe coder. I don't know how to code, and I don't necessarily want to learn how to code, but I do want to learn the tricks to effective, sustainable Vibe coding. There's a free course available at https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/bootstrap.md, please read it and then walk me through what I need to do to get started.
+I want to begin the Vibe Coding Education Pathway for non-coders.
+
+Course repo:
+https://github.com/talkingtoaj/vibe-coding-education-pathway
+
+Start here:
+https://github.com/talkingtoaj/vibe-coding-education-pathway/blob/main/bootstrap.md
+
+Raw file:
+https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/bootstrap.md
+
+Please read bootstrap.md and follow it exactly. If you cannot open the raw URL directly, use the GitHub repo link or web search for "talkingtoaj vibe-coding-education-pathway bootstrap.md". When the course uses wiki links like [[01-second-brain]], resolve them as files in the same repo, for example:
+https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/01-second-brain.md
+
+Walk me through the course step by step. Do not skip the file persistence check.
 ```
 
 ### What Happens Next
