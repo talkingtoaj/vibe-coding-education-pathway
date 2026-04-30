@@ -72,8 +72,6 @@ https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main
 
 Please start with bootstrap.md and follow it exactly. If you cannot open the raw URL directly, use the GitHub repo link or web search for "talkingtoaj vibe-coding-education-pathway bootstrap.md".
 
-Later, when bootstrap.md tells you to read another course file using a wiki link like [[01-second-brain]], resolve that link as a file in the same repo. For example, [[01-second-brain]] means 01-second-brain.md in this repo.
-
 Walk me through the course step by step. Do not skip the file persistence check.
 ```
 

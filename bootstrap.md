@@ -10,9 +10,17 @@ This repo is the course source of truth:
 
 https://github.com/talkingtoaj/vibe-coding-education-pathway
 
+Start with this file, `bootstrap.md`. Do not skip ahead to later course files unless this file tells you to.
+
 When you see wiki links like [[resume-course]] or [[01-second-brain]], resolve them as files in this same repo. For raw markdown, use:
 
 https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/FILENAME.md
+
+Examples:
+- [[resume-course]] resolves to `resume-course.md`
+- [[01-second-brain]] resolves to `01-second-brain.md`
+
+Only read those files when instructed by the course flow.
 
 **First, check if they're resuming.** Read [[resume-course]] (note, we are treating this github repo as a wiki, so any time you see wiki links like this, use the same path you used to reach this page, but replace `bootstrap.md` with the linked page's filename — add `.md` if missing)
 
