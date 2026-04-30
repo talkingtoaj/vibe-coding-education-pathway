@@ -1,4 +1,4 @@
-# Stage 5: Persistent Storage
+# Persistent Storage
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 5: Persistent Storage. Every app that matters needs to remember things between sessions. Three phases:
+> "Welcome to Persistent Storage. Every app that matters needs to remember things between sessions. Three phases:
 > 1. **Understand** — Ask me about storage: why data disappears when you close the app, what options exist, how to choose.
 > 2. **Contextualize** — We'll figure out what YOUR app needs to remember and what's the simplest way.
 > 3. **Apply** — You'll make one piece of data actually persist between sessions.
@@ -73,7 +73,7 @@ You are in **coach mode**:
    - **JSON file** — if it's config, settings, or small lists
    - **SQLite** — if it's structured data with relationships
    - **LocalStorage** — if it's a browser-only app with tiny data needs
-   - **Cloud database** (e.g., Firebase) — only if multi-device sync is required AND they understand the complexity
+   - **Cloud database** (e.g., Firebase) — only if multi-device sync is required AND they understand the complexity. Test this bar: if they can't write a spec for what gets synced and what happens during conflicts (using the Spec Writing stage), they don't yet understand the complexity.
 
 4. **Default recommendation:** Start with SQLite or a JSON file. You can always upgrade later. "Simple and working" beats "scalable and broken."
 
@@ -91,56 +91,51 @@ Say: "When you're ready to make data actually persist, say **'apply'**."
 
 ### Exercise: Make One Thing Persist
 
-Pick the single most important data type from Phase 2. Implement storage for just that.
+Pick the single most important data type from Phase 2. Write a *persistence spec* for it, then direct the AI to implement it.
 
-**If JSON file (Python):**
-```python
-import json
-import os
+Have the user fill in this template:
 
-DATA_FILE = "data/notes.json"
+```
+Data being stored: [e.g., user notes]
 
-def load_notes():
-    if not os.path.exists(DATA_FILE):
-        return []
-    with open(DATA_FILE, "r") as f:
-        return json.load(f)
+Fields:
+- [field name]: [type] — [why needed]
+- [field name]: [type] — [why needed]
 
-def save_notes(notes):
-    os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-    with open(DATA_FILE, "w") as f:
-        json.dump(notes, f, indent=2)
+When is it saved? [e.g., every time the user clicks Save, or automatically on each change]
+When is it loaded? [e.g., when the app starts, when the user opens a specific screen]
+What happens if the file/database is missing or corrupted? [expected behaviour]
+What data should NEVER be stored here? [e.g., passwords, API keys]
 ```
 
-**If SQLite (Python):**
-```python
-import sqlite3
+Once complete, hand it to the AI with: *"Implement persistent storage for this data using the simplest solution that fits my project. Tell me what you chose and why."*
 
-def init_db():
-    conn = sqlite3.connect("data/app.db")
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS notes (
-            id INTEGER PRIMARY KEY,
-            content TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    conn.commit()
-    conn.close()
-```
-
-Guide them through:
-1. Creating the storage layer (file or database table)
-2. Modifying their app to save on create/update
-3. Modifying their app to load on startup
-4. Testing: close the app, reopen it — is the data still there?
+Verification steps (the user does these, not the AI):
+1. Close the app completely
+2. Reopen it — is the data still there?
+3. If not, describe the symptom to the AI and ask it to investigate — don't open the storage file yourself
 
 ### Security Note
 
 If they're storing anything sensitive (even just a user's name or preferences):
 - Ask: "Who can see this file if they get access to your computer?"
-- Mention: never store passwords or API keys in plain text files
-- If they need user accounts later, they'll need encryption and proper authentication (covered in Stage 6)
+- Direct the AI: "Never store passwords or API keys in plain text files anywhere in this project."
+- If they need user accounts later, they'll need encryption and proper authentication (covered in the Identity & Access lesson).
+
+### Backups & Recovery
+
+> **Vibe-coder trap:** A small business ran its customer database on a single VPS. The owner's credit card expired. He missed three payment emails. The provider wiped the volume. Three years of customer data, gone. His business closed within eight months — the data was the business.
+
+Three rules:
+1. **Backups happen automatically, on a schedule.** If a human has to remember, it doesn't happen.
+2. **Backups don't live next to the originals.** Same server = no protection against fire, account suspension, or accidental deletion.
+3. **An untested backup is not a backup.** Once a quarter, restore from backup and confirm the data is intact.
+
+Have the user hand this directive to the AI:
+
+> "Set up automated daily backups of my database to a separate storage location (different cloud provider or account). Email me when a backup succeeds, and email me LOUDLY when one fails. Write a recovery runbook at `recovery/runbook.md` so I can follow it under pressure."
+
+**Gate:** if your database vanished right now, what's your time-to-recovery? What's your maximum data loss? Both as actual numbers, not "I don't know."
 
 ---
 
@@ -161,4 +156,4 @@ Can the user:
 3. Implement storage for one data type in their project?
 4. Verify that data survives closing and reopening the app?
 
-If yes, mark Stage 5 complete and move to Stage 6.
+If yes, mark Persistent Storage complete in `progress.md` and move to [[07-identity-access]].

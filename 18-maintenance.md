@@ -1,4 +1,4 @@
-# Stage 10: Maintenance & Growth
+# Maintenance & Growth
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 10: Maintenance & Growth. This is the stage that never ends. Software isn't 'done' — it's maintained or it dies. Three phases:
+> "Welcome to Maintenance & Growth. This is the stage that never ends. Software isn't 'done' — it's maintained or it dies. Three phases:
 > 1. **Understand** — Ask me about maintenance: why code rots, how dependencies age, when to refactor vs. rewrite.
 > 2. **Contextualize** — We'll look at YOUR project and figure out what needs attention right now.
 > 3. **Apply** — You'll create a maintenance ritual and do your first honest project review.
@@ -99,7 +99,7 @@ Have them create a maintenance ritual. It should be simple enough they'll actual
 1. Review `comprehension/debt-log.md` — pay off one small debt
 2. Check for dependency updates (if applicable)
 3. Review `security/threat-model.md` — anything changed?
-4. Update `project/home.md` — is it still accurate?
+4. Update `home.md` — is it still accurate?
 5. Write one reflection: what went well, what was hard
 
 ### Exercise 2: The Honest Review
@@ -112,7 +112,7 @@ Have them do a full review of their project. Use a checklist:
 ### Comprehension
 - [ ] I can explain every major component
 - [ ] My notes are still accurate
-- [ ] New person could understand `project/home.md`
+- [ ] New person could understand `home.md`
 
 ### Code Quality
 - [ ] No secrets in code
@@ -150,6 +150,28 @@ The goal isn't to fix everything. The goal is to prove that maintenance is possi
 
 Ask: "What's the next feature you want? What's the scariest part of building it?" Help them break it into specs and identify what they need to learn first.
 
+### Knowing When You've Hit the Wall
+
+Vibe coding has a real ceiling. This subsection is honest about it.
+
+Signals that the technique has stopped being enough for *this* project:
+- Every change breaks two unrelated things
+- You no longer understand any non-trivial part of the code
+- Costs grow faster than features
+- Bugs reported by users come from places you didn't know existed
+- The AI keeps proposing different solutions to the same problem
+
+These are not signs of failure — they are signs that the project has grown past the AI's ability to hold it in context. The ceiling is lower than most people expect.
+
+Three honest responses, in order:
+1. **Slim the project.** Cut a feature. Get back inside the envelope.
+2. **Get a real developer to refactor a section.** Pay for a few hours; pay off the worst complexity debt; resume vibe coding from the cleaner base.
+3. **Stop and rebuild.** Sometimes the foundations were wrong. Take what you learned. Spec it again. Build it slowly with the experience you now have.
+
+Ask the user to honestly assess: are they hitting this wall? If so, which of the three responses fits their situation?
+
+Note in `maintenance/inventory.md` if any of the wall signals are present. This is the maintenance inventory's most important entry.
+
 ---
 
 ## What They Should Write
@@ -163,11 +185,11 @@ Ask: "What's the next feature you want? What's the scariest part of building it?
 
 ## Gate
 
-There is no formal gate for Stage 10. The user is now a vibe coder.
+There is no formal gate for this stage. The user is now a vibe coder.
 
-But check: do they have a maintenance ritual they'll actually follow? Have they done at least one honest review? Do they understand that software is never "done"?
+But check: do they have a maintenance ritual they'll actually follow? Have they done at least one honest review? Do they understand that software is never "done"? Have they honestly assessed whether they've hit the wall?
 
-If all are true, mark Stage 10 complete in their progress file. Celebrate. They've come a long way.
+If all are true, mark Maintenance & Growth complete in `progress.md`. Celebrate. They've come a long way.
 
 ---
 

@@ -7,7 +7,7 @@
 ## Start a Lesson
 
 ```
-Start lesson. Read my progress from Vibe coding - Zero to Hero - Course progress.md, check the Vibe Coding Education Pathway for what's next, and teach me that concept. Use analogies from my background in [their background from context.md].
+Start lesson. Read my progress from progress.md, check the Vibe Coding Education Pathway for what's next, and teach me that concept. Use analogies from my background in [their background from context.md].
 ```
 
 ---
@@ -61,7 +61,7 @@ If I deleted [component/file], what would break and how badly? Be specific about
 ## The Amnesia Test
 
 ```
-I want to test whether my project brief is sufficient for a fresh AI session. Please read ONLY my project-brief.md and my current spec, then explain what you understand my project to be and what the next feature should do. Don't look at any other files in my second brain.
+I want to test whether my project spec is sufficient for a fresh AI session. Please read ONLY my project-spec.md and my current spec, then explain what you understand my project to be and what the next feature should do. Don't look at any other files in my second brain.
 ```
 
 ---
@@ -77,7 +77,7 @@ Check the libraries and dependencies in my project for known security vulnerabil
 ## Resume Session
 
 ```
-I'm resuming my Vibe Coding course. Please read my progress file at Vibe coding - Zero to Hero - Course progress.md and tell me where we left off. Then read the relevant course stage file and continue from there.
+Read https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/resume-course.md and follow it.
 ```
 
 ---

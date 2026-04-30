@@ -1,4 +1,4 @@
-# Stage 7: Using Your Second Brain
+# Using Your Second Brain
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 7: Using Your Second Brain. You've been writing notes, but now we're making them WORK for you. Three phases:
+> "Welcome to Using Your Second Brain. You've been writing notes, but now we're making them WORK for you. Three phases:
 > 1. **Understand** — Ask me about second brains: why external memory beats your brain, how to organize notes, what makes a note useful vs. useless.
 > 2. **Contextualize** — We'll design the organization system for YOUR project's knowledge.
 > 3. **Apply** — You'll create the structure and write a summary so good that a stranger could understand your project in 5 minutes.
@@ -65,16 +65,24 @@ You are in **coach mode**:
 
 2. Ask: "When you've tried to find something you wrote down before, what was hardest to find?" (This reveals their actual pain, not theoretical pain)
 
-3. Suggest a simple folder structure, but let them adapt it:
+3. Read what already exists in their second brain from the bootstrap stage (`home.md`, `progress.md`, `project-spec.md`, `context.md`, `lessons/`, `security/`, `decisions/`). This lesson *extends* that structure — it does NOT replace it.
+
+   Suggest adding the missing folders, but let them adapt:
    ```
-   project/
-   ├── specs/           # What we're building and why
-   ├── decisions/       # Why we chose X over Y (with dates!)
-   ├── lessons/         # What we learned the hard way
-   ├── security/        # Threats, auth, what not to commit
-   ├── comprehension/   # Code walkthroughs, explanations
+   (already exists from setup)
+   ├── home.md
+   ├── progress.md
+   ├── project-spec.md
+   ├── context.md
+   ├── lessons/
+   ├── security/
+   └── decisions/
+
+   (add now)
+   ├── specs/           # Feature specs from Spec Writing stage
+   ├── comprehension/   # Code walkthroughs from Comprehension Debt stage
    ├── ideas/           # Future features, experiments
-   └── archive/         # Old specs, completed projects
+   └── archive/         # Old specs, completed phases
    ```
 
 4. Help them establish conventions:
@@ -101,7 +109,7 @@ Have them create the folder/note structure in their chosen tool (Obsidian, Notio
 
 ### Exercise 2: The Project Summary
 
-Write `project/home.md` — the most important note. It should answer:
+Update `home.md` (already created during setup) — review whether it still accurately describes the project. It should answer:
 - What is this project?
 - Why does it exist?
 - What's the current status?
@@ -137,14 +145,16 @@ Example:
 
 ### Exercise 4: Link Three Notes
 
-Have them create at least three links between their notes. The value of a second brain is in the connections, not the isolated facts.
+Find three pairs of notes where one note's understanding is improved by linking to another. If you can't find three, the second brain is too small or too disconnected — that *is* the lesson. The value of a second brain is in connections, not isolated facts.
+
+**Prompt for them:** "Find a decision note and a lesson note that relate to the same feature. Link them. Explain in one sentence why the connection matters."
 
 ---
 
 ## What They Should Write
 
 **In their second brain:**
-- `project/home.md` — the project summary
+- `home.md` — updated project summary
 - `decisions/[topic].md` — at least one decision log
 - `lessons/[topic].md` — at least one lesson from previous stages
 - Links between at least three notes
@@ -160,4 +170,4 @@ Can the user:
 4. Write one decision log with context, reasoning, and revisit triggers?
 5. Create at least three links between notes?
 
-If yes, mark Stage 7 complete and move to Stage 8.
+If yes, mark Using Your Second Brain complete in `progress.md` and move to [[09-skills]].

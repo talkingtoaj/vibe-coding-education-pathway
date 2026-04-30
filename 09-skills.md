@@ -1,4 +1,4 @@
-# Stage 8: AI Skills
+# AI Skills
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 8: AI Skills. You've been vibe coding. Now you're going to vibe architect — teach your AI reusable superpowers. Three phases:
+> "Welcome to AI Skills. You've been vibe coding. Now you're going to vibe architect — teach your AI reusable superpowers. Three phases:
 > 1. **Understand** — Ask me about skills: what makes them different from prompts, how they chain together, why consistency matters.
 > 2. **Contextualize** — We'll figure out what skills would actually help YOUR workflow.
 > 3. **Apply** — You'll create two real skills: one for brainstorming ideas, one for reflecting on what you learned.
@@ -152,10 +152,15 @@ reflections/YYYY-MM-DD-[topic].md with:
 
 ### Exercise 3: Make Skills Available
 
-Help them configure their AI tool to load these skills:
-- **If Claude Code / Cursor:** Symlink or `@import` into `CLAUDE.md` / `AGENTS.md`
-- **If plain text fallback:** They (or the AI) reads the skill file at session start
-- **If native skill system:** Configure triggers and loading
+The second brain copy of a skill is the *source of truth* — where the user edits and versions it. The tool-specific install is what makes it actually load automatically.
+
+Help them configure their AI tool:
+
+- **If using Claude Code:** Skills live in `~/.claude/skills/`. Copy or symlink the skill file there. Alternatively, reference it in `CLAUDE.md` at the project root.
+- **If using Cursor:** Skills belong in the project's `.cursorrules` file or Cursor's custom instructions.
+- **If using Claude Desktop:** There's no native auto-loading skill system. The user must paste the skill at the start of relevant sessions, or ask the AI to read it from the second brain at session start.
+
+Note: "trigger word" is one mental model — it works well in Claude Code but isn't how all tools invoke skills. Some tools use the skill's description to decide when to apply it. The user should test their specific tool to see how invocation works.
 
 ### Exercise 4: Test the Skills
 
@@ -163,6 +168,26 @@ Have them actually USE each skill:
 1. Say the trigger word for brainstorm — did it work as expected?
 2. Simulate a "reflect and learn" moment — did it capture the lesson?
 3. Iterate: what didn't work? Refine the skill.
+
+### Exercise 5: Skills That Beat Pattern Drift and the Context Wall
+
+> **Vibe-coder trap:** A project hits 3,000 lines across 40 files. The developer asks the AI for a small change. The AI does it. The change breaks two other features. He asks the AI to fix those, and the fix breaks a third. The AI starts contradicting its own earlier decisions. Every login screen looks slightly different, every error message is formatted differently. The AI can't hold the whole project in its head, so each prompt sees only a slice and reinvents conventions for that slice.
+>
+> Two named symptoms: **pattern drift** (AI reinvents solutions already solved elsewhere) and **the context wall** (codebase grows past what the AI can hold at once).
+
+Two skills that directly address these:
+
+**Refactor and clean-code skill** — a weekly skill that scans the project for duplicated patterns, names them, proposes a single canonical version, and refactors duplicates to use it. Run it every Friday; pattern drift dies.
+
+**Handover skill** — a skill that saves the current state of a long session (what's been done, what's pending, the AI's current understanding) into `handover.md`. Start a fresh session, hand the AI that file, continue without losing thread. This is the answer to the context wall.
+
+Beyond skills, a `CLAUDE.md` / `AGENTS.md` / Cursor rules file at the project root is the AI's persistent memory of the project: conventions, tech stack, security rules, "things the AI keeps getting wrong." It's the difference between starting every session from scratch and starting every session knowing the rules.
+
+Have the user hand this directive to the AI:
+
+> "Read my project's existing code and identify three conventions the AI seems to keep forgetting — formatting, error handling, naming, auth pattern, anything. Write me a `CLAUDE.md` (or equivalent for my tool) that names each convention explicitly with one example. Then design two skills for me: a refactor skill that runs once a week to find and merge drifted patterns, and a handover skill that captures the current session's state into a handover doc when context fills up."
+
+**Exercise:** the user writes a `CLAUDE.md` for their project. Designs the two skills. Tests the handover skill by deliberately ending a session and starting a fresh one with only the handover doc.
 
 ---
 
@@ -184,4 +209,4 @@ Can the user:
 4. Test both skills and iterate based on results?
 5. Explain how skills could chain together for a complex workflow?
 
-If yes, mark Stage 8 complete and move to Stage 9.
+If yes, mark AI Skills complete in `progress.md` and move to [[10-goat-app]].

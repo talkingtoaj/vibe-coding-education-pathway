@@ -48,9 +48,9 @@ Once the hosting option is chosen, in the second brain save this fact in `progre
 
 1. Congratulate the user — they've just set up the infrastructure that will carry them through the entire course
 2. Tell them what's coming next: Git, their "save game" system
-3. Ask if they're ready to start Stage 1 now, or if they want to take a break
+3. Ask if they're ready to start Git & Safety now, or if they want to take a break
 
-If they want to continue, read [[02-git-safety.md]] and begin teaching.
+If they want to continue, read [[02-git-safety]] and begin teaching.
 
 If they want to stop, remind them: "When you come back, just open a new chat and you can resume the course by {INSERT RECOVERY METHOD}"
 

@@ -122,7 +122,7 @@ This is the central index for everything I'm building and learning.
 - [[context]] — my background, goals, and constraints
 ```
 
-Create `Vibe coding - Zero to Hero - Course progress.md` with this content:
+Create `progress.md` with this content:
 
 ```markdown
 # Vibe Coding — Zero to Product: Course Progress
@@ -131,46 +131,59 @@ Started: [DATE]
 Last session: [DATE]
 Current stage: Setup / Interview complete
 
-## Completed Stages
-- [ ] Stage 0: Setup & Interview
-- [ ] Stage 0.5: Hosting Research (optional)
-- [ ] Stage 1: Git & Safety
+## Foundations
+- [ ] Git & Safety
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 2: Spec Writing
+- [ ] Spec Writing
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 3: Comprehension Debt
+- [ ] Comprehension Debt
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 4: Testing
+- [ ] Testing
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 5: Persistent Storage
+- [ ] Persistent Storage
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 6: Identity & Access
+- [ ] Identity & Access
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 7: Second Brain (ongoing)
+- [ ] Data Ownership & Multi-Tenancy
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 8: AI Skills
+- [ ] Using Your Second Brain
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 9: Deployment
+- [ ] AI Skills
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
-- [ ] Stage 10: Maintenance & Growth
+
+## Production Readiness Arc
+- [ ] The Pre-Launch Checklist (GOAT App)
+- [ ] Is Your AI Lying to You?
+- [ ] Trust Boundaries
+- [ ] Secrets & Credentials
+- [ ] Cost Runaway & Abuse Protection
+- [ ] Observability & Self-Diagnostics
+- [ ] Privacy, PII & Liability
+
+## Closing
+- [ ] Deployment
+  - [ ] Phase 1: Understand
+  - [ ] Phase 2: Contextualize
+  - [ ] Phase 3: Apply
+- [ ] Maintenance & Growth
   - [ ] Phase 1: Understand
   - [ ] Phase 2: Contextualize
   - [ ] Phase 3: Apply
@@ -203,4 +216,4 @@ If all of this works, the second brain is operational. Celebrate this — it's a
 
 ## Onboarding: Next Step
 
-Once you have completed this stage, save progress, and next follow instructions from  [[setup-recovery.md]].
+Once you have completed this stage, save progress, and next follow instructions from  [[setup-recovery]].

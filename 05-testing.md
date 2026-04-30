@@ -1,4 +1,4 @@
-# Stage 4: Testing
+# Testing
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 4: Testing. The most common mistake in vibe coding is 'it looks right, so it must be right.' It's not. Three phases:
+> "Welcome to Testing. The most common mistake in vibe coding is 'it looks right, so it must be right.' It's not. Three phases:
 > 1. **Understand** — Ask me about testing: why we need it, what kinds exist, why 'it works on my machine' is a trap.
 > 2. **Contextualize** — We'll figure out what parts of YOUR project are most likely to break.
 > 3. **Apply** — You'll write your first test for a real function in your project.
@@ -98,42 +98,48 @@ Ask: "How did that feel? How many functions do you have? Would you do this every
 
 ### Exercise 2: First Automated Test
 
-Guide them through writing their first test. Keep it simple.
+Rather than writing the test code yourself, you will *spec the tests* and direct the AI to implement them. The AI picks the framework; your job is to define what must be verified.
 
-Python example framework:
-```python
-# test_calculator.py
-import unittest
-from calculator import add
+Have the user fill in a test specification for their chosen function:
 
-class TestCalculator(unittest.TestCase):
-    def test_add_two_numbers(self):
-        result = add(2, 3)
-        self.assertEqual(result, 5)
-    
-    def test_add_zero(self):
-        result = add(5, 0)
-        self.assertEqual(result, 5)
+```
+Function: [name]
+Purpose: [what it does in plain English]
 
-if __name__ == '__main__':
-    unittest.main()
+Happy path:
+- Input: [example]  →  Expected output: [example]
+- Input: [example]  →  Expected output: [example]
+
+Edge cases:
+- Input: [empty / zero / very large / wrong type]  →  Expected: [error / graceful result]
+- Input: [boundary value]  →  Expected: [explain]
+
+Things that should NEVER happen:
+- [e.g., it should never return null when given valid input]
+- [e.g., it should never mutate the input]
 ```
 
-For JavaScript:
-```javascript
-// test-calculator.js
-const { add } = require('./calculator');
+Once they've written the spec, have them hand it to the AI with: *"Implement tests for this function using whatever test framework fits my project. Write failing tests first, then confirm they pass after implementation."*
 
-console.assert(add(2, 3) === 5, "2+3 should be 5");
-console.assert(add(5, 0) === 5, "5+0 should be 5");
-console.log("All tests passed!");
-```
-
-If they're using a framework (React, Django, etc.), use that framework's test tools.
+After the AI implements, the user's job is to *read* the tests and verify they actually exercise what the spec described — not just that they pass. A test that always passes is not a test.
 
 ### Exercise 3: The Regression Test
 
 Have them write a test for a bug they already fixed (or a scenario they know should work). This test ensures the bug never comes back.
+
+### Exercise 4: First Real User Observation
+
+> **Vibe-coder trap:** A vibe coder builds an app she's proud of. Logs in, navigates straight to the right page, clicks the right button. Everything works. Hands it to her mum. Mum opens it, sits for fifteen seconds, closes the tab. "Couldn't find the button." There was a button. It was in the top right, in light grey on a white background, where she expected it. Mum didn't expect it.
+
+Four rules for first-user observation:
+1. **Don't guide them.** Hand them the URL. Watch.
+2. **Watch silently.** Don't explain, suggest, or hover. The point is whether the app survives without you.
+3. **Take notes on every wrong turn.** Where did they hesitate? What did they click that didn't do what they expected?
+4. **Never blame the user.** If they couldn't find the button, the button is in the wrong place.
+
+Have the user watch one real person use their app without guidance. Take notes. Bring them to the AI and decide which problems are app problems. Apply changes. Repeat with a second person.
+
+**Gate for this exercise:** the user can list three changes they made to their app based on watching someone else use it.
 
 ### Security Note
 
@@ -162,4 +168,4 @@ Can the user:
 3. Write at least two test cases (one happy path, one edge case) for that function?
 4. Run their tests and see them pass?
 
-If yes, mark Stage 4 complete and move to Stage 5.
+If yes, mark Testing complete in `progress.md` and move to [[06-persistent-storage]].

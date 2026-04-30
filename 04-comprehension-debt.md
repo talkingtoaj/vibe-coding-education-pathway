@@ -1,4 +1,4 @@
-# Stage 3: Comprehension Debt
+# Comprehension Debt
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 3: Comprehension Debt. Every line of code the AI writes that you don't fully understand is a debt you owe. Eventually, you'll pay — with bugs, bad decisions, and rework. Three phases:
+> "Welcome to Comprehension Debt. Every line of code the AI writes that you don't fully understand is a debt you owe. Eventually, you'll pay — with bugs, bad decisions, and rework. Three phases:
 > 1. **Understand** — Ask me about comprehension debt: what it is, why it accumulates, how to pay it off.
 > 2. **Contextualize** — We'll look at your project and find the comprehension debt you've already taken on.
 > 3. **Apply** — You'll do a code walkthrough and write a self-explanation for one piece of code.
@@ -93,6 +93,8 @@ Say: "When you're ready to pay off some debt by actually understanding a piece o
 
 ### Exercise: The Feynman Walkthrough
 
+> **Framing:** You are not learning to write this code. You are learning to read it well enough to spot when the AI has done the wrong thing, and to ask better questions next time.
+
 Pick one piece of code from their project that has comprehension debt. It should be small — 20-50 lines, not a whole file.
 
 1. **Read the code together.** Line by line. Ask them: "What does this line do?" Don't rush.
@@ -115,6 +117,12 @@ Pick a variable name, a function call, or a library import from their code. Ask:
 
 If they don't know — that's more debt. Don't fix it; have them discover by experimenting (in a safe git branch).
 
+### Exercise: The AI Hallucination Drill
+
+Pick one AI-generated import or function call. Look it up in the actual library's documentation (or run the code and check the output). Verify: does this function exist with the signature the AI used?
+
+This builds a muscle the course returns to repeatedly: *the AI is confident but not always correct.* References, function names, and library versions are frequent points of error. A vibe coder's job includes verifying that what the AI claims to use actually exists.
+
 ---
 
 ## What They Should Write
@@ -133,4 +141,4 @@ Can the user:
 3. Write a self-explanation of one function that a non-coder could mostly follow?
 4. Predict at least one thing that would break if they changed a specific part of their code?
 
-If yes, mark Stage 3 complete and move to Stage 4.
+If yes, mark Comprehension Debt complete in `progress.md` and move to [[05-testing]].

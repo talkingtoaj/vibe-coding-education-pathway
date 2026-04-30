@@ -20,16 +20,29 @@ Think of it like directing a film. You don't operate the camera — but you abso
 
 ## What You'll Learn
 
-- **AI Skills** — teach your AI reusable superpowers: brainstorming, reflection, and chaining skills together
-- **Deployment** — getting your app in front of the world
-- **Sustainable maintenance** — keeping your project healthy over time
-- **Identity & access** — who can see what, and why that matters for security
+**Foundations:**
 - **Git & safety** — never lose work, always be able to undo
 - **Specification-driven development** — write clear descriptions before any code exists
 - **Comprehension debt** — know what you don't know, so it doesn't bite you later
 - **Testing** — prove things work, even when you didn't write the code
-- **Persistent memory** — where data lives and why it matters
+- **Persistent storage** — where data lives and why it matters
+- **Identity & access** — authentication, authorization, and why they're different
+- **Data ownership & multi-tenancy** — so user A cannot see or edit user B's data
 - **Your second brain** — a shared memory system between you and your AI
+- **AI skills** — teach your AI reusable superpowers: brainstorming, reflection, pattern drift prevention
+
+**Production readiness:**
+- **The pre-launch checklist** — eight things that only matter once real people use your app
+- **Is your AI lying to you?** — hardcoded data, useless tests, hallucinated dependencies
+- **Trust boundaries** — why every input must be validated, sanitized, and authorized
+- **Secrets & credentials** — why bots harvest exposed API keys within 60 seconds
+- **Cost runaway & abuse protection** — hard caps, rate limits, quotas
+- **Observability** — logs, error tracking, and the "tell me what happened" workflow
+- **Privacy, PII & liability** — data you don't collect can't leak
+
+**Closing:**
+- **Deployment** — getting your app in front of the world
+- **Sustainable maintenance** — keeping your project healthy over time, and knowing when to stop
 
 ## What You Need
 
@@ -73,4 +86,4 @@ This course is entirely free and self-paced. There's no timeline, no homework de
 
 All course content is open source. If you find a bug, have a suggestion, or want to contribute an improvement, contributions are welcome.
 
-**Built on:** [Specification Driven Development](link-to-SDD), [Comprehension Debt](link-to-comprehension-debt), and the philosophy that in the age of AI, coding is a management skill — not a craft skill.
+**Built on:** Specification Driven Development, Comprehension Debt, and the philosophy that in the age of AI, coding is a management skill — not a craft skill.

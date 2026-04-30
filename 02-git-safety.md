@@ -1,4 +1,4 @@
-# Stage 1: Git & Safety
+# Git & Safety
 
 > **Purpose:** This stage follows the UCA pattern (read [[UCA-teaching]]) to teach Git & Safety.
 > 
@@ -7,7 +7,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 1: Git & Safety. We're going to learn about git — your 'save game' system. This stage has three phases:
+> "Welcome to Git & Safety. We're going to learn about git — your 'save game' system. This stage has three phases:
 > 1. **Understand** — You'll ask me questions about git until you feel confident explaining it. I'll answer whatever you ask, but I won't volunteer — you drive.
 > 2. **Contextualize** — We'll connect git to your actual project and why you need it.
 > 3. **Apply** — You'll set up git and practice the three commands that matter.
@@ -63,12 +63,11 @@ You are now in **coach mode**. This means:
 
 ## Phase 3: Apply
 
-Offer to set up git for them for one of their existing projects, or as a basis for a project we'll build. then suggest how they might want to set it up to a service like github, but it isn't essential.
+Offer to set up git for their project. Then suggest connecting it to a service like GitHub for remote backup, though it isn't essential.
 
-Also:
-- `security/git-ignore-notes.md` — what they're not committing and why
+Also create `security/git-ignore-notes.md` — what they're not committing and why. Example entries: `.env` (secrets), database files, OS junk files (`.DS_Store`, `Thumbs.db`). Add a brief note explaining the reason for each exclusion.
 
 ---
 
-Once something has been built, we will update `progress.md` to mark this lesson as complete and move to [[03-spec-writing]]
+Once something has been built, update `progress.md` to mark Git & Safety complete and move to [[03-spec-writing]].
 

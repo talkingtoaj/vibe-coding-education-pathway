@@ -1,4 +1,4 @@
-# Stage 6: Identity & Access
+# Identity & Access
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 6: Identity & Access. Security starts with knowing WHO is doing WHAT. Three phases:
+> "Welcome to Identity & Access. Security starts with knowing WHO is doing WHAT. Three phases:
 > 1. **Understand** — Ask me about identity and access: authentication vs. authorization, why it matters, common mistakes.
 > 2. **Contextualize** — We'll figure out who YOUR app serves and what they should be allowed to do.
 > 3. **Apply** — You'll either implement basic auth or document a clear security boundary.
@@ -98,18 +98,17 @@ If they truly don't need auth:
 
 ### Path B: Simple Password
 
-If they need a single password to protect the app:
-1. Store a hashed password (not plain text!)
-2. On app start, prompt for password
-3. Hash their input and compare to stored hash
-4. Use a proper hashing library — don't write your own
+If they need a single password to protect the app, hand this requirements brief to the AI:
+
+> "I want a password gate for this app. Requirements: never store the password in plaintext anywhere (not in code, files, or logs); use a battle-tested hashing library of your choice; lock the app for 5 minutes after 3 failed attempts; tell me which library you chose and why, so I can record it in `decisions/`."
+
+The vibe coder's skill here is *naming the security properties they care about*, not knowing which library implements them.
 
 ### Path C: User Accounts
 
-If they need multiple users:
-1. Use a library or framework's built-in auth (Django auth, Firebase Auth, etc.)
-2. Never store passwords in plain text
-3. Never implement password reset via email until they understand the risks
+If they need multiple users, hand this requirements brief to the AI:
+
+> "I need user accounts for this app. Requirements: use a well-established auth library or framework built-in (tell me which and why); never store passwords in plaintext; implement secure password reset only if the library provides it out of the box; tell me what session tokens look like and how they expire."
 
 ### Exercise: Input Validation (Everyone Does This)
 
@@ -138,4 +137,4 @@ Can the user:
 3. Document that decision with trigger conditions for revisiting it?
 4. Implement input validation for at least one user input?
 
-If yes, mark Stage 6 complete and move to Stage 7.
+If yes, mark Identity & Access complete in `progress.md` and move to [[07b-multi-tenancy]].

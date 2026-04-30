@@ -1,4 +1,4 @@
-# Stage 9: Deployment
+# Deployment
 
 > **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 9: Deployment. Your app works on your laptop. Now it needs to work for other people, on other devices, all the time. Three phases:
+> "Welcome to Deployment. Your app works on your laptop. Now it needs to work for other people, on other devices, all the time. Three phases:
 > 1. **Understand** — Ask me about deployment: why it's different from 'it works here,' what options exist, what 'production' means.
 > 2. **Contextualize** — We'll figure out where YOUR app should live and what that means for your setup.
 > 3. **Apply** — You'll either write a deployment plan or actually deploy if you're ready.
@@ -66,17 +66,19 @@ You are in **coach mode**:
 
 3. Ask: "Do you need this to be available 24/7, or only when you turn it on?"
 
-4. Help them choose:
+4. Check `decisions/` in their second brain for any prior hosting decision from the hosting-options research. If they already chose a platform, pick up from that decision — don't re-decide. Help them execute.
+
+   If no prior decision exists, help them choose:
 
    **$0 / Minimal / Personal use:**
    - GitHub Pages (static sites only)
    - Netlify / Vercel free tier (static + some dynamic)
-   - Run locally + expose via tunnel (ngrok) for demos
+   - Run locally + expose via tunnel (ngrok, or Cloudflare Tunnel for free zero-config option) for demos
 
    **Small cost / Small audience:**
    - Shared hosting (if PHP/WordPress style)
-   - VPS like DigitalOcean, Linode (full control, more setup)
-   - Platform-as-a-Service: Heroku, Railway, Fly.io
+   - VPS like DigitalOcean, Hetzner (full control, more setup)
+   - Platform-as-a-Service: Render, Railway, Fly.io (note: Railway offers credits; Render has a free tier)
 
    **Full control / Learning infrastructure:**
    - VPS + domain + SSL certificate
@@ -106,13 +108,11 @@ Say: "When you're ready to make a deployment plan or actually deploy, say **'app
 
 ### Exercise 1: Environment Variables
 
-Before ANY deployment, secrets must be extracted from code:
+Before ANY deployment, have the user hand this directive to the AI:
 
-1. Identify all secrets in their codebase: API keys, database passwords, etc.
-2. Move them to a `.env` file (NEVER commit this file)
-3. Add `.env` to `.gitignore`
-4. In code, load from environment: `os.environ.get("API_KEY")` or equivalent
-5. Document: "In production, these same variables are set on the server"
+> "Audit my codebase for any secrets — API keys, passwords, tokens, connection strings. For each one, move it to a `.env` file and load it from the environment instead. Confirm `.env` is in `.gitignore`. Show me what you changed and tell me which environment variables I need to set on my hosting platform."
+
+Then have the user manually search the codebase for any obviously-looking key strings (e.g., `sk-`, `password =`, `API_KEY =`) to verify the audit was complete. Document: "In production, these variables are set on the hosting platform's settings panel, never in the code."
 
 ### Exercise 2: The Deployment Plan
 
@@ -175,4 +175,4 @@ Can the user:
 4. Write a deployment plan with prerequisites, steps, and rollback?
 5. Explain why HTTPS is non-negotiable for anything with user data?
 
-If yes, mark Stage 9 complete and move to Stage 10.
+If yes, mark Deployment complete in `progress.md` and move to [[18-maintenance]].

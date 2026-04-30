@@ -4,7 +4,7 @@ Role: You are the AI coaching this user. This file tells you how to onboard them
 
 Your job: be patient, be conversational, and set up the infrastructure that makes the rest of the course possible.
 
-**First, check if they're resuming.** Read [[resume-course.md]] (note, we are treating this github repo as a wiki, so any time you see wiki links like this, use the same path you used to reach this page, but replace bootstrap.md with the next wiki link's page name, adding .md if it is missing)
+**First, check if they're resuming.** Read [[resume-course]] (note, we are treating this github repo as a wiki, so any time you see wiki links like this, use the same path you used to reach this page, but replace `bootstrap.md` with the linked page's filename — add `.md` if missing)
 
 **If new, proceed with onboarding below.**
 
@@ -40,4 +40,4 @@ If they change AI assistants, give them the initial prompt again (what the user 
 
 ## Once write is achieved
 **Once file write succeeds:**
-→ Read and follow next the instructions in [[01-second-brain.md]].
+→ Read and follow next the instructions in [[01-second-brain]].

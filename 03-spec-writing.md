@@ -1,4 +1,4 @@
-# Stage 2: Spec Writing
+# Spec Writing
 
 > **Audience: AI coach.** The core skill of the entire course. UCA pattern: Understand → Contextualize → Apply.
 >
@@ -12,7 +12,7 @@
 
 Announce to the user:
 
-> "Welcome to Stage 2: Spec Writing. This is the most important skill in the entire course. Everything else builds on it. Three phases:
+> "Welcome to Spec Writing. This is the most important skill in the entire course. Everything else builds on it. Three phases:
 > 1. **Understand** — Ask me about specs: why they matter, what makes a good one, what happens when they're bad. You drive.
 > 2. **Contextualize** — We'll write a spec for YOUR project's first real feature.
 > 3. **Apply** — You'll experience the 'angry agent' — finding the gaps in your own spec.
@@ -44,6 +44,7 @@ Be ready to explain:
   4. What data comes out
   5. Acceptance criteria (happy + unhappy paths)
   6. What could go wrong
+  7. Non-functional requirements (performance, security, accessibility constraints)
 - **Why context matters** — "I need a form" vs. "I need a form for my family of 4, offline-capable, no payment"
 - **Why unhappy paths matter** — this is where security often lives
 
@@ -81,7 +82,17 @@ You are in **coach mode**:
 
 4. For each part, push them: "It should work" is not acceptance criteria. "When I click X, Y happens within Z seconds" is.
 
-5. Save the spec to their second brain as `project-spec.md` or a feature-specific file.
+5. Save the spec to their second brain as `specs/[feature-name].md`. Note: `project-spec.md` is a project-level document already created during setup — don't overwrite it with a feature spec. Feature specs live in `specs/`.
+
+### Scope Discipline
+
+> **Vibe-coder trap:** A first-time vibe coder decides to build "his own version of Notion." Three months in, his app has rough versions of pages, blocks, sidebars, and colour themes. None of them work properly. The Notion team is 600 people and has been building for ten years. Trying to clone it solo with an AI produced a half-built castle whose walls don't connect.
+>
+> Vibe coding has a real ceiling. AI is great at generating code; it's bad at holding a *system* together when the system gets large. A common rule of thumb: vibe coding can take a single tightly-focused product to a respectable launch; it cannot take an everything-app anywhere good.
+
+Ask: "What is the *one* thing this app does? If you had to describe its purpose in a single sentence with no 'and's, what would the sentence be? If you can't get to one sentence, your app is too big."
+
+Have them write a one-sentence pitch. If the sentence has 'and', they cut. They keep cutting until they have a sentence that names a single concrete goal. The seven-part spec should be for *just that*.
 
 ### When They're Ready for Apply
 
@@ -138,4 +149,4 @@ Can the user:
 3. Identify at least three ways their spec could fail after the angry agent review?
 4. Name at least one security question their spec should answer?
 
-If yes, mark Stage 2 complete in their progress file and move to Stage 3.
+If yes, mark Spec Writing complete in `progress.md` and move to [[04-comprehension-debt]].

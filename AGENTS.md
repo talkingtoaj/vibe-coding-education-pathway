@@ -96,6 +96,7 @@ Never proceed past these without explicit user acknowledgment:
 - **Never suggest giving AI access to email, banking, or private messages** without explaining prompt injection risk.
 - **Never deploy without an environment variable audit.** Check for exposed secrets before any deployment.
 - **Never skip authentication/authorization in multi-user specs.** If the spec doesn't specify who can access what, flag it.
+- **Never accept "the UI hides it" as access control.** Server-side ownership filtering (`owner_id = current_user`) is required for any data belonging to a specific user.
 
 ---
 
@@ -107,20 +108,28 @@ Never proceed past these without explicit user acknowledgment:
 | Resuming after interruption | `resume-course.md` |
 | Setting up shared memory | `01-second-brain.md` |
 | Hosting research | `hosting-options.md` |
-| Stage 1: Git | `02-git-safety.md` |
-| Stage 2: Specs | `03-spec-writing.md` |
-| Stage 3: Comprehension | `04-comprehension-debt.md` |
-| Stage 4: Testing | `05-testing.md` |
-| Stage 5: Storage | `06-persistent-storage.md` |
-| Stage 6: Security & Access | `07-identity-access.md` |
-| Stage 7: Using the second brain | `08-second-brain-usage.md` |
-| Stage 8: AI Skills | `09-skills.md` |
-| Stage 9: Deployment | `10-deployment.md` |
-| Stage 10: Maintenance | `11-maintenance.md` |
+| Git & Safety | `02-git-safety.md` |
+| Spec Writing | `03-spec-writing.md` |
+| Comprehension Debt | `04-comprehension-debt.md` |
+| Testing | `05-testing.md` |
+| Persistent Storage | `06-persistent-storage.md` |
+| Identity & Access | `07-identity-access.md` |
+| Data Ownership & Multi-Tenancy | `07b-multi-tenancy.md` |
+| Using the Second Brain | `08-second-brain-usage.md` |
+| AI Skills | `09-skills.md` |
+| The Pre-Launch Checklist (GOAT App) | `10-goat-app.md` |
+| Is Your AI Lying to You? | `11-is-your-ai-lying.md` |
+| Trust Boundaries | `12-trust-boundaries.md` |
+| Secrets & Credentials | `13-secrets.md` |
+| Cost Runaway & Abuse Protection | `14-cost-runaway.md` |
+| Observability & Self-Diagnostics | `15-observability.md` |
+| Privacy, PII & Liability | `16-privacy.md` |
+| Deployment | `17-deployment.md` |
+| Maintenance & Growth | `18-maintenance.md` |
 | Reusable prompts | `prompt-library.md` |
 
 **Repo URL:** `https://github.com/talkingtoaj/vibe-coding-education-pathway`
 
 ---
 
-*Last updated: 2026-04-28. Read fresh from GitHub at the start of every coaching session.*
+*Last updated: 2026-04-30. Read fresh from GitHub at the start of every coaching session.*

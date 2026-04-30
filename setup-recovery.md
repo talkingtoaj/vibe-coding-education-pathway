@@ -1,9 +1,9 @@
 # Setup: Recovery — How Will You Reload Course Context?
 
-The user will close this chat and come back later with a blank context window. We need a reliable way for the AI to reload the course state. All three options below do the same thing: trigger the AI to read [[resume-course.md]] from the course repo, which centralises all resume logic.
+The user will close this chat and come back later with a blank context window. We need a reliable way for the AI to reload the course state. All three options below do the same thing: trigger the AI to read [[resume-course]] from the course repo, which centralises all resume logic.
 
 Present the problem stated above to the user, then briefly outline the 3 options below, ask them to chose, then set it up. 
-Once recovery is set up, save this fact in [[progress]] and read  [[setup-interview.md]] for your next instructions.
+Once recovery is set up, save this fact in [[progress]] and read [[setup-interview]] for your next instructions.
 
 
 ---
@@ -16,7 +16,7 @@ Most modern AI tools read a project-level config file at session start: Cursor a
 
 1. **Create or edit `AGENTS.md`** in the user's project (or appropriate location for their tool) and add:
    ```
-   When the user asked to continue the "Vibe Coding Education Pathway", read https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/resume-course.md and follow it.
+   When the user wants to resume the Vibe Coding course (any phrasing), read https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/resume-course.md and follow it.
    ```
 
 2. **For Claude Code / Claude Desktop:**
