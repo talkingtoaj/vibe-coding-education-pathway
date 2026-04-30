@@ -1,6 +1,6 @@
 # Using Your Second Brain
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Move from scattered notes to a working project knowledge base—organization strategy for their vault and a summary a stranger could understand in minutes.
 >
 > **Understand:** Tutor mode. User asks about knowledge management, external memory, why notes matter, the PARA method.
 > **Contextualize:** Coach mode. How will THEY organize their project's knowledge? What goes where?
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about second brains: why external memory beats your brain, how to organize notes, what makes a note useful vs. useless.
 > 2. **Contextualize** — We'll design the organization system for YOUR project's knowledge.
 > 3. **Apply** — You'll create the structure and write a summary so good that a stranger could understand your project in 5 minutes.
-> 
-> Say **'contextualize'** when you're ready."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about knowledge management, note-taking systems, external memory
 - Do NOT review their current notes or suggest reorganization yet
 - Do NOT tell them to create specific folders
@@ -41,13 +43,31 @@ You are in **tutor mode**:
 - **Linking notes** — connections between ideas are more valuable than the ideas themselves
 - **Weekly review** — knowledge decays if you don't revisit it
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why external memory helps long projects
+> 2. What makes notes useful versus disposable
+> 3. The difference between reference notes and thinking notes
+> 4. Why linking notes matters
+> 5. How review habits keep a second brain alive"
+
+If they are unsure what to ask, offer question starters:
+- "Why isn't memory alone enough for a long project?"
+- "What makes one note genuinely useful six weeks later?"
+- "How should I separate reference notes from decision notes?"
+- "What are practical ways to link notes without overcomplicating it?"
+- "How often should I review my notes and what should I look for?"
+
 ### The Kitchen Analogy (use only if asked)
 
 Your brain is a kitchen counter. You can keep a few things on it — the recipe you're currently using, the ingredients for today's meal. But if you pile everything on the counter (all your passwords, all your project ideas, all your meeting notes), you can't cook. A second brain is like building cabinets and a pantry. Everything has a place. When you need the recipe for sourdough, you know which cabinet. When you're done with today's recipe, you file it. The counter stays clear for cooking (thinking).
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their current notes if they exist. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their current notes if they exist, then move to Phase 2.
 
 ---
 
@@ -55,7 +75,9 @@ Read their current notes if they exist. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them design a knowledge system that fits their project and their working style
 - Don't impose a rigid system — help them discover what they need
 
@@ -95,13 +117,15 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to build your second brain, say **'apply'**."
+Say: "When you're ready to build your second brain, tell me you're ready for the Apply phase."
 
 ---
 
 ## Phase 3: Apply
 
 ### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
 
 ### Exercise 1: Create the Structure
 

@@ -1,6 +1,6 @@
 # Is Your AI Lying to You?
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Build healthy skepticism of confident-wrong output—four deception patterns, which apply to their project, then an audit that surfaces and fixes at least one real issue.
 >
 > **Understand:** Tutor mode. User asks about AI deception, fake data, useless tests, hallucinated dependencies.
 > **Contextualize:** Coach mode. Which of the four deceptions are present in THEIR project?
@@ -19,7 +19,7 @@ Announce to the user:
 > 2. **Contextualize** — We'll identify which of these are present in your project.
 > 3. **Apply** — You'll run an audit and catch at least one real deception.
 >
-> Say **'contextualize'** when you're ready."
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -35,7 +35,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about AI overconfidence, fake data, test quality, hallucinated references
 - Do NOT audit their project yet
 - Let them understand the four deception patterns
@@ -52,15 +54,33 @@ Be ready to explain each:
 
 4. **Hallucinated dependencies.** Functions that don't exist in the version installed, library methods that were renamed two versions ago, API endpoints that no longer exist. The AI confidently references things that aren't there.
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. The four common deception patterns in AI-generated output
+> 2. Why confidence is not evidence
+> 3. How fake data and weak tests create false confidence
+> 4. Why dependency claims must be verified
+> 5. How to audit before trusting"
+
+If they are unsure what to ask, offer question starters:
+- "How can a UI look correct while the backend is fake?"
+- "What does a 'test that doesn't test' look like?"
+- "Why does writing tests after code often lock in bugs?"
+- "How do I verify whether an AI-suggested API call really exists?"
+- "What quick checks should I run before trusting AI output?"
+
 ### Analogies
 
 **The film set.** Western towns in old movies were one wall thick. From the camera's angle, a thriving town. From the side, plywood. AI output without verification is camera-side thinking.
 
 **The straight-A report card.** A child whose report card is all A's but who can't read at grade level. The marks were given to keep the parents happy. Imagine the AI is the teacher.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project files and any tests that exist. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project files and any tests that exist, then move to Phase 2.
 
 ---
 
@@ -68,7 +88,9 @@ Read their project files and any tests that exist. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them scan their project for signs of each deception
 - Be honest but not discouraging — these are extremely common
 
@@ -86,9 +108,13 @@ You are in **coach mode**:
 
 ## Phase 3: Apply
 
+### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner hands **audit directives** below to their **implementation agent**; you interpret results with them and enforce gates.
+
 ### The Audit Directive
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "Audit my project for the four deceptions: (1) any data shown in the UI that came from a hardcoded list rather than the database; (2) any tests that don't meaningfully verify behaviour — `assert True`, trivial passthroughs, skipped cases; (3) any tests written after the code that simply describe what the code does rather than what it should do; (4) any imports or API calls referencing libraries, functions, or endpoints that don't actually exist in the version I'm using. Report each finding with file path, line number, and a one-sentence description. Do not fix yet — I want to see the full list first."
 

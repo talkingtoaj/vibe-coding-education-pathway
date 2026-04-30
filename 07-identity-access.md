@@ -1,6 +1,6 @@
 # Identity & Access
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Cover identity and access control—whether their app needs users, who may see what, then minimal auth or a documented security boundary.
 >
 > **Understand:** Tutor mode. User asks about authentication, authorization, identity. Why "my app doesn't need users" is often wrong.
 > **Contextualize:** Coach mode. Does THEIR project need users? Who should see what? What data is sensitive?
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about identity and access: authentication vs. authorization, why it matters, common mistakes.
 > 2. **Contextualize** — We'll figure out who YOUR app serves and what they should be allowed to do.
 > 3. **Apply** — You'll either implement basic auth or document a clear security boundary.
-> 
-> Say **'contextualize'** when you're ready."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about authentication, authorization, identity, access control
 - Do NOT tell them their project needs (or doesn't need) auth yet
 - Do NOT review their project
@@ -40,15 +42,33 @@ You are in **tutor mode**:
 - **Common mistakes** — storing passwords in plain text, trusting client-side validation, not validating input
 - **Least privilege** — users should only be able to do what they need, nothing more
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. The difference between authentication and authorization
+> 2. What identity means in an app
+> 3. Common auth and access mistakes
+> 4. Why local/small apps can still need access boundaries
+> 5. What least privilege means in practice"
+
+If they are unsure what to ask, offer question starters:
+- "What's the difference between authentication and authorization?"
+- "When does a project actually need login?"
+- "What are common beginner mistakes with auth?"
+- "Why isn't client-side checking enough for access control?"
+- "Can you give an example of least privilege in a small app?"
+
 ### The House Analogy (use only if asked)
 
 Authentication is your house key. It proves you're supposed to be here. Authorization is what rooms you can enter. The babysitter has a key (authenticated) but shouldn't enter your safe (not authorized). Your teenager has a key AND can enter their own room, but not your office.
 
 "My app doesn't need users" is like saying "I don't lock my house because I live alone." But you still lock it when you leave. And you still have a safe for valuables. The question isn't "do I have guests?" it's "what happens if someone else gets access?"
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project files and `context.md`. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project files and `context.md`, then move to Phase 2.
 
 ---
 
@@ -56,7 +76,9 @@ Read their project files and `context.md`. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them honestly assess their project's security needs
 - Don't let them skip security because it's hard
 
@@ -81,13 +103,15 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to implement or document your access boundary, say **'apply'**."
+Say: "When you're ready to implement or document your access boundary, tell me you're ready for the Apply phase."
 
 ---
 
 ## Phase 3: Apply
 
 ### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
 
 ### Path A: No Auth Needed (Document the Boundary)
 
@@ -98,7 +122,7 @@ If they truly don't need auth:
 
 ### Path B: Simple Password
 
-If they need a single password to protect the app, hand this requirements brief to the AI:
+If they need a single password to protect the app, hand this requirements brief to their **implementation agent**:
 
 > "I want a password gate for this app. Requirements: never store the password in plaintext anywhere (not in code, files, or logs); use a battle-tested hashing library of your choice; lock the app for 5 minutes after 3 failed attempts; tell me which library you chose and why, so I can record it in `decisions/`."
 
@@ -106,7 +130,7 @@ The vibe coder's skill here is *naming the security properties they care about*,
 
 ### Path C: User Accounts
 
-If they need multiple users, hand this requirements brief to the AI:
+If they need multiple users, hand this requirements brief to their **implementation agent**:
 
 > "I need user accounts for this app. Requirements: use a well-established auth library or framework built-in (tell me which and why); never store passwords in plaintext; implement secure password reset only if the library provides it out of the box; tell me what session tokens look like and how they expire."
 

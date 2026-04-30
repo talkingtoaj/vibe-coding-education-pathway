@@ -8,10 +8,13 @@ This is the **single source of truth** for session resume. Other places that men
 
 ## Step 1: Load the Latest Coaching Instructions
 
-Read the current AI coach instructions fresh from GitHub:
+Read the current **course coach** instructions fresh from GitHub:
 `https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/AGENTS.md`
 
-This ensures you're using the latest curriculum and coaching guidance, not stale context from a previous session.
+`AGENTS.md` requires you to read **`UCA-teaching.md`** next (same repo). Use the matching raw URL:
+`https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/UCA-teaching.md`
+
+This pair is the latest curriculum and pedagogy, not stale context from a previous session.
 
 ---
 

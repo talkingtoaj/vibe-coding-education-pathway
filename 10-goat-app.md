@@ -1,6 +1,6 @@
 # The Pre-Launch Checklist
 
-> **Audience: AI coach.** This stage is the gateway to the production-readiness arc. It's a framing and orientation stage — not a deep technical lesson. Its job is to give the next seven stages emotional stakes and narrative coherence.
+> **Purpose:** Orient the learner before the production arc—walk the pre-launch checklist, set stakes, and give narrative glue for the seven technical lessons that follow (framing, not deep implementation).
 
 ---
 
@@ -17,6 +17,24 @@ Announce to the user:
 > We're going to walk through the checklist now, briefly. Then over the coming lessons we'll cover each item properly, with the depth it deserves.
 >
 > The good news: you don't have to become a security engineer or a sysadmin. You just have to know enough about each item to direct your AI competently, and to recognise when the AI has done a poor job. That's still a lot. Take a breath."
+
+### Guided Start (to prevent learner stall)
+
+Right after the opening, give a short orientation:
+
+> "By the end of this lesson, you should be able to:
+> 1. Name the pre-launch checklist areas that protect real users
+> 2. Identify which checklist items are highest risk for your project
+> 3. Explain why laptop-success is not production-readiness
+> 4. Create and start using `pre-launch-checklist.md` as your operating document"
+
+If they are unsure how to begin, offer question starters:
+- "Which checklist item feels most urgent for your app right now?"
+- "Which checklist item feels least clear, and why?"
+- "What is one concrete failure that could happen if we skip this checklist?"
+- "Which item do you already believe is covered, and what evidence do you have?"
+
+**For the course coach:** Later lessons assume the learner keeps a separate **implementation agent** for audits and code (see `UCA-teaching.md`). This stage is framing only.
 
 ---
 

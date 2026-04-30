@@ -1,6 +1,6 @@
 # Prompt Library
 
-> **Audience: AI coach.** Reusable prompt templates for common course activities. Copy and adapt as needed.
+> **Purpose:** Supply copy-paste prompt templates for recurring course workflows. The **learner** (or **course coach** helping them phrase it) adapts these for context; many belong in the **implementation agent** chat, not the tutor-heavy coach thread — see `UCA-teaching.md`.
 
 ---
 

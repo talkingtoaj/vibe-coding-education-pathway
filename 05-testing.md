@@ -1,6 +1,6 @@
 # Testing
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Replace "it looks right" with real verification—testing concepts, the riskiest parts of their project, then one automated test on real code.
 >
 > **Understand:** Tutor mode. User asks about testing: why manual testing fails, what automated tests are, the different kinds.
 > **Contextualize:** Coach mode. What parts of THEIR project are most likely to break? What's the scariest change?
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about testing: why we need it, what kinds exist, why 'it works on my machine' is a trap.
 > 2. **Contextualize** — We'll figure out what parts of YOUR project are most likely to break.
 > 3. **Apply** — You'll write your first test for a real function in your project.
-> 
-> Say **'contextualize'** when you're ready."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about testing, types of tests, test automation
 - Do NOT review their project for testable functions yet
 - Do NOT say "now let's write a test"
@@ -41,15 +43,33 @@ You are in **tutor mode**:
 - **The "it works on my machine" trap** — code works for you today on your laptop with your data
 - **Regression** — something that used to work stops working after a change
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why manual testing is not enough
+> 2. The difference between unit, integration, and end-to-end tests
+> 3. What regression means
+> 4. What makes a useful automated test
+> 5. Why 'it works on my machine' is not proof"
+
+If they are unsure what to ask, offer question starters:
+- "Why does manual testing fail in real projects?"
+- "Can you explain unit vs integration vs end-to-end with simple examples?"
+- "What makes a test meaningful instead of superficial?"
+- "What is regression, and how do tests catch it?"
+- "How can a test pass while the feature is still broken?"
+
 ### The Car Analogy (use only if asked)
 
 You buy a car. The dealer says, "I started it once, it worked, it's fine." You wouldn't accept that. You'd want to know: does it start in cold weather? Does the brake work at high speed? Does the radio turn off when you lock the doors?
 
 Every "it works" is only one test. Automated testing is hiring a robot to run thousands of tests every time you change something, so you don't accidentally break the brakes while fixing the radio.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project files. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project files and move to Phase 2.
 
 ---
 
@@ -57,7 +77,9 @@ Read their project files. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them identify what parts of their project most need testing
 - Connect to their actual work
 
@@ -78,13 +100,15 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to write your first real test, say **'apply'**."
+Say: "When you're ready to write your first real test, tell me you're ready for the Apply phase."
 
 ---
 
 ## Phase 3: Apply
 
 ### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
 
 ### Exercise 1: The Manual Test (to feel the pain)
 
@@ -121,7 +145,7 @@ Things that should NEVER happen:
 
 Once they've written the spec, have them hand it to the AI with: *"Implement tests for this function using whatever test framework fits my project. Write failing tests first, then confirm they pass after implementation."*
 
-After the AI implements, the user's job is to *read* the tests and verify they actually exercise what the spec described — not just that they pass. A test that always passes is not a test.
+After the implementation agent implements, the user's job is to *read* the tests and verify they actually exercise what the spec described — not just that they pass. A test that always passes is not a test.
 
 ### Exercise 3: The Regression Test
 

@@ -4,10 +4,10 @@
 
 This isn't watching tutorials. It's learning by doing, with your real project as the curriculum.
 
-Every stage follows the **UCA pattern**: **Understand** → **Contextualize** → **Apply**.
-- **Understand:** You ask questions until the concept is clear (tutor mode)
+Every stage follows the **UCA pattern**: **Understand** → **Contextualize** → **Apply** (see `UCA-teaching.md` in the repo for the full model).
+- **Understand:** You ask questions until the concept is clear (**course coach** in tutor mode)
 - **Contextualize:** We connect it to your actual project (coach mode)
-- **Apply:** You implement it hands-on (coach mode)
+- **Apply:** You drive the work hands-on — usually by **directing a separate implementation AI** to change code while you review, decide, and capture notes (coach mode for learning; builder AI for typing code)
 
 
 ---
@@ -95,7 +95,7 @@ The AI will read the course material and guide you through everything.
 
 ## About This Course
 
-This course is entirely free and self-paced. There's no timeline, no homework deadlines, and no grades. You progress when you're ready. The AI is your personal tutor; this course material is simply the curriculum it follows.
+This course is entirely free and self-paced. There's no timeline, no homework deadlines, and no grades. You progress when you're ready. You will typically use **two different AI setups**: a **course coach** that follows `AGENTS.md` + `UCA-teaching.md` (teaching, pacing, safety), and an **implementation agent** in another chat or profile that you point at your repo to write code from your specs. Same course material; two roles so “don’t do my homework for me” and “AI writes the code” stay in balance.
 
 All course content is open source. If you find a bug, have a suggestion, or want to contribute an improvement, contributions are welcome.
 

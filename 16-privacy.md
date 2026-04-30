@@ -1,6 +1,6 @@
 # Privacy, PII & Liability
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Treat personal data as operational risk—PII map and justification, minimisation audit, privacy policy draft, and breach runbook.
 >
 > **Understand:** Tutor mode. User asks about PII, GDPR, data minimisation, offloading liability.
 > **Contextualize:** Coach mode. Map every piece of personal data in THEIR project and ask why it's there.
@@ -19,7 +19,7 @@ Announce to the user:
 > 2. **Contextualize** — We'll map every piece of personal data in your project and ask why it's there.
 > 3. **Apply** — You'll run the minimisation audit, draft a privacy policy, and write a breach runbook.
 >
-> Say **'contextualize'** when you're ready."
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -35,7 +35,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about PII, GDPR (and equivalents), data minimisation, liability, third-party offloading
 - Do NOT review their project yet
 - Let them understand that data is a liability, not just a feature
@@ -48,6 +50,24 @@ You are in **tutor mode**:
 - **Offloading liability** — you don't have to handle passwords yourself (SSO providers do it); you don't have to handle payment cards yourself (Stripe does it); you don't have to verify identity yourself (services like Stripe Identity exist). Every category you offload is one you don't have to secure, audit, or get sued over.
 - **The "just in case" trap** — the most common way apps accumulate data: "we might use this someday." AI assistants are especially prone to suggesting extra fields. Every field must earn its place.
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. What PII is and which categories are highly sensitive
+> 2. Why data minimisation reduces risk
+> 3. Why privacy obligations apply based on users, not developer intent
+> 4. How offloading some data categories can reduce liability
+> 5. Why every field must have a clear purpose"
+
+If they are unsure what to ask, offer question starters:
+- "What counts as PII in practice?"
+- "How do I decide whether a field is required or unnecessary?"
+- "What does data minimisation look like in real products?"
+- "When should I offload identity or payment handling to providers?"
+- "What can happen if I collect data 'just in case'?"
+
 ### Analogies
 
 **Cleaning vs. owning:** Every item you store is something you have to clean, secure, insure, and possibly hand over. Less stuff = less work and less worry.
@@ -56,9 +76,9 @@ You are in **tutor mode**:
 
 **Money in the safe vs. money in the bank:** The bank takes responsibility off your hands. SSO and payment providers do the same for personal data.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project spec and any forms/database schemas. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project spec and any forms/database schemas, then move to Phase 2.
 
 ---
 
@@ -66,7 +86,9 @@ Read their project spec and any forms/database schemas. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them map every piece of personal data and question why it's there
 
 ### What to Do
@@ -83,9 +105,13 @@ You are in **coach mode**:
 
 ## Phase 3: Apply
 
+### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner hands **audit directives** below to their **implementation agent**; you interpret results with them and enforce gates.
+
 ### The Audit Directive
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "Audit every form, field, and database column in my project. For each piece of personal data, classify it: do I genuinely need it for the feature to work, or is it 'just in case'? Mark each: REQUIRED / NICE-TO-HAVE / DELETE. For everything in NICE-TO-HAVE: explain the worst case if it leaked. For anything in the radioactive categories (government ID, medical, financial, exact location, biometric, data about minors), tell me whether I could offload the responsibility to a third-party provider (Stripe, Google SSO, Auth0, etc.). Write me a plain-English privacy policy and terms-of-service draft based on what's left. Tell me which jurisdictions my app falls under and what compliance obligations come with each."
 

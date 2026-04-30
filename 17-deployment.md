@@ -1,6 +1,6 @@
 # Deployment
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Get the app off the laptop—deployment concepts and constraints for their situation, then either a written deployment plan or a real deploy if they are ready.
 >
 > **Understand:** Tutor mode. User asks about deployment: why local isn't enough, what options exist, environment variables, HTTPS.
 > **Contextualize:** Coach mode. Where does THEIR app need to live? What are their constraints?
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about deployment: why it's different from 'it works here,' what options exist, what 'production' means.
 > 2. **Contextualize** — We'll figure out where YOUR app should live and what that means for your setup.
 > 3. **Apply** — You'll either write a deployment plan or actually deploy if you're ready.
-> 
-> Say **'contextualize'** when you're ready."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about deployment, hosting, environment variables, HTTPS, production
 - Do NOT tell them where to deploy their project
 - Do NOT review their project for deployment readiness
@@ -40,13 +42,31 @@ You are in **tutor mode**:
 - **Shared hosting vs. VPS vs. PaaS vs. serverless** — tradeoffs in control, cost, complexity
 - **The "works on my machine" problem** — differences between development and production environments
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why local success is not deployment readiness
+> 2. What deployment means operationally
+> 3. Why environment variables and HTTPS are non-negotiable
+> 4. The tradeoffs between common hosting options
+> 5. How to think about deployment constraints"
+
+If they are unsure what to ask, offer question starters:
+- "What changes when an app moves from local to production?"
+- "How do I compare PaaS, VPS, and serverless choices?"
+- "Why must secrets be environment variables before deployment?"
+- "What risks does missing HTTPS create?"
+- "How do I pick a deployment target for my actual constraints?"
+
 ### The Theater Analogy (use only if asked)
 
 Right now, their app is like a play performed in their living room for an audience of one. Deployment is building a theater, putting up a marquee, and selling tickets. The play is the same — but now anyone can attend. And the theater has different rules: fire exits, seat capacity, ushers, ticket takers. Your living room play didn't need those. Production does.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their `context.md`, `project-spec.md`, and current project status. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their `context.md`, `project-spec.md`, and current project status, then move to Phase 2.
 
 ---
 
@@ -54,7 +74,9 @@ Read their `context.md`, `project-spec.md`, and current project status. Move to 
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them choose the right deployment path for their project and constraints
 - Don't push them to deploy before they're ready
 
@@ -98,7 +120,7 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to make a deployment plan or actually deploy, say **'apply'**."
+Say: "When you're ready to make a deployment plan or actually deploy, tell me you're ready for the Apply phase."
 
 ---
 
@@ -106,9 +128,11 @@ Say: "When you're ready to make a deployment plan or actually deploy, say **'app
 
 ### Coach Mode Instructions for You (the AI)
 
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+
 ### Exercise 1: Environment Variables
 
-Before ANY deployment, have the user hand this directive to the AI:
+Before ANY deployment, have the user hand this directive to their **implementation agent**:
 
 > "Audit my codebase for any secrets — API keys, passwords, tokens, connection strings. For each one, move it to a `.env` file and load it from the environment instead. Confirm `.env` is in `.gitignore`. Show me what you changed and tell me which environment variables I need to set on my hosting platform."
 

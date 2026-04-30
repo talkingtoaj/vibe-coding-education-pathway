@@ -1,6 +1,6 @@
 # Observability & Self-Diagnostics
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Make production failures legible—logs, errors, uptime, artefacts—then wire their project so they can ask the AI what happened and get useful answers.
 >
 > **Understand:** Tutor mode. User asks about logs, error tracking, uptime monitoring, test artefacts.
 > **Contextualize:** Coach mode. What does THEIR project currently know when something goes wrong?
@@ -19,7 +19,7 @@ Announce to the user:
 > 2. **Contextualize** — We'll assess what YOUR project currently knows when something breaks.
 > 3. **Apply** — You'll set up the six observability pieces and practise the handoff workflow.
 >
-> Say **'contextualize'** when you're ready."
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -37,7 +37,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about logs, error tracking, uptime monitoring, test artefacts
 - Do NOT review their project yet
 - Let them understand that observability is not just for production — it makes development faster too
@@ -58,6 +60,24 @@ Be ready to explain each:
 
 6. **The "tell me what happened" workflow.** Once 1–5 are in place: "Read the logs and the error trace, figure out what went wrong, write a TDD test that replicates the failure, then fix it." This is the killer move.
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why observability matters before and after launch
+> 2. What structured logs are and why they help AI debugging
+> 3. The roles of error tracking and uptime monitoring
+> 4. Why test artefacts speed diagnosis
+> 5. How to run a 'tell me what happened' workflow"
+
+If they are unsure what to ask, offer question starters:
+- "What should good application logs include?"
+- "How is error tracking different from plain logs?"
+- "Why do uptime monitors matter for small apps?"
+- "What artefacts should tests produce when they fail?"
+- "How do I hand a failure to AI so it can actually diagnose it?"
+
 ### Analogies
 
 **The smoke alarm:** You don't notice it when it works. You only notice when there's a fire. Observability is smoke alarms for software.
@@ -66,9 +86,9 @@ Be ready to explain each:
 
 **The medical chart:** When something goes wrong with a patient, the chart tells the doctor what's been happening. Without the chart, every diagnosis is from scratch.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project and any existing logs or error handling. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project and any existing logs or error handling, then move to Phase 2.
 
 ---
 
@@ -76,7 +96,9 @@ Read their project and any existing logs or error handling. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them honestly assess what their project currently knows when something fails
 
 ### What to Do
@@ -93,9 +115,13 @@ You are in **coach mode**:
 
 ## Phase 3: Apply
 
+### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner hands **directives** below to their **implementation agent**; you interpret results with them and enforce gates.
+
 ### The Directive
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "Set up structured logging in my app — every endpoint logs request, response, user ID, and timing. Replace generic error messages with informative ones that name the operation, the inputs, and the failure. Integrate an error-tracking service (suggest one with a free tier that fits my hosting platform). Set up an uptime monitor that pings my app every 5 minutes and emails me on outage. For my test suite: capture screenshots at key UI moments, dump the database state before and after each test, and write detailed logs to a per-test artefact directory. Document a workflow for me titled 'When something breaks, what do I do?' with concrete steps."
 

@@ -1,6 +1,6 @@
 # Trust Boundaries
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Teach trust boundaries for everything that enters the app—injection and XSS concepts, mapping their input surfaces, then audit plus self-attack drill.
 >
 > **Understand:** Tutor mode. User asks about injection attacks, XSS, input validation, sanitization, authorization.
 > **Contextualize:** Coach mode. Map every input entry point in THEIR project.
@@ -19,7 +19,7 @@ Announce to the user:
 > 2. **Contextualize** — We'll map every place data enters YOUR app.
 > 3. **Apply** — You'll direct the AI to audit and fix your input handling, then try to break it yourself.
 >
-> Say **'contextualize'** when you're ready."
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -37,7 +37,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about injection, XSS, file upload vulnerabilities, IDOR, input validation
 - Do NOT review their project yet
 - Let them understand why every input is suspect
@@ -54,15 +56,33 @@ You are in **tutor mode**:
   2. **Sanitize** — strip or escape anything that could be interpreted as code
   3. **Authorize** — even if valid and clean, is *this user* allowed to do *this thing* with *this data*?
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why all incoming input is untrusted
+> 2. The basic idea of SQL injection and XSS
+> 3. Why upload handling is a security boundary
+> 4. The validate → sanitize → authorize sequence
+> 5. Why frontend checks alone do not secure an app"
+
+If they are unsure what to ask, offer question starters:
+- "Why is all input considered hostile by default?"
+- "What's a simple explanation of SQL injection and XSS?"
+- "Why can file uploads be dangerous even when file extensions look safe?"
+- "How are validate, sanitize, and authorize different?"
+- "Why isn't frontend-only validation sufficient?"
+
 ### Analogies
 
 **Airport security:** Even ticketed passengers walk through scanners. The ticket (authentication) doesn't get you out of screening (validation, sanitization).
 
 **The bouncer:** Three jobs — check the ID (validation), check the guest list (authorization), pat down for weapons (sanitization). A bouncer doing only one is not security.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project files. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project files and move to Phase 2.
 
 ---
 
@@ -70,7 +90,9 @@ Read their project files. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them list every place data enters their app
 - Connect each input to the three jobs it needs to pass
 
@@ -98,9 +120,13 @@ You are in **coach mode**:
 
 ## Phase 3: Apply
 
+### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner hands **audit directives** below to their **implementation agent**; you interpret results with them and enforce gates.
+
 ### The Audit Directive
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "List every place data enters my app from outside: forms, URL/query parameters, file uploads, headers, cookies, third-party webhooks, OAuth callbacks. For each, tell me three things: what validation is in place, what sanitization is in place, what authorization check is in place. Then play attacker: assume someone wants to break each input. What can they do? Specifically check for: SQL injection, cross-site scripting, file-upload exploits, mass assignment, path traversal. Use parameterized queries everywhere — never construct SQL by string concatenation. Report findings ordered by severity."
 

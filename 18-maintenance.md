@@ -1,6 +1,6 @@
 # Maintenance & Growth
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Establish that software is maintained or it dies—decay mechanics, an honest health check on their project, and a repeatable maintenance ritual.
 >
 > **Understand:** Tutor mode. User asks about maintenance: why code rots, dependency updates, technical debt, when to refactor.
 > **Contextualize:** Coach mode. What does THEIR project need to stay healthy? What's already decaying?
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about maintenance: why code rots, how dependencies age, when to refactor vs. rewrite.
 > 2. **Contextualize** — We'll look at YOUR project and figure out what needs attention right now.
 > 3. **Apply** — You'll create a maintenance ritual and do your first honest project review.
-> 
-> Say **'contextualize'** when you're ready."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about software maintenance, technical debt, refactoring, dependencies
 - Do NOT review their project for maintenance needs yet
 - Do NOT tell them what to fix
@@ -41,13 +43,31 @@ You are in **tutor mode**:
 - **The "if it ain't broke" trap** — sometimes it IS broke, just not visibly
 - **Monitoring and alerts** — how you know something is wrong before users tell you
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why software degrades over time
+> 2. The difference between technical debt and comprehension debt
+> 3. When refactoring helps and when it harms
+> 4. Why dependency and security maintenance are ongoing
+> 5. Why maintenance needs a repeatable ritual"
+
+If they are unsure what to ask, offer question starters:
+- "Why does code quality decay even when no one touches it?"
+- "How do technical debt and comprehension debt differ in practice?"
+- "How do I decide whether to refactor now or defer it?"
+- "What maintenance tasks should happen weekly or monthly?"
+- "How can I keep maintenance lightweight but consistent?"
+
 ### The Garden Analogy (use only if asked)
 
 A deployed app is like a garden. You can plant it, water it for a week, and walk away. For a month, it looks fine. Then weeds appear. Then pests. Then the tomatoes you planted in the wrong spot are shading the lettuce. Maintenance isn't about the garden being broken — it's about the garden changing, seasonally, whether you tend it or not. The question is: are you gardening, or are you watching it become a wilderness?
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their project files, notes, and current status. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their project files, notes, and current status, then move to Phase 2.
 
 ---
 
@@ -55,7 +75,9 @@ Read their project files, notes, and current status. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them assess their project's current health honestly
 - Be gentle about debt they've accumulated — it's normal
 
@@ -83,13 +105,15 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to build your maintenance practice, say **'apply'**."
+Say: "When you're ready to build your maintenance practice, tell me you're ready for the Apply phase."
 
 ---
 
 ## Phase 3: Apply
 
 ### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
 
 ### Exercise 1: The Weekly Ritual
 

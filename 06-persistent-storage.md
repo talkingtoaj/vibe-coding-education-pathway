@@ -1,6 +1,6 @@
 # Persistent Storage
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Explain why apps must remember data between sessions, choose the simplest storage for their project, and persist one piece of data for real.
 >
 > **Understand:** Tutor mode. User asks about data persistence: why variables disappear, what a database is, file vs. database tradeoffs.
 > **Contextualize:** Coach mode. What data does THEIR project need to remember? What's the simplest storage that fits?
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about storage: why data disappears when you close the app, what options exist, how to choose.
 > 2. **Contextualize** — We'll figure out what YOUR app needs to remember and what's the simplest way.
 > 3. **Apply** — You'll make one piece of data actually persist between sessions.
-> 
-> Say **'contextualize'** when you're ready."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about data persistence, databases, files, localStorage, etc.
 - Do NOT tell them what storage to use for their project
 - Do NOT say "let's look at your project"
@@ -41,13 +43,31 @@ You are in **tutor mode**:
 - **SQLite** — a database in a single file; zero setup; great for beginners
 - **When to use what** — files for config/logs, SQLite for structured data, full databases for scale
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why app data disappears without persistence
+> 2. What persistent storage means
+> 3. The differences between files, browser storage, and databases
+> 4. Why SQLite is often a good beginner default
+> 5. How to choose the simplest storage for a use case"
+
+If they are unsure what to ask, offer question starters:
+- "Why does my data disappear when I restart the app?"
+- "When should I use a file instead of a database?"
+- "What are the limits of localStorage and cookies?"
+- "When is SQLite enough, and when is it not?"
+- "How do I avoid over-engineering storage too early?"
+
 ### The Notebook Analogy (use only if asked)
 
 Your app's memory is like working in your head. You can think about many things at once, but when you go to sleep, you forget most of it. Persistent storage is like writing in a notebook. You can close the notebook, go on holiday, come back — your notes are still there. The question is: do you need a simple notepad (file), a filing cabinet (database), or a bank vault (encrypted database with access control)?
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their `context.md`, `project-spec.md`, and current code. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their `context.md`, `project-spec.md`, and current code, then move to Phase 2.
 
 ---
 
@@ -55,7 +75,9 @@ Read their `context.md`, `project-spec.md`, and current code. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them figure out what data their project needs to persist
 - Guide them to the SIMPLEST solution that fits their constraints
 
@@ -81,13 +103,15 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to make data actually persist, say **'apply'**."
+Say: "When you're ready to make data actually persist, tell me you're ready for the Apply phase."
 
 ---
 
 ## Phase 3: Apply
 
 ### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
 
 ### Exercise: Make One Thing Persist
 
@@ -131,7 +155,7 @@ Three rules:
 2. **Backups don't live next to the originals.** Same server = no protection against fire, account suspension, or accidental deletion.
 3. **An untested backup is not a backup.** Once a quarter, restore from backup and confirm the data is intact.
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "Set up automated daily backups of my database to a separate storage location (different cloud provider or account). Email me when a backup succeeds, and email me LOUDLY when one fails. Write a recovery runbook at `recovery/runbook.md` so I can follow it under pressure."
 

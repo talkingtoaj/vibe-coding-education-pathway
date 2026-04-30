@@ -1,6 +1,6 @@
 # Cost Runaway & Abuse Protection
 
-> **Audience: AI coach.** Short lesson — about 45 minutes. Critical. No formal phases — more of a safety briefing with exercises.
+> **Purpose:** Deliver a short (~45 minute) pre-launch briefing on spend runaway and abuse—caps, rate limits, bot risk—with practical exercises (not a phased UCA lesson).
 
 ---
 
@@ -9,6 +9,22 @@
 Announce to the user:
 
 > "Welcome to Cost Runaway & Abuse Protection. This is the shortest lesson in the production-readiness arc but possibly the one with the most immediate financial stakes. Let's talk about what happens when your app becomes too popular, or when someone tries to use it as a weapon against your wallet."
+
+### Guided Start (to prevent learner stall)
+
+At the start of the lesson, give a short orientation:
+
+> "By the end of this lesson, you should be able to:
+> 1. Explain hard caps, rate limits, and quotas
+> 2. Estimate your one-day maximum financial exposure
+> 3. Define limits for expensive endpoints
+> 4. Set alert thresholds and document a shutdown plan"
+
+If they are unsure how to begin, offer question starters:
+- "What is the difference between a spend cap and a rate limit?"
+- "Which endpoint in your app could become most expensive under abuse?"
+- "What one-day loss would be unacceptable for your budget?"
+- "What would you disable first if you hit a 100% spend alert?"
 
 ---
 
@@ -54,7 +70,7 @@ Document: `decisions/spend-caps.md` — every provider, the cap set, the alert t
 
 ### The Directive
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "List every paid external service my app uses. For each, tell me: what's the unit of cost (per request, per token, per GB, per email), what's a sensible per-user-per-hour limit for my expected use, and how do I configure a hard spend cap on the provider's dashboard. Add per-IP and per-user rate limits to every endpoint that calls a paid service. Add per-user quotas to any operation that costs more than half a cent. Set up email alerts that fire when I'm at 50%, 80%, and 100% of any spend cap. Tell me: if I got the 100% alert right now, what's the fastest way to take the affected feature offline?"
 

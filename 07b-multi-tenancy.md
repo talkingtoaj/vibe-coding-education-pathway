@@ -1,6 +1,6 @@
 # Data Ownership & Multi-Tenancy
 
-> **Audience: AI coach.** UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Prevent cross-user data leaks—ownership and multi-tenancy concepts, mapping every dataset to an owner, then verifying user A cannot see user B's data.
 >
 > **Understand:** Tutor mode. User asks about data ownership, multi-tenancy, why "users have to log in" is not the same as "users can only see their own data."
 > **Contextualize:** Coach mode. Does THEIR project have user-specific data? Map every table to an owner.
@@ -17,7 +17,7 @@ Announce to the user:
 > 2. **Contextualize** — We'll map every piece of data in YOUR project to an owner.
 > 3. **Apply** — You'll direct the AI to enforce ownership, then verify it actually works.
 >
-> Say **'contextualize'** when you're ready."
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -33,7 +33,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about data ownership, multi-tenancy, server-side vs. client-side access control
 - Do NOT review their project yet
 - Let them discover the gap between "login works" and "data is protected"
@@ -47,15 +49,33 @@ You are in **tutor mode**:
 - **The "only I tested it" trap** — the most dangerous apps appear to work perfectly because the developer is the only user during testing. Multi-tenancy failures are invisible until the second user arrives.
 - **"Not found" vs. "Forbidden"** — when a user requests someone else's data, the server should return "not found," not "forbidden." Returning "forbidden" confirms that the item exists.
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. Why login alone does not protect user data
+> 2. What data ownership means per row
+> 3. Why ownership checks must happen server-side
+> 4. The difference between 'not found' and 'forbidden' in this context
+> 5. How multi-tenancy failures usually appear"
+
+If they are unsure what to ask, offer question starters:
+- "Why isn't authentication enough by itself?"
+- "What does `owner_id` enforcement actually do?"
+- "Why doesn't hiding data in the frontend count as security?"
+- "When should the server return 'not found' vs 'forbidden'?"
+- "How do developers accidentally leak cross-user data?"
+
 ### Analogies
 
 **The hotel room:** Every guest has a key. The key opens *their* room only. The hotel doesn't print a list of every guest's name in the lobby. Multi-tenancy is the difference between a hotel and a hostel dorm.
 
 **The bank account:** Authentication is "you proved you're you." Authorization is "you may withdraw from your account, not your neighbour's — even though you're standing in the same bank."
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their `project-spec.md`, `context.md`, and any existing code. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their `project-spec.md`, `context.md`, and any existing code, then move to Phase 2.
 
 ---
 
@@ -63,7 +83,9 @@ Read their `project-spec.md`, `context.md`, and any existing code. Move to Phase
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them identify every piece of user-specific data in their project
 - Build a data ownership map together
 
@@ -88,7 +110,7 @@ You are in **coach mode**:
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to enforce ownership in your project, say **'apply'**."
+Say: "When you're ready to enforce ownership in your project, tell me you're ready for the Apply phase."
 
 ---
 
@@ -96,15 +118,17 @@ Say: "When you're ready to enforce ownership in your project, say **'apply'**."
 
 ### Coach Mode Instructions for You (the AI)
 
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+
 ### The Directive
 
-Have the user hand this directive to the AI:
+Have the user hand this directive to their **implementation agent**:
 
 > "For every database table that holds user-specific data, add an `owner_id` column linking each row to the user who created it. Every server-side read, write, update, and delete on these tables must filter by `owner_id = current_user_id`. The filter happens on the server, not in the frontend. If a user requests an item they don't own, return 'not found' — don't even confirm it exists. Write tests that prove user A cannot read, edit, or delete user B's data. Add an admin role that can see all rows, and tell me clearly which routes that role unlocks."
 
 ### Verification Exercise
 
-After the AI implements:
+After the implementation agent implements:
 
 1. Log in as user A. Create a piece of data (a recipe, note, record — whatever fits the project). Note the ID or URL.
 2. Log in as user B (a separate account). Try to access user A's item by:

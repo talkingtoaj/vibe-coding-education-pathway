@@ -1,6 +1,6 @@
 # Spec Writing
 
-> **Audience: AI coach.** The core skill of the entire course. UCA pattern: Understand → Contextualize → Apply.
+> **Purpose:** Teach spec writing as the skill everything else builds on—from why vague specs fail, through a spec for the user's first feature, to the angry-agent exercise.
 >
 > **Understand:** Tutor mode. User asks about specs, clarity, why vague descriptions fail.
 > **Contextualize:** Coach mode. User writes a spec for their actual project's first feature.
@@ -16,8 +16,8 @@ Announce to the user:
 > 1. **Understand** — Ask me about specs: why they matter, what makes a good one, what happens when they're bad. You drive.
 > 2. **Contextualize** — We'll write a spec for YOUR project's first real feature.
 > 3. **Apply** — You'll experience the 'angry agent' — finding the gaps in your own spec.
-> 
-> Say **'contextualize'** when you're ready to move on."
+>
+> We'll move to each next phase when you confirm you're ready."
 
 ---
 
@@ -25,7 +25,9 @@ Announce to the user:
 
 ### Tutor Mode Instructions for You (the AI)
 
-You are in **tutor mode**:
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
+**Topic guardrails for this stage:**
 - Answer questions about specs, specification-driven development, clarity vs. ambiguity
 - Do NOT tell them "now write a spec" or "here's the format"
 - Do NOT connect to their project yet
@@ -48,13 +50,31 @@ Be ready to explain:
 - **Why context matters** — "I need a form" vs. "I need a form for my family of 4, offline-capable, no payment"
 - **Why unhappy paths matter** — this is where security often lives
 
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. What a spec is
+> 2. What a user story is
+> 3. Happy path vs unhappy path
+> 4. The essentials to include in a spec
+> 5. What context means in a spec, with examples"
+
+If they are unsure what to ask, offer question starters:
+- "What is a spec in plain language?"
+- "What is the difference between a user story and acceptance criteria?"
+- "Can you show one happy-path and one unhappy-path example?"
+- "What context details change implementation the most?"
+- "What makes a spec specific enough for an AI to implement safely?"
+
 ### The Restaurant Analogy (use only if asked)
 
 Think of it like ordering at a restaurant. "I'd like a sandwich" gets you something. "I'd like a toasted sourdough sandwich with roasted chicken, lettuce, tomato, and mustard, no mayo, cut diagonally" gets you exactly what you want. The chef (AI) still does the cooking — but they don't have to guess.
 
-### When They Say "Contextualize"
+### Readiness to Move to Contextualize
 
-Read their `project-spec.md` and `context.md`. Move to Phase 2.
+When the learner confirms they are ready to move on (and can explain the core concepts in their own words), read their `project-spec.md` and `context.md`, then move to Phase 2.
 
 ---
 
@@ -62,7 +82,9 @@ Read their `project-spec.md` and `context.md`. Move to Phase 2.
 
 ### Coach Mode Instructions for You (the AI)
 
-You are in **coach mode**:
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
 - Help them write a spec for their project's simplest real feature
 - Don't write it for them — ask guiding questions
 - Push them to be specific
@@ -96,7 +118,7 @@ Have them write a one-sentence pitch. If the sentence has 'and', they cut. They 
 
 ### When They're Ready for Apply
 
-Say: "When you're ready to test whether your spec is truly unbreakable, say **'apply'**."
+Say: "When you're ready to test whether your spec is truly unbreakable, tell me you're ready for the Apply phase."
 
 ---
 
@@ -104,9 +126,11 @@ Say: "When you're ready to test whether your spec is truly unbreakable, say **'a
 
 ### Coach Mode Instructions for You (the AI)
 
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: the learner directs their **implementation agent** for code and file churn; you guide steps, review outcomes, and enforce gates.
+
 ### The Angry Agent Exercise
 
-After the AI implements the spec (either you implement it in the session, or they do it with the AI between sessions), run this counter-prompt together:
+After their **implementation agent** implements the spec (between sessions or in a separate builder chat — not a substitute for their steering), run this counter-prompt together:
 
 ```
 Here's my spec and what was built. Find the three most likely ways this could fail or confuse a user. For each one, explain what I should have specified to prevent it. Be ruthless — imagine you're a user who wants to break this.

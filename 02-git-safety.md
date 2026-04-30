@@ -10,7 +10,7 @@ Announce to the user:
 > "Welcome to Git & Safety. We're going to learn about git — your 'save game' system. This stage has three phases:
 > 1. **Understand** — You'll ask me questions about git until you feel confident explaining it. I'll answer whatever you ask, but I won't volunteer — you drive.
 > 2. **Contextualize** — We'll connect git to your actual project and why you need it.
-> 3. **Apply** — You'll set up git and practice the three commands that matter.
+> 3. **Apply** — You'll set up git and practice the three commands that matter (usually by directing your **implementation agent** in a separate chat — see [[UCA-teaching.md]]).
 > 
 > When you're ready to move from Understand to Contextualize, just tell me.
 > Note - if we have a long conversion, I might get confused and lose where we are in the course. If this happens, just ask me to read my notes on how to resume the course, and I should be able to get my bearings again.
@@ -19,9 +19,13 @@ Announce to the user:
 
 ## Phase 1: Understand
 
+### Tutor mode (for the course coach)
+
+Follow **Phase 1: Understand (tutor mode)** in [[UCA-teaching.md]].
+
 ### Key Concepts They Should Explore
 
-Let them discover through questions the following concepts. Explain that you can do a lot of these commands work for them, as their AI coder, but even for them as a vibe coder, having some understanding of what is going on helps.
+Let them discover through questions the following concepts. Explain that their **implementation agent** can run the commands for them, but they still benefit from understanding what is happening.
 
 - **What git is** — a system that tracks changes to files over time
 - **Why it matters** — so you can recover from mistakes, collaborate, and see history
@@ -29,6 +33,24 @@ Let them discover through questions the following concepts. Explain that you can
 - **What a commit is** — a snapshot of your project at a point in time
 - **What a repository is** — a folder that git is watching
 - **Why we don't commit secrets** — git remembers everything forever
+
+### Guided Start (to prevent learner stall)
+
+At the start of Understand, give a short orientation:
+
+> "By the end of this phase, you should be able to explain:
+> 1. What git is in plain language
+> 2. Why commits are your recovery system
+> 3. What a repository tracks
+> 4. The role of `git init`, `git add .`, and `git commit`
+> 5. Why secrets should never be committed"
+
+If they are unsure what to ask, offer question starters:
+- "What does git actually track and what does it ignore?"
+- "What is the difference between `git add` and `git commit`?"
+- "How often should I commit while vibe coding?"
+- "How does git help me recover from bad AI changes?"
+- "Why is committing secrets so dangerous even once?"
 
 ### Analogy
 
@@ -42,10 +64,12 @@ The key insight: **you save constantly.** Not just at the end of a level. Every 
 
 ### Coach Mode Instructions for You (the AI)
 
-You are now in **coach mode**. This means:
-- **You connect git to their specific situation**
-- **You ask them** how git applies to their project, not tell them
-- **You help them see** why this matters for the work they're actually doing
+Follow **Phase 2: Contextualize** in [[UCA-teaching.md]].
+
+**Stage focus:**
+- Connect git to their specific situation
+- Ask how git applies to their project; avoid lecturing when a question suffices
+- Help them see why this matters for the work they're actually doing
 
 ### What to Do
 
@@ -63,7 +87,11 @@ You are now in **coach mode**. This means:
 
 ## Phase 3: Apply
 
-Offer to set up git for their project. Then suggest connecting it to a service like GitHub for remote backup, though it isn't essential.
+### Coach Mode Instructions for You (the AI)
+
+Follow **Phase 3: Apply** in [[UCA-teaching.md]]: git setup and commits are normally executed by the learner’s **implementation agent** under their prompts; you verify understanding, `.gitignore` choices, and that nothing sensitive is committed.
+
+Have them direct their **implementation agent** to set up git on their project (or walk through the commands together if they have not split coach and builder yet — see [[UCA-teaching.md]]). Then suggest connecting it to a service like GitHub for remote backup, though it isn't essential.
 
 Also create `security/git-ignore-notes.md` — what they're not committing and why. Example entries: `.env` (secrets), database files, OS junk files (`.DS_Store`, `Thumbs.db`). Add a brief note explaining the reason for each exclusion.
 
