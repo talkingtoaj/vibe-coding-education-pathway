@@ -70,8 +70,9 @@ https://github.com/talkingtoaj/vibe-coding-education-pathway/blob/main/bootstrap
 Raw file:
 https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/bootstrap.md
 
-Please read bootstrap.md and follow it exactly. If you cannot open the raw URL directly, use the GitHub repo link or web search for "talkingtoaj vibe-coding-education-pathway bootstrap.md". When the course uses wiki links like [[01-second-brain]], resolve them as files in the same repo, for example:
-https://raw.githubusercontent.com/talkingtoaj/vibe-coding-education-pathway/main/01-second-brain.md
+Please start with bootstrap.md and follow it exactly. If you cannot open the raw URL directly, use the GitHub repo link or web search for "talkingtoaj vibe-coding-education-pathway bootstrap.md".
+
+Later, when bootstrap.md tells you to read another course file using a wiki link like [[01-second-brain]], resolve that link as a file in the same repo. For example, [[01-second-brain]] means 01-second-brain.md in this repo.
 
 Walk me through the course step by step. Do not skip the file persistence check.
 ```
