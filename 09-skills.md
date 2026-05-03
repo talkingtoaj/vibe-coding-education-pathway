@@ -191,7 +191,7 @@ Two skills that directly address these:
 
 **Handover skill** — a skill that saves the current state of a long session (what's been done, what's pending, the AI's current understanding) into `handover.md`. Start a fresh session, hand the AI that file, continue without losing thread. This is the answer to the context wall.
 
-Beyond skills, a `CLAUDE.md` / `AGENTS.md` at the project root is the **implementation agent’s** persistent memory of the project: conventions, tech stack, security rules, "things the AI keeps getting wrong." It's the difference between starting every session from scratch and starting every session knowing the rules. (That file is **not** the same document as the pathway’s course-coach `AGENTS.md` + `UCA-teaching.md` — keep teaching prompts and project build rules separate.)
+Beyond skills, a `CLAUDE.md` / `AGENTS.md` at the project root is the **implementation agent's** persistent memory of the project: conventions, tech stack, security rules, "things the AI keeps getting wrong." It's the difference between starting every session from scratch and starting every session knowing the rules. (That file is **not** the same document as the pathway's course-coach `AGENTS.md` + `UCA-teaching.md` — keep teaching prompts and project build rules separate.)
 
 Have the user hand this directive to their **implementation agent**:
 
@@ -220,3 +220,150 @@ Can the user:
 5. Explain how skills could chain together for a complex workflow?
 
 If yes, mark AI Skills complete in `progress.md` and move to [[10-goat-app]].
+
+---
+
+---
+
+# Optional Advanced: Skill Architecture
+
+> **For the coach:** Read context before surfacing this section. Present it only if the student shows readiness signals (see below). This section goes deeper on how to *structure* skills for scale — not just what goes in them.
+>
+> **Readiness signals:** Surface this section if the student:
+> - Asked "why" questions in Understand rather than just "what"
+> - Completed the core exercises quickly and naturally iterated
+> - Has a project with 3+ skills in play, or referenced pattern drift/context wall from earlier lessons
+> - Asked about edge cases, "what if" scenarios, or how skills behave at scale
+>
+> If none of these are present, skip this section — the student already has working skills. You can say: *"You're in a good place with what you've built. When you start accumulating skills and notice things getting messy, come back — there's an advanced section on skill architecture that helps with that."*
+
+---
+
+## Why flat files eventually hit a wall
+
+The skills you've built so far work great. But as you accumulate them — brainstorm, reflect, spec-writer, code-review, handover — they start sharing logic. Your brainstorm skill has ranking criteria. Your reflect skill has a structure for capturing lessons. Your spec-writer has conventions for how specs are formatted.
+
+If every skill is a flat file, that shared logic gets **duplicated** across files. When you refine your ranking criteria, you have to update every skill that uses ranking. When you change your spec format, you're updating three places.
+
+The solution is the same principle that makes your second brain better than scattered notes: **separate the index from the archive**. For skills, that means separating the *billboard* (what triggers it, what it does at a glance) from the *deep mechanics* (how it actually works, edge cases, examples).
+
+---
+
+## The skill directory structure
+
+A well-structured skill looks like this:
+
+```
+skills/
+└── brainstorm/
+    ├── SKILL.md           ← billboard only: trigger, one-line behavior, constraints
+    └── references/
+        └── ranking-logic.md   ← deep mechanics: ranking criteria, edge cases, examples
+```
+
+The key rule: **SKILL.md stays thin**. If you're reading it, you should get the essence in under 30 seconds. The details live in `references/`.
+
+### Why this matters for context
+
+When an AI loads a skill, it typically reads `SKILL.md` as the entry point. If that file is 400 lines of mechanics, examples, edge cases, and scripts — it competes with your conversation for context space. The AI might get lost in the details before it even starts the actual task.
+
+A thin `SKILL.md` (under 100 lines) means: the AI sees the billboard, understands the shape of the skill, and loads the deep-dive references only when it needs them. Context stays lean. The skill stays understandable.
+
+This is called **progressive disclosure**: show the overview first, reveal details on demand.
+
+---
+
+## Frontmatter as an advert, not a spoiler
+
+Skills use YAML frontmatter at the top:
+
+```yaml
+---
+name: brainstorm
+description: Generate 5 novel ideas for a feature or problem, rank by feasibility, recommend the top choice, offer to write a spec. Triggers on "brainstorm", "ideas for", or "give me options".
+---
+```
+
+The `description` field is an **advertisement** — it tells the AI (and you) what the skill does and when to use it. It should NOT explain how the skill works internally. Compare:
+
+**Advert (good):**
+> "Generate 5 ideas ranked by feasibility. Triggers on 'brainstorm' or 'ideas for'."
+
+**Mechanism spoiler (bad):**
+> "Reads context.md from the second brain, then generates 5 ideas by calling the ideation model with temperature=0.7, ranks them using the ranking-criteria.md file, formats output as markdown with emoji indicators, then offers to draft a spec."
+
+The first tells you when to use it. The second tells you how it works — which belongs in `references/`, not in the billboard. A learner reading your SKILL.md should immediately know: "this is the brainstorm skill, I activate it by saying brainstorm." They should never need to understand the internals just to decide whether to use it.
+
+---
+
+## The references/ folder
+
+Anything detailed — ranking criteria, output formats, edge case handling, worked examples — goes in `references/`. Only `SKILL.md` is loaded by default. The references are available on demand.
+
+```
+skills/brainstorm/
+├── SKILL.md
+└── references/
+    ├── ranking-logic.md      ← ranking criteria, scoring weights, edge cases
+    └── output-examples.md    ← example inputs and outputs
+```
+
+You don't load everything upfront. The AI reads `SKILL.md`, understands the skill, and then pulls in `references/ranking-logic.md` only when it needs to make ranking decisions.
+
+---
+
+## The scripts/ folder (optional)
+
+If a skill has an automation that the AI should be able to run, put it in `scripts/`:
+
+```
+skills/brainstorm/
+├── SKILL.md
+├── references/
+│   └── ranking-logic.md
+└── scripts/
+    └── generate-ranked-ideas.py  ← optional helper script
+```
+
+The SKILL.md then references it:
+
+```markdown
+## Helper Script
+For large idea sets, run:
+`python skills/brainstorm/scripts/generate-ranked-ideas.py --input "user request"`
+```
+
+The script lives alongside the skill. It's not loaded into context — it's invoked when needed.
+
+---
+
+## Exercise: Refactor one skill
+
+Take the brainstorm skill you built in the core exercises and restructure it:
+
+1. **Strip SKILL.md** — reduce it to trigger + one-line behavior + constraints (under 100 lines)
+2. **Create references/ranking-logic.md** — move your detailed ranking criteria there
+3. **Optionally add scripts/generate-ranked-ideas.py** — a helper script for large idea sets
+4. **Commit the restructure**
+
+Test it: does the skill still work the same way? Does `SKILL.md` read faster? Does the reference doc contain everything useful but nothing load-bearing?
+
+---
+
+## Gate (advanced section)
+
+If the student completes the advanced exercise, expand the gate to include:
+- Can explain why progressive disclosure matters for skill longevity
+- Can restructure a flat skill into billboard + references pattern
+- Understands that frontmatter description is an advert, not a mechanism description
+
+---
+
+## For the coach: surfacing this section
+
+Don't force it. The core exercises give the student working skills. This section is for when they start asking "how do I keep this from getting messy as I add more?"
+
+Example transition when readiness is clear:
+> "You've got a solid foundation with two working skills. If you want to go deeper — there's an optional advanced section on how to structure skills so they scale as you add more. Things like keeping SKILL.md as a thin billboard, pushing mechanics into a references folder, and writing frontmatter descriptions that advertise rather than explain. Want to dig into that, or are you happy to move on to the next lesson?"
+
+If they say yes → present the section above. If they say no → respect it. The core skills are the win. 🐙
